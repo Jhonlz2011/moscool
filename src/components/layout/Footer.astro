@@ -2,6 +2,8 @@
 import { siteConfig } from "../../data/siteConfig";
 import { servicesData } from "../../data/services";
 import { coverageZones } from "../../data/coverage";
+import CheckIcon from "../ui/icons/CheckIcon.astro";
+import ShieldCheckIcon from "../ui/icons/ShieldCheckIcon.astro";
 ---
 
 <footer class="bg-slate-950 border-t border-slate-800 pt-14 pb-24 md:pb-12 text-slate-400 text-xs">
@@ -82,13 +84,19 @@ import { coverageZones } from "../../data/coverage";
         </h4>
         <div class="space-y-3">
           <div class="p-3.5 rounded-xl bg-slate-900 border border-slate-800">
-            <span class="text-emerald-400 font-semibold block mb-1">✓ 30 Días de Garantía</span>
+            <div class="flex items-center gap-1.5 text-emerald-400 font-semibold mb-1">
+              <ShieldCheckIcon class="w-4 h-4 text-emerald-400" />
+              <span>30 Días de Garantía</span>
+            </div>
             <p class="text-slate-400 text-[11px] leading-relaxed">
               {siteConfig.warrantyPeriod}
             </p>
           </div>
           <div class="p-3.5 rounded-xl bg-slate-900 border border-slate-800">
-            <span class="text-sky-400 font-semibold block mb-1">📄 Proforma en PDF</span>
+            <div class="flex items-center gap-1.5 text-sky-400 font-semibold mb-1">
+              <CheckIcon class="w-4 h-4 text-sky-400" />
+              <span>Presupuesto Formal</span>
+            </div>
             <p class="text-slate-400 text-[11px] leading-relaxed">
               {siteConfig.proformaValidity}
             </p>
@@ -102,9 +110,11 @@ import { coverageZones } from "../../data/coverage";
     <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
       <p>© {new Date().getFullYear()} {siteConfig.name}. Todos los derechos reservados.</p>
       <div class="flex items-center gap-4">
+        <a href="#problemas" class="hover:text-slate-400">Averías</a>
+        <span>•</span>
         <a href="#servicios" class="hover:text-slate-400">Servicios</a>
         <span>•</span>
-        <a href="#garantia" class="hover:text-slate-400">Garantía</a>
+        <a href="#confianza" class="hover:text-slate-400">Garantía</a>
         <span>•</span>
         <a href="#cobertura" class="hover:text-slate-400">Cobertura</a>
       </div>

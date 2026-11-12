@@ -1,38 +1,46 @@
 ---
 import { coverageZones } from "../../data/coverage";
 import { siteConfig } from "../../data/siteConfig";
+import MapPinIcon from "../ui/icons/MapPinIcon.astro";
+import CheckIcon from "../ui/icons/CheckIcon.astro";
+import WhatsAppIcon from "../ui/icons/WhatsAppIcon.astro";
 ---
 
-<section id="cobertura" class="py-20 bg-[#0B1120] border-t border-slate-800">
+<section id="cobertura" class="py-20 bg-slate-900 border-t border-slate-800">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
       
       <!-- Left Info -->
       <div class="lg:col-span-5 space-y-5">
-        <h2 class="text-3xl font-extrabold text-white tracking-tight">
-          Zonas de Cobertura a Domicilio
+        <span class="text-xs font-semibold uppercase tracking-wider text-sky-400 block">
+          Área de Cobertura
+        </span>
+        <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight">
+          Atención Técnica Directa en tu Domicilio
         </h2>
 
         <p class="text-slate-300 text-sm leading-relaxed">
-          Brindamos servicio técnico directo a domicilio en los tres cantones principales del Gran Guayaquil. Coordinamos la visita con puntualidad y llevamos los repuestos más comunes para resolver en la misma inspección.
+          Cubrimos los tres cantones principales del Gran Guayaquil. Coordinamos con anticipación los datos requeridos para el ingreso vehicular en garitas de urbanizaciones privadas en Samborondón, Ceibos y Vía a la Costa.
         </p>
 
-        <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 text-xs text-slate-300 space-y-2">
-          <span class="text-emerald-400 font-semibold block">
-            ✓ Atención personalizada en tu domicilio
-          </span>
+        <div class="p-4 rounded-xl bg-slate-950 border border-slate-800 text-xs text-slate-300 space-y-2">
+          <div class="flex items-center gap-2 text-emerald-400 font-semibold">
+            <CheckIcon class="w-4 h-4 text-emerald-400 shrink-0" />
+            <span>Coordinación previa para garitas de seguridad</span>
+          </div>
           <p class="text-slate-400 text-xs">
-            Indícanos tu dirección y referencia al coordinar por WhatsApp para programar la ruta más cercana.
+            Indícanos tu urbanización o sector al escribirnos por WhatsApp para programar la ruta y proporcionar los datos de ingreso vehicular.
           </p>
         </div>
 
         <div>
           <a
-            href={`https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent("Hola, quisiera consultar disponibilidad para una visita técnica en mi sector.")}`}
+            href={`https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent("Hola, deseo consultar disponibilidad para una visita técnica en mi sector.")}`}
             target="_blank"
             rel="noopener noreferrer"
             class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-sky-600 hover:bg-sky-500 text-white font-semibold text-xs transition-colors"
           >
+            <WhatsAppIcon class="w-4 h-4 fill-current" />
             <span>Consultar Disponibilidad en mi Sector</span>
           </a>
         </div>
@@ -41,20 +49,23 @@ import { siteConfig } from "../../data/siteConfig";
       <!-- Right Grid of Cantones -->
       <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-3 gap-4">
         {coverageZones.map((zone) => (
-          <div class="rounded-xl bg-slate-900 border border-slate-800 p-5 space-y-3">
-            <div>
-              <h3 class="font-bold text-white text-base tracking-tight">{zone.name}</h3>
-              <span class="text-xs text-emerald-400 font-medium">Tiempo aprox: {zone.estimatedTime}</span>
+          <div class="rounded-xl bg-slate-950 border border-slate-800 p-5 space-y-3 hover:border-slate-700 transition-colors">
+            <div class="flex items-start gap-2">
+              <MapPinIcon class="w-4 h-4 text-sky-400 mt-1 shrink-0" />
+              <div>
+                <h3 class="font-bold text-white text-base tracking-tight">{zone.name}</h3>
+                <span class="text-xs text-emerald-400 font-medium block mt-0.5">Llegada: {zone.estimatedTime}</span>
+              </div>
             </div>
 
-            <div class="pt-2 border-t border-slate-800">
+            <div class="pt-2 border-t border-slate-800/80">
               <span class="text-xs font-semibold text-slate-400 block mb-2">
                 Sectores atendidos:
               </span>
               <ul class="space-y-1.5 text-xs text-slate-300">
                 {zone.sectors.map((sec) => (
                   <li class="flex items-start gap-1.5">
-                    <span class="text-sky-400">•</span>
+                    <CheckIcon class="w-3.5 h-3.5 text-sky-400 shrink-0 mt-0.5" />
                     <span>{sec}</span>
                   </li>
                 ))}

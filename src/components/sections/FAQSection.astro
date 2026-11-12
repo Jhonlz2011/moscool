@@ -1,20 +1,44 @@
 ---
-import { faqsData } from "../../data/faqs";
+const faqs = [
+  {
+    question: "¿Cuánto cuesta la revisión técnica a domicilio?",
+    answer: "La visita técnica de diagnóstico en Guayaquil, Samborondón o Durán tiene un valor accesible de inspección. Si apruebas el presupuesto y se realiza el trabajo, dicho valor se abona o descuenta del costo total del servicio.",
+  },
+  {
+    question: "¿Cómo evitan manchar las paredes o pisos al lavar un aire acondicionado split?",
+    answer: "Utilizamos fundas colectoras impermeables de grado profesional que se ajustan alrededor de la unidad interior y canalizan el agua con químico hacia un balde cerrado. Tus paredes de yeso/gypsum, molduras y pisos quedan totalmente protegidos y secos.",
+  },
+  {
+    question: "¿Llevan repuestos consigo para solucionar en la primera visita?",
+    answer: "Nuestras unidades móviles cuentan con stock de los repuestos de mayor rotación (capacitores de marcha, bombas de desagüe comunes, sensores, bimetales de nevera y gas refrigerante). Si la falla corresponde a estos elementos, la reparación se realiza en la misma visita.",
+  },
+  {
+    question: "¿Cómo coordinan el ingreso a urbanizaciones privadas con garita de seguridad?",
+    answer: "Al escribirnos por WhatsApp para agendar la cita, te proporcionamos el nombre completo y número de cédula del técnico asignado junto con la placa del vehículo para que puedas generar el pase de visitante con la administración de tu garita sin demoras.",
+  },
+  {
+    question: "¿Cómo opera la garantía de 30 días por escrito?",
+    answer: "Al finalizar el trabajo te entregamos el comprobante formal donde se especifican los trabajos realizados y los 30 días de garantía. Si durante ese periodo el componente reparado presenta alguna anomalía, acudimos a tu domicilio a resolverlo con prioridad y sin costo adicional.",
+  },
+];
 ---
 
 <section id="faqs" class="py-20 bg-slate-950 border-t border-slate-800">
   <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="max-w-2xl mb-12">
-      <h2 class="text-3xl font-extrabold text-white tracking-tight">
-        Preguntas Frecuentes
+      <span class="text-xs font-semibold uppercase tracking-wider text-sky-400 block mb-2">
+        Dudas Frecuentes
+      </span>
+      <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight">
+        Preguntas Habituales de Nuestros Clientes
       </h2>
-      <p class="text-slate-400 text-sm mt-2">
-        Respuestas claras a las dudas más comunes sobre diagnósticos, garantías y visitas a domicilio.
+      <p class="text-slate-400 text-sm mt-2 leading-relaxed">
+        Respuestas directas sobre tiempos de visita, protocolos de limpieza en tu hogar y el funcionamiento de la garantía.
       </p>
     </div>
 
     <div class="space-y-4">
-      {faqsData.map((faq, index) => (
+      {faqs.map((faq, index) => (
         <details class="group rounded-xl bg-slate-900 border border-slate-800 p-5 open:border-slate-700">
           <summary class="flex items-center justify-between cursor-pointer list-none select-none">
             <div class="flex items-center gap-3 pr-4">
@@ -26,7 +50,9 @@ import { faqsData } from "../../data/faqs";
               </h3>
             </div>
             <div class="w-6 h-6 rounded-full bg-slate-800 flex items-center justify-center shrink-0 text-slate-300 group-hover:text-white">
-              <span class="text-sm font-bold group-open:rotate-45 transition-transform">+</span>
+              <svg class="w-3.5 h-3.5 transition-transform group-open:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6 9l6 6 6-6"/>
+              </svg>
             </div>
           </summary>
           <div class="mt-3 pt-3 border-t border-slate-800 text-xs sm:text-sm text-slate-300 leading-relaxed pl-6">

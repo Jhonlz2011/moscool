@@ -1,10 +1,11 @@
 ---
 import { siteConfig } from "../../data/siteConfig";
+import CheckIcon from "../ui/icons/CheckIcon.astro";
 
 const guaranteePoints = [
   {
-    title: "Proforma Digital en PDF Inmediata",
-    description: "Evaluamos el equipo en tu presencia y emitimos un presupuesto detallado con desglose de repuestos y mano de obra antes de realizar cualquier intervención.",
+    title: "Presupuesto Claro antes de Iniciar",
+    description: "Evaluamos el equipo en tu presencia y emitimos un presupuesto formal con desglose exacto de repuestos y mano de obra antes de realizar cualquier intervención.",
   },
   {
     title: "Garantía de 30 Días por Escrito",
@@ -12,7 +13,7 @@ const guaranteePoints = [
   },
   {
     title: "Validez de 15 Días",
-    description: "El presupuesto emitido tiene una vigencia formal de 15 días para que tomes la decisión con tranquilidad y sin presiones.",
+    description: "El presupuesto tiene una vigencia formal de 15 días para que tomes la decisión con tranquilidad y sin presiones de último momento.",
   },
   {
     title: "Atención a Domicilio Puntual",
@@ -21,22 +22,27 @@ const guaranteePoints = [
 ];
 ---
 
-<section id="garantia" class="py-20 bg-[#0B1120] border-t border-slate-800">
+<section id="garantia" class="py-20 bg-slate-900 border-t border-slate-800">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="max-w-3xl mb-12">
-      <h2 class="text-3xl font-extrabold text-white tracking-tight">
-        Respaldo y Transparencia en Cada Trabajo
+      <span class="text-xs font-semibold uppercase tracking-wider text-emerald-400 block mb-2">
+        Respaldo Formal
+      </span>
+      <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight">
+        Garantía y Transparencia en Cada Intervención
       </h2>
-      <p class="text-slate-400 text-sm sm:text-base mt-2">
-        La tranquilidad de saber con claridad qué tiene tu equipo, cuánto cuesta la reparación y contar con respaldo formal.
+      <p class="text-slate-400 text-sm sm:text-base mt-2 leading-relaxed">
+        La tranquilidad de saber con claridad qué tiene tu equipo, cuánto cuesta la reparación y contar con respaldo formal por escrito.
       </p>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
       {guaranteePoints.map((point, index) => (
-        <div class="rounded-xl bg-slate-900 border border-slate-800 p-6 flex flex-col justify-between">
+        <div class="rounded-xl bg-slate-950 border border-slate-800 p-6 flex flex-col justify-between hover:border-slate-700 transition-colors">
           <div>
-            <span class="text-xs font-bold text-sky-400 block mb-2">0{index + 1}.</span>
+            <div class="w-8 h-8 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-center text-xs font-bold text-sky-400 mb-4">
+              0{index + 1}
+            </div>
             <h3 class="text-base font-bold text-white mb-2 leading-snug">
               {point.title}
             </h3>
@@ -45,7 +51,8 @@ const guaranteePoints = [
             </p>
           </div>
           <div class="pt-4 mt-4 border-t border-slate-800 text-emerald-400 text-xs font-semibold flex items-center gap-1.5">
-            <span>✓</span> Compromiso Formal
+            <CheckIcon class="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+            <span>Compromiso Formal</span>
           </div>
         </div>
       ))}

@@ -1,0 +1,112 @@
+---
+import SnowflakeIcon from "../ui/icons/SnowflakeIcon.astro";
+import RefrigeratorIcon from "../ui/icons/RefrigeratorIcon.astro";
+import WashingMachineIcon from "../ui/icons/WashingMachineIcon.astro";
+import FlameIcon from "../ui/icons/FlameIcon.astro";
+import CheckIcon from "../ui/icons/CheckIcon.astro";
+import WhatsAppIcon from "../ui/icons/WhatsAppIcon.astro";
+import { siteConfig } from "../../data/siteConfig";
+
+const problems = [
+  {
+    title: "El aire acondicionado ventila pero no enfría o gotea agua",
+    urgency: "Urgencia por calor",
+    context: "En el clima de Guayaquil y Samborondón, un split tapado o sin gas impide descansar y puede humedecer tus paredes de yeso.",
+    solution: "Limpiamos la bandeja a profundidad, revisamos presiones de gas y dejamos el drenaje evacuando libremente.",
+    icon: SnowflakeIcon,
+    whatsappText: "Hola, mi aire acondicionado ventila pero no enfría / bota agua. Deseo agendar revisión a domicilio.",
+  },
+  {
+    title: "La nevera congela arriba pero abajo se dañan los alimentos",
+    urgency: "Riesgo de pérdida de víveres",
+    context: "Si el sistema No-Frost falla, el hielo bloquea los ductos de aire frío y la comida se calienta en cuestión de horas.",
+    solution: "Probamos bimetales, resistencias de descongelamiento y ventilador para reactivar el frío en todo el compartimiento.",
+    icon: RefrigeratorIcon,
+    whatsappText: "Hola, mi nevera congela arriba pero no enfría abajo. Requiero revisión técnica urgente.",
+  },
+  {
+    title: "La lavadora no centrifuga, hace ruido fuerte o no bota agua",
+    urgency: "Interrupción del hogar",
+    context: "La ropa queda empapada o la tina salta peligrosamente contra los paneles laterales al intentar girar.",
+    solution: "Cambiamos bombas de desagüe obstruidas y calibramos varillas de suspensión para un giro suave y silencioso.",
+    icon: WashingMachineIcon,
+    whatsappText: "Hola, mi lavadora no centrifuga / hace ruido fuerte. Deseo coordinar revisión.",
+  },
+  {
+    title: "La cocina ahúma las ollas, tiene llama amarilla o sospecha de fuga",
+    urgency: "Seguridad doméstica",
+    context: "La combustión incompleta tizna utensilios, desperdicia gas y puede generar riesgos si las válvulas no sellan bien.",
+    solution: "Calibramos quemadores, regulamos la mezcla de aire y cambiamos termocuplas de seguridad de hornos.",
+    icon: FlameIcon,
+    whatsappText: "Hola, mi cocina presenta llama amarilla / problema con el horno. Requiero asistencia técnica.",
+  },
+];
+---
+
+<section class="py-20 bg-slate-900 border-t border-slate-800">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl mb-14">
+      <span class="text-xs font-semibold uppercase tracking-wider text-sky-400 block mb-2">
+        Solución Directa a Domicilio
+      </span>
+      <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight">
+        Averías Urgentes que Solucionamos Hoy Mismo
+      </h2>
+      <p class="text-slate-400 text-sm sm:text-base mt-2 leading-relaxed">
+        Conocemos los problemas cotidianos de los hogares en Guayaquil, Samborondón y Durán. Llegamos preparados con herramientas y repuestos para reparar en la misma visita.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      {problems.map((p) => {
+        const IconComponent = p.icon;
+        return (
+          <div class="rounded-2xl bg-slate-950 border border-slate-800 p-6 flex flex-col justify-between hover:border-slate-700 transition-colors">
+            <div>
+              <div class="flex items-center justify-between pb-3 border-b border-slate-800/80 mb-4">
+                <div class="flex items-center gap-2.5">
+                  <div class="w-8 h-8 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-center">
+                    <IconComponent class="w-4 h-4 text-sky-400" />
+                  </div>
+                  <span class="text-xs font-semibold text-slate-300">Diagnóstico In-Situ</span>
+                </div>
+                <span class="text-[11px] font-semibold text-amber-400 bg-amber-500/10 px-2.5 py-0.5 rounded-full border border-amber-500/20">
+                  {p.urgency}
+                </span>
+              </div>
+
+              <h3 class="text-base sm:text-lg font-bold text-white mb-2 leading-snug">
+                {p.title}
+              </h3>
+
+              <p class="text-xs text-slate-400 leading-relaxed mb-4">
+                {p.context}
+              </p>
+
+              <div class="p-3 rounded-xl bg-slate-900 border border-slate-800/80 mb-5">
+                <div class="flex items-start gap-2">
+                  <CheckIcon class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+                  <p class="text-xs text-slate-300">
+                    <strong class="text-white font-medium">Solución técnica:</strong> {p.solution}
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="pt-2">
+              <a
+                href={`https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent(p.whatsappText)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="w-full py-2.5 px-4 rounded-xl bg-slate-800 hover:bg-emerald-600 text-slate-200 hover:text-white font-semibold text-xs transition-colors flex items-center justify-center gap-2"
+              >
+                <WhatsAppIcon class="w-4 h-4 fill-current" />
+                <span>Consultar por este problema</span>
+              </a>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  </div>
+</section>

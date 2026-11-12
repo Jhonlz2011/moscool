@@ -1,5 +1,11 @@
 ---
 import { siteConfig } from "../../data/siteConfig";
+import WhatsAppIcon from "../ui/icons/WhatsAppIcon.astro";
+import PhoneIcon from "../ui/icons/PhoneIcon.astro";
+import CheckIcon from "../ui/icons/CheckIcon.astro";
+import ShieldCheckIcon from "../ui/icons/ShieldCheckIcon.astro";
+import ClockFastIcon from "../ui/icons/ClockFastIcon.astro";
+import HomeShieldIcon from "../ui/icons/HomeShieldIcon.astro";
 ---
 
 <section class="relative pt-12 pb-20 md:pt-20 md:pb-28 overflow-hidden bg-grid-subtle">
@@ -14,11 +20,11 @@ import { siteConfig } from "../../data/siteConfig";
         </div>
 
         <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight">
-          Servicio Técnico Especializado en Climatización y Línea Blanca
+          ¿Tu Aire Acondicionado o Nevera Dejó de Enfriar?
         </h1>
 
         <p class="text-base sm:text-lg text-slate-300 leading-relaxed max-w-2xl font-normal">
-          {siteConfig.tagline}. Evaluamos tu equipo en tu domicilio, emitimos tu <strong>proforma digital en PDF</strong> con el desglose exacto de repuestos y mano de obra, y te entregamos <strong>30 días de garantía por escrito</strong>.
+          {siteConfig.tagline}. Solucionamos averías urgentes con <strong>diagnóstico honesto</strong>, respeto por tu hogar y <strong>30 días de garantía por escrito</strong>. Recibes presupuesto claro antes de iniciar cualquier reparación.
         </p>
 
         <!-- Action Buttons -->
@@ -27,105 +33,101 @@ import { siteConfig } from "../../data/siteConfig";
             href={`https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent(siteConfig.whatsappMessageDefault)}`}
             target="_blank"
             rel="noopener noreferrer"
-            class="px-6 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-sm transition-colors text-center flex items-center justify-center gap-2 shadow-lg shadow-emerald-950/40"
+            class="px-6 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-sm transition-colors text-center flex items-center justify-center gap-2.5 shadow-lg shadow-emerald-950/40"
           >
-            <span>Consultar por WhatsApp</span>
+            <WhatsAppIcon class="w-4 h-4 fill-current" />
+            <span>Agendar Visita por WhatsApp</span>
           </a>
 
           <a
-            href="#diagnostico"
-            class="px-6 py-3.5 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-200 hover:text-white font-semibold text-sm transition-colors text-center"
+            href={`tel:${siteConfig.phone.replace(/\s+/g, '')}`}
+            class="px-6 py-3.5 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-200 hover:text-white font-semibold text-sm transition-colors text-center flex items-center justify-center gap-2"
           >
-            <span>Simulador de Diagnóstico</span>
+            <PhoneIcon class="w-4 h-4 text-sky-400" />
+            <span>Llamar al Técnico ({siteConfig.phoneFormatted})</span>
           </a>
         </div>
 
-        <!-- 3 Pillars -->
+        <!-- 3 Pillars with Pure SVG Icons -->
         <div class="pt-6 grid grid-cols-1 sm:grid-cols-3 gap-3 border-t border-slate-800 text-xs text-slate-300">
           <div class="flex items-center gap-2">
-            <span class="text-emerald-400 font-bold">✓</span>
+            <ClockFastIcon class="w-4 h-4 text-amber-400 shrink-0" />
+            <span>Atención Rápida (1-2h)</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <HomeShieldIcon class="w-4 h-4 text-sky-400 shrink-0" />
+            <span>Cuidado de Paredes y Pisos</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <ShieldCheckIcon class="w-4 h-4 text-emerald-400 shrink-0" />
             <span>30 Días de Garantía</span>
-          </div>
-          <div class="flex items-center gap-2">
-            <span class="text-sky-400 font-bold">✓</span>
-            <span>Proforma Digital en PDF</span>
-          </div>
-          <div class="flex items-center gap-2">
-            <span class="text-amber-400 font-bold">✓</span>
-            <span>Atención a Domicilio</span>
           </div>
         </div>
       </div>
 
-      <!-- Right Column: Proforma PDF Mockup (Faithful to mobile app) -->
+      <!-- Right Column: Home Service Guarantee Card -->
       <div class="lg:col-span-5">
-        <div class="rounded-2xl bg-white text-slate-900 p-6 shadow-2xl border border-slate-200 font-sans text-xs max-w-md mx-auto">
-          <!-- Document Header -->
-          <div class="flex items-start justify-between pb-4 border-b border-slate-200">
+        <div class="rounded-2xl bg-slate-900 border border-slate-800 p-6 shadow-2xl space-y-4 max-w-md mx-auto">
+          <!-- Top Card Brand -->
+          <div class="flex items-center justify-between pb-4 border-b border-slate-800">
             <div class="flex items-center gap-3">
-              <div class="w-12 h-12 rounded-lg bg-slate-900 p-1 flex items-center justify-center shrink-0">
+              <div class="w-10 h-10 rounded-xl bg-white p-1 flex items-center justify-center shrink-0">
                 <img src="/brand/logo.png" alt="Logo" class="w-full h-full object-contain" width="40" height="40" />
               </div>
               <div>
-                <h2 class="font-bold text-sm text-slate-900 leading-tight">
-                  {siteConfig.name}
-                </h2>
-                <p class="text-[10px] text-sky-700 font-semibold uppercase tracking-tight mt-0.5">
-                  Reparación • Mantenimiento • Instalación
+                <span class="font-bold text-sm text-white block leading-tight">{siteConfig.name}</span>
+                <span class="text-[11px] text-slate-400">Servicio Técnico a Domicilio</span>
+              </div>
+            </div>
+            <span class="text-[10px] font-semibold text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">
+              Garantía Formal
+            </span>
+          </div>
+
+          <!-- Key Service Commitments -->
+          <div class="space-y-3 text-xs">
+            <div class="flex items-start gap-2.5 p-2.5 rounded-lg bg-slate-950 border border-slate-800/80">
+              <CheckIcon class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+              <div>
+                <span class="font-semibold text-white block">Presupuesto Previo sin Sorpresas</span>
+                <p class="text-slate-400 text-[11px] mt-0.5">
+                  Conoces el valor exacto de mano de obra y repuestos antes de iniciar.
                 </p>
-                <p class="text-[10px] text-slate-500">
-                  Tel: {siteConfig.phoneFormatted}
+              </div>
+            </div>
+
+            <div class="flex items-start gap-2.5 p-2.5 rounded-lg bg-slate-950 border border-slate-800/80">
+              <CheckIcon class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+              <div>
+                <span class="font-semibold text-white block">Protección de tu Espacio</span>
+                <p class="text-slate-400 text-[11px] mt-0.5">
+                  Fundas especiales colectoras al lavar splits para no humedecer tus paredes.
                 </p>
               </div>
             </div>
-            <div class="text-right">
-              <span class="text-[10px] font-bold text-sky-700 block uppercase">Proforma</span>
-              <span class="text-xs font-mono font-bold text-slate-800">#PROF-0142</span>
-            </div>
-          </div>
 
-          <!-- Customer & Equipment Info -->
-          <div class="grid grid-cols-2 gap-3 py-3 border-b border-slate-100 text-[11px]">
-            <div class="bg-slate-50 p-2.5 rounded-lg border border-slate-100">
-              <span class="text-[10px] font-bold text-slate-500 block uppercase">Atención</span>
-              <span class="font-semibold text-slate-800 block">Cliente Residencial</span>
-              <span class="text-slate-600 text-[10px] block">Samborondón, Guayas</span>
-            </div>
-            <div class="bg-slate-50 p-2.5 rounded-lg border border-slate-100">
-              <span class="text-[10px] font-bold text-slate-500 block uppercase">Equipo</span>
-              <span class="font-semibold text-slate-800 block">Aire Split Inverter</span>
-              <span class="text-slate-600 text-[10px] block">Capacidad 18,000 BTU</span>
-            </div>
-          </div>
-
-          <!-- Table of items -->
-          <div class="py-3">
-            <span class="text-[10px] font-bold text-slate-500 block uppercase mb-2">Detalle de Servicios y Repuestos</span>
-            <div class="space-y-1.5 text-[11px]">
-              <div class="flex justify-between py-1 border-b border-slate-100">
-                <span class="text-slate-700">1x Mantenimiento preventivo profundo</span>
-                <span class="font-semibold text-slate-900">$35.00</span>
-              </div>
-              <div class="flex justify-between py-1 border-b border-slate-100">
-                <span class="text-slate-700">1x Corrección de fuga y recarga de gas</span>
-                <span class="font-semibold text-slate-900">$30.00</span>
-              </div>
-              <div class="flex justify-between py-1 border-b border-slate-100">
-                <span class="text-slate-700">1x Limpieza de canalización de drenaje</span>
-                <span class="font-semibold text-slate-900">$10.00</span>
+            <div class="flex items-start gap-2.5 p-2.5 rounded-lg bg-slate-950 border border-slate-800/80">
+              <CheckIcon class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
+              <div>
+                <span class="font-semibold text-white block">Repuestos Nuevos con Respaldo</span>
+                <p class="text-slate-400 text-[11px] mt-0.5">
+                  Componentes originales o certificados específicos para tu marca.
+                </p>
               </div>
             </div>
           </div>
 
-          <!-- Total -->
-          <div class="bg-slate-900 text-white p-3 rounded-lg flex items-center justify-between text-xs mt-2">
-            <span class="font-semibold">TOTAL PROFORMA:</span>
-            <span class="font-bold text-base text-white">$75.00 USD</span>
-          </div>
-
-          <!-- Guarantee note -->
-          <div class="mt-3 text-[10px] text-slate-500 bg-slate-50 p-2 rounded border border-slate-100">
-            <strong>Garantía:</strong> 30 días de garantía en mano de obra y repuestos instalados. Válida por 15 días.
+          <!-- Bottom Action -->
+          <div class="pt-2">
+            <a
+              href={`https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent("Hola, deseo solicitar una visita técnica para mi domicilio.")}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="w-full py-2.5 px-4 rounded-xl bg-slate-800 hover:bg-sky-600 text-white font-semibold text-xs transition-colors flex items-center justify-center gap-2"
+            >
+              <WhatsAppIcon class="w-4 h-4 fill-current" />
+              <span>Coordinar Visita en tu Sector</span>
+            </a>
           </div>
         </div>
       </div>
