@@ -1,63 +1,125 @@
 ---
-const brands = [
-  { name: "Samsung", logo: "/assets/brands/samsung.svg" },
-  { name: "LG", logo: "/assets/brands/lg.svg" },
-  { name: "Whirlpool", logo: "/assets/brands/whirlpool.svg" },
-  { name: "Mabe", logo: "/assets/brands/mabe.svg" },
-  { name: "Carrier", logo: "/assets/brands/carrier.svg" },
-  { name: "Electrolux", logo: "/assets/brands/electrolux.svg" },
-  { name: "General Electric", logo: "/assets/brands/general-electric.svg" },
-  { name: "Indurama", logo: "/assets/brands/indurama.png" },
-  { name: "TCL", logo: "/assets/brands/tcl.svg" },
-  { name: "RCA", logo: "/assets/brands/rca.svg" },
-  { name: "Midea", logo: "/assets/brands/midea.svg" }
+// Matriz de Compatibilidad Tecnológica e Instrumental
+const techPillars = [
+  {
+    code: "TECH // 01",
+    title: "Inverter & Compresión Variable",
+    description: "Diagnóstico de tarjetas electrónicas, IPM, sensores NTC y compresores DC Inverter Dual.",
+    spec: "Samsung, LG, Midea, Carrier, Lennox",
+  },
+  {
+    code: "TECH // 02",
+    title: "Climatización Residencial In-Situ",
+    description: "Lavado profundo con funda hermética y desagüe a balde sin tocar paredes de yeso o molduras.",
+    spec: "Splits y Multisplits (12k - 36k BTU)",
+  },
+  {
+    code: "TECH // 03",
+    title: "Refrigeración No-Frost & Side-by-Side",
+    description: "Desbloqueo técnico de ductos, sensores bimetal, resistencias de deshielo y termofusibles.",
+    spec: "Whirlpool, Mabe, Electrolux, Indurama",
+  },
+  {
+    code: "TECH // 04",
+    title: "Manometría y Gases Ecológicos",
+    description: "Carga por peso con balanza electrónica y prueba de hermeticidad con manómetros digitales.",
+    spec: "Refrigerantes R410A · R32 · R600a",
+  },
+  {
+    code: "TECH // 05",
+    title: "Lavado Automático & Centrifugado",
+    description: "Ajuste y cambio de varillas de suspensión, bombas de drenaje, retenes y nivelación de tina.",
+    spec: "Carga Superior y Carga Frontal",
+  },
+  {
+    code: "TECH // 06",
+    title: "Cocción de Inducción & Hornos",
+    description: "Revisión de módulos de potencia IGBT, bobinas magnéticas y termocuplas de seguridad.",
+    spec: "Sistemas 220V y Mixtos",
+  },
 ];
 
-// Duplicate for continuous seamless infinite loop
-const doubleBrands = [...brands, ...brands];
+const brandList = [
+  "Samsung",
+  "LG",
+  "Whirlpool",
+  "Mabe",
+  "Carrier",
+  "Electrolux",
+  "General Electric",
+  "Indurama",
+  "Midea",
+  "TCL",
+  "Panasonic",
+  "Daikin",
+];
 ---
 
-<section class="py-8 bg-white dark:bg-slate-950/90 border-y border-slate-200 dark:border-slate-800/80 overflow-hidden relative ">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-4">
-    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-      <span class="text-xs font-mono font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
-        Compatibilidad y Repuestos Originales
-      </span>
-      <span class="text-xs text-slate-500 dark:text-slate-400 font-mono">
-        Climatización Inverter y Línea Blanca Residencial
-      </span>
+<section class="py-14 bg-white dark:bg-slate-900 border-y border-slate-200 dark:border-slate-800">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Architectural Header Bar -->
+    <div class="pb-6 mb-8 border-b border-slate-200 dark:border-slate-800 flex flex-col md:flex-row md:items-end justify-between gap-4">
+      <div>
+        <span class="text-[11px] font-mono font-bold uppercase tracking-wider text-sky-600 dark:text-sky-400 block mb-1">
+          Arquitectura Técnica y Protocolos
+        </span>
+        <h2 class="text-xl sm:text-2xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+          Matriz de Compatibilidad Tecnológica e Instrumental
+        </h2>
+      </div>
+      <div class="text-xs font-mono text-slate-500 dark:text-slate-400 shrink-0">
+        <span>Respaldo con repuestos originales verificados</span>
+      </div>
     </div>
-  </div>
 
-  <!-- Marquee Container with side fade masks -->
-  <div class="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
-    <div class="flex items-center gap-8 sm:gap-12 w-max animate-ticker hover:[animation-play-state:paused] py-2">
-      {doubleBrands.map((brand) => (
-        <div class="flex items-center justify-center px-4 py-2.5 rounded-xl bg-slate-50 dark:bg-white p-2 border border-slate-200 dark:border-slate-300 text-slate-700 hover:border-sky-500/60  flex-shrink-0 group shadow-sm hover:scale-105 duration-200">
-          <img
-            src={brand.logo}
-            alt={brand.name}
-            class="h-6 w-auto opacity-80 group-hover:opacity-100 filter object-contain"
-            loading="lazy"
-          />
+    <!-- 6-Cell Continuous Architectural Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 border-t border-l border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950/60">
+      {techPillars.map((pillar) => (
+        <div class="p-6 border-r border-b border-slate-200 dark:border-slate-800 flex flex-col justify-between hover:bg-white dark:hover:bg-slate-900">
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-3">
+              <span class="text-[11px] font-mono font-bold text-sky-600 dark:text-sky-400">
+                {pillar.code}
+              </span>
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
+            </div>
+
+            <h3 class="text-base font-bold text-slate-900 dark:text-white mb-2 leading-snug">
+              {pillar.title}
+            </h3>
+
+            <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed mb-4">
+              {pillar.description}
+            </p>
+          </div>
+
+          <div class="pt-3 border-t border-slate-200 dark:border-slate-800/80">
+            <span class="text-[10px] font-mono uppercase tracking-wider text-slate-400 dark:text-slate-500 block mb-0.5">
+              Sistemas Verificados:
+            </span>
+            <span class="text-xs font-mono font-semibold text-slate-700 dark:text-slate-300">
+              {pillar.spec}
+            </span>
+          </div>
         </div>
       ))}
     </div>
+
+    <!-- Static Typographic Brand Strip (No AI Marquee) -->
+    <div class="mt-8 pt-6 border-t border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <span class="text-[11px] font-mono uppercase tracking-wider text-slate-400 dark:text-slate-500 shrink-0">
+        Marcas Homologadas:
+      </span>
+      <div class="flex flex-wrap items-center gap-x-4 gap-y-2 text-xs font-mono font-semibold text-slate-600 dark:text-slate-300">
+        {brandList.map((brand, idx) => (
+          <span class="inline-flex items-center gap-4">
+            <span class="hover:text-sky-600 dark:hover:text-sky-400 cursor-default">{brand}</span>
+            {idx < brandList.length - 1 && <span class="text-slate-300 dark:text-slate-700">•</span>}
+          </span>
+        ))}
+      </div>
+    </div>
+
   </div>
 </section>
-
-<style>
-  @keyframes ticker {
-    0% {
-      transform: translate3d(0, 0, 0);
-    }
-    100% {
-      transform: translate3d(-50%, 0, 0);
-    }
-  }
-
-  .animate-ticker {
-    animation: ticker 30s linear infinite;
-    will-change: transform;
-  }
-</style>
