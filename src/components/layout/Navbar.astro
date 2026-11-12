@@ -1,48 +1,45 @@
 ---
 import { siteConfig } from "../../data/siteConfig";
+import BrandWordmark from "../ui/BrandWordmark.astro";
 import WhatsAppIcon from "../ui/icons/WhatsAppIcon.astro";
 import PhoneIcon from "../ui/icons/PhoneIcon.astro";
 ---
 
 <header class="sticky top-0 z-50 bg-slate-900/95 backdrop-blur-md border-b border-slate-800 transition-all">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-    <!-- Brand Logo & Name -->
-    <a href="/" class="flex items-center gap-3.5 group">
-      <div class="w-12 h-12 rounded-xl bg-white p-1 flex items-center justify-center overflow-hidden shadow-sm shrink-0">
+    <!-- Brand Logo & Official Typographic SVG -->
+    <a href="/" class="flex items-center gap-3 sm:gap-3.5 group select-none" aria-label="Servicio Técnico Mendoza - Inicio">
+      <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-white p-1 flex items-center justify-center overflow-hidden shadow-sm shrink-0 border border-slate-700/60 group-hover:border-sky-500/60 transition-colors">
         <img
           src="/brand/logo.png"
-          alt="Servicio Técnico Mendoza"
+          alt="Isotipo Servicio Técnico Mendoza"
           class="w-full h-full object-contain"
           width="48"
           height="48"
           loading="eager"
         />
       </div>
-      <div>
-        <span class="font-bold text-lg sm:text-xl text-white tracking-tight block leading-tight">
-          {siteConfig.name}
-        </span>
-        <span class="text-xs text-slate-400 font-normal block leading-tight">
-          Guayaquil • Samborondón • Durán
-        </span>
+      <div class="flex flex-col justify-center">
+        <BrandWordmark class="h-8 sm:h-9 w-auto" />
       </div>
     </a>
 
-    <!-- Navigation Links -->
-    <nav class="hidden lg:flex items-center gap-7 text-xs font-semibold uppercase tracking-wider text-slate-300">
-      <a href="#problemas" class="hover:text-white transition-colors">Averías</a>
-      <a href="#servicios" class="hover:text-white transition-colors">Servicios</a>
-      <a href="#confianza" class="hover:text-white transition-colors">Por Qué Elegirnos</a>
-      <a href="#diagnostico" class="hover:text-white transition-colors text-sky-400">Simulador</a>
-      <a href="#cobertura" class="hover:text-white transition-colors">Cobertura</a>
-      <a href="#faqs" class="hover:text-white transition-colors">Preguntas</a>
+    <!-- Desktop Navigation Links -->
+    <nav class="hidden lg:flex items-center gap-6 xl:gap-7 text-xs font-mono font-semibold uppercase tracking-wider text-slate-300">
+      <a href="#averias" class="hover:text-sky-400 transition-colors py-2">Averías</a>
+      <a href="#servicios" class="hover:text-sky-400 transition-colors py-2">Servicios</a>
+      <a href="#confianza" class="hover:text-sky-400 transition-colors py-2">Por Qué Confiar</a>
+      <a href="#diagnostico" class="hover:text-sky-300 text-sky-400 transition-colors py-2">Simulador</a>
+      <a href="#cobertura" class="hover:text-sky-400 transition-colors py-2">Cobertura</a>
+      <a href="#faqs" class="hover:text-sky-400 transition-colors py-2">Preguntas</a>
     </nav>
 
-    <!-- Direct Action -->
+    <!-- Direct Action (Desktop) -->
     <div class="hidden sm:flex items-center gap-3">
       <a
         href={`tel:${siteConfig.phone.replace(/\s+/g, '')}`}
-        class="inline-flex items-center gap-2 px-4 py-2 rounded-xl border border-slate-700 hover:border-slate-500 text-xs font-semibold text-slate-200 hover:text-white transition-colors"
+        class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl border border-slate-700 hover:border-slate-500 active:border-slate-400 text-xs font-semibold text-slate-200 hover:text-white transition-all active:translate-y-0.5 cursor-pointer"
+        aria-label={`Llamar al teléfono ${siteConfig.phoneFormatted}`}
       >
         <PhoneIcon class="w-3.5 h-3.5 text-sky-400" />
         <span>Llamar</span>
@@ -51,41 +48,74 @@ import PhoneIcon from "../ui/icons/PhoneIcon.astro";
         href={`https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent(siteConfig.whatsappMessageDefault)}`}
         target="_blank"
         rel="noopener noreferrer"
-        class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-semibold transition-colors shadow-sm"
+        class="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 active:bg-emerald-700 text-white text-xs font-semibold transition-all shadow-md shadow-emerald-950/40 active:translate-y-0.5 cursor-pointer"
+        aria-label="Contactar por WhatsApp"
       >
         <WhatsAppIcon class="w-3.5 h-3.5 fill-current" />
         <span>WhatsApp</span>
       </a>
     </div>
 
-    <!-- Mobile Menu Button -->
+    <!-- Mobile Menu Button with Dual State Icons (Hamburger / X) -->
     <button
       type="button"
       id="mobile-menu-btn"
-      class="lg:hidden p-2 rounded-lg bg-slate-800 text-slate-300 hover:text-white"
-      aria-label="Abrir menú"
+      class="lg:hidden p-2 rounded-xl bg-slate-800/90 border border-slate-700 text-slate-200 hover:text-white hover:bg-slate-700 transition-colors cursor-pointer"
+      aria-label="Abrir menú de navegación"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
     >
-      <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+      <!-- Hamburger Icon -->
+      <svg id="hamburger-icon" class="w-6 h-6 block" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+      <!-- Close (X) Icon -->
+      <svg id="close-icon" class="w-6 h-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
       </svg>
     </button>
   </div>
 
   <!-- Mobile Collapsible Menu -->
-  <div id="mobile-menu" class="hidden lg:hidden border-t border-slate-800 bg-slate-900 px-5 py-4 space-y-3 text-sm">
-    <a href="#problemas" class="block py-1.5 text-slate-300 hover:text-white">Averías Comunes</a>
-    <a href="#servicios" class="block py-1.5 text-slate-300 hover:text-white">Servicios</a>
-    <a href="#confianza" class="block py-1.5 text-slate-300 hover:text-white">Por Qué Elegirnos</a>
-    <a href="#diagnostico" class="block py-1.5 text-sky-400 font-medium">Simulador de Consulta</a>
-    <a href="#cobertura" class="block py-1.5 text-slate-300 hover:text-white">Zonas de Cobertura</a>
-    <a href="#faqs" class="block py-1.5 text-slate-300 hover:text-white">Preguntas Frecuentes</a>
+  <div
+    id="mobile-menu"
+    class="hidden lg:hidden border-t border-slate-800 bg-slate-900/95 backdrop-blur-md px-5 py-5 space-y-3.5 shadow-2xl transition-all"
+  >
+    <a href="#averias" class="mobile-nav-link block py-2 text-slate-200 hover:text-sky-400 font-medium text-sm border-b border-slate-800/60">
+      Averías Urgentes
+    </a>
+    <a href="#servicios" class="mobile-nav-link block py-2 text-slate-200 hover:text-sky-400 font-medium text-sm border-b border-slate-800/60">
+      Servicios de Taller
+    </a>
+    <a href="#confianza" class="mobile-nav-link block py-2 text-slate-200 hover:text-sky-400 font-medium text-sm border-b border-slate-800/60">
+      Por Qué Confiar en Nosotros
+    </a>
+    <a href="#diagnostico" class="mobile-nav-link block py-2 text-sky-400 font-bold text-sm border-b border-slate-800/60">
+      Simulador de Consulta
+    </a>
+    <a href="#cobertura" class="mobile-nav-link block py-2 text-slate-200 hover:text-sky-400 font-medium text-sm border-b border-slate-800/60">
+      Zonas de Cobertura
+    </a>
+    <a href="#faqs" class="mobile-nav-link block py-2 text-slate-200 hover:text-sky-400 font-medium text-sm">
+      Preguntas Frecuentes
+    </a>
+
+    <!-- Mobile Direct CTAs -->
     <div class="pt-3 border-t border-slate-800 flex gap-3">
-      <a href={`tel:${siteConfig.phone.replace(/\s+/g, '')}`} class="flex-1 text-center py-2.5 rounded-lg bg-slate-800 text-white text-xs font-semibold flex items-center justify-center gap-1.5">
-        <PhoneIcon class="w-3.5 h-3.5 text-sky-400" />
+      <a
+        href={`tel:${siteConfig.phone.replace(/\s+/g, '')}`}
+        class="flex-1 text-center py-3 rounded-xl bg-slate-800 border border-slate-700 text-white text-xs font-bold flex items-center justify-center gap-2 active:bg-slate-700"
+      >
+        <PhoneIcon class="w-4 h-4 text-sky-400" />
         <span>Llamar</span>
       </a>
-      <a href={`https://wa.me/${siteConfig.whatsappNumber}`} class="flex-1 text-center py-2.5 rounded-lg bg-emerald-600 text-white text-xs font-semibold flex items-center justify-center gap-1.5">
-        <WhatsAppIcon class="w-3.5 h-3.5 fill-current" />
+      <a
+        href={`https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent(siteConfig.whatsappMessageDefault)}`}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="flex-1 text-center py-3 rounded-xl bg-emerald-600 text-white text-xs font-bold flex items-center justify-center gap-2 active:bg-emerald-700 shadow-md"
+      >
+        <WhatsAppIcon class="w-4 h-4 fill-current" />
         <span>WhatsApp</span>
       </a>
     </div>
@@ -93,16 +123,83 @@ import PhoneIcon from "../ui/icons/PhoneIcon.astro";
 </header>
 
 <script>
-  const btn = document.getElementById("mobile-menu-btn");
-  const menu = document.getElementById("mobile-menu");
-  if (btn && menu) {
-    btn.addEventListener("click", () => {
-      menu.classList.toggle("hidden");
-    });
-    menu.querySelectorAll("a").forEach((link) => {
+  function setupNavbar() {
+    const btn = document.getElementById("mobile-menu-btn");
+    const menu = document.getElementById("mobile-menu");
+    const hamburgerIcon = document.getElementById("hamburger-icon");
+    const closeIcon = document.getElementById("close-icon");
+
+    if (!btn || !menu || !hamburgerIcon || !closeIcon) return;
+
+    const navBtn = btn;
+    const navMenu = menu;
+    const hIcon = hamburgerIcon;
+    const cIcon = closeIcon;
+
+    function openMenu() {
+      navMenu.classList.remove("hidden");
+      hIcon.classList.add("hidden");
+      hIcon.classList.remove("block");
+      cIcon.classList.remove("hidden");
+      cIcon.classList.add("block");
+      navBtn.setAttribute("aria-expanded", "true");
+      navBtn.setAttribute("aria-label", "Cerrar menú de navegación");
+    }
+
+    function closeMenu() {
+      navMenu.classList.add("hidden");
+      hIcon.classList.remove("hidden");
+      hIcon.classList.add("block");
+      cIcon.classList.add("hidden");
+      cIcon.classList.remove("block");
+      navBtn.setAttribute("aria-expanded", "false");
+      navBtn.setAttribute("aria-label", "Abrir menú de navegación");
+    }
+
+    function toggleMenu() {
+      const isHidden = navMenu.classList.contains("hidden");
+      if (isHidden) {
+        openMenu();
+      } else {
+        closeMenu();
+      }
+    }
+
+    // Toggle on button click
+    navBtn.onclick = (e) => {
+      e.stopPropagation();
+      toggleMenu();
+    };
+
+    // Close when clicking any mobile nav link
+    const mobileLinks = navMenu.querySelectorAll(".mobile-nav-link");
+    mobileLinks.forEach((link) => {
       link.addEventListener("click", () => {
-        menu.classList.add("hidden");
+        closeMenu();
       });
     });
+
+    // Close when pressing Escape key
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && !navMenu.classList.contains("hidden")) {
+        closeMenu();
+      }
+    });
+
+    // Close when clicking outside of the header
+    document.addEventListener("click", (e) => {
+      const header = navBtn.closest("header");
+      if (header && !header.contains(e.target as Node) && !navMenu.classList.contains("hidden")) {
+        closeMenu();
+      }
+    });
   }
+
+  // Initialize on load and on Astro page transitions
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", setupNavbar);
+  } else {
+    setupNavbar();
+  }
+  document.addEventListener("astro:page-load", setupNavbar);
 </script>
