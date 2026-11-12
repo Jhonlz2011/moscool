@@ -1,58 +1,22 @@
 ---
 import FaultInspector from "../islands/FaultInspector";
-import ShieldCheckIcon from "../ui/icons/ShieldCheckIcon.astro";
-import WrenchToolIcon from "../ui/icons/WrenchToolIcon.astro";
-import ClockFastIcon from "../ui/icons/ClockFastIcon.astro";
 ---
 
-<section class="py-20 bg-slate-900 border-t border-slate-800" id="averias">
+<section class="py-20 bg-slate-100/70 dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800" id="averias">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="max-w-3xl mb-12">
-      <span class="text-xs font-semibold uppercase tracking-wider text-sky-400 block mb-2 font-mono">
-        Aislamiento Táctico de Fallas en Sitio
+      <span class="text-xs font-semibold uppercase tracking-wider text-sky-600 dark:text-sky-400 block mb-2 font-mono">
+        Diagnóstico y Prevención
       </span>
-      <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight">
-        Averías Urgentes que Solucionamos Hoy Mismo
+      <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+        Averías Frecuentes y Diagnóstico Real
       </h2>
-      <p class="text-slate-400 text-sm sm:text-base mt-2 leading-relaxed">
-        Selecciona el síntoma que presenta tu equipo para conocer el diagnóstico técnico sincero, evitar cobros inventados y solicitar asistencia inmediata en Guayaquil, Samborondón o Durán.
+      <p class="text-slate-600 dark:text-slate-400 text-sm sm:text-base mt-2 leading-relaxed">
+        Identifica la falla que presenta tu equipo para conocer la intervención honesta requerida, evitar cobros innecesarios y coordinar la revisión en Guayaquil, Samborondón o Durán.
       </p>
     </div>
 
     <!-- Interactive Fault Inspector Island -->
     <FaultInspector client:visible />
-
-    <!-- Technical Reassurance Ribbons below inspector -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-12 pt-8 border-t border-slate-800/80">
-      <div class="flex items-center gap-3 p-4 rounded-xl bg-slate-950/60 border border-slate-800">
-        <div class="w-8 h-8 rounded-lg bg-sky-950 border border-sky-800 flex items-center justify-center shrink-0">
-          <ClockFastIcon class="w-4 h-4 text-sky-400" />
-        </div>
-        <div>
-          <span class="block text-xs font-bold text-white">Llegada en 1 a 2 horas</span>
-          <span class="text-[11px] text-slate-400">Atención prioritaria de emergencia</span>
-        </div>
-      </div>
-
-      <div class="flex items-center gap-3 p-4 rounded-xl bg-slate-950/60 border border-slate-800">
-        <div class="w-8 h-8 rounded-lg bg-sky-950 border border-sky-800 flex items-center justify-center shrink-0">
-          <WrenchToolIcon class="w-4 h-4 text-sky-400" />
-        </div>
-        <div>
-          <span class="block text-xs font-bold text-white">Reparación en la misma visita</span>
-          <span class="text-[11px] text-slate-400">Herramientas y repuestos en vehículo</span>
-        </div>
-      </div>
-
-      <div class="flex items-center gap-3 p-4 rounded-xl bg-slate-950/60 border border-slate-800">
-        <div class="w-8 h-8 rounded-lg bg-sky-950 border border-sky-800 flex items-center justify-center shrink-0">
-          <ShieldCheckIcon class="w-4 h-4 text-sky-400" />
-        </div>
-        <div>
-          <span class="block text-xs font-bold text-white">Garantía Escrita de 30 Días</span>
-          <span class="text-[11px] text-slate-400">Respaldo formal en mano de obra</span>
-        </div>
-      </div>
-    </div>
   </div>
 </section>

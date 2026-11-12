@@ -1,0 +1,16 @@
+---
+import { siteConfig } from "../../data/siteConfig";
+import WhatsAppIcon from "./icons/WhatsAppIcon.astro";
+---
+
+<!-- Floating WhatsApp Action Button (Swiss Minimalist FAB - 56x56px) -->
+<a
+  href={`https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent(siteConfig.whatsappMessageDefault)}`}
+  target="_blank"
+  rel="noopener noreferrer"
+  class="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-emerald-600 hover:bg-emerald-500 active:bg-emerald-700 text-white flex items-center justify-center shadow-lg shadow-emerald-950/25 cursor-pointer"
+  aria-label={`Contactar por WhatsApp a ${siteConfig.name} (${siteConfig.phoneFormatted})`}
+  role="button"
+>
+  <WhatsAppIcon class="w-7 h-7 fill-current" />
+</a>

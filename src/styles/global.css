@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 @theme {
   --color-brand-primary: #0f172a;
   --color-brand-secondary: #0284c7;
@@ -19,15 +21,28 @@
     scroll-behavior: smooth;
     scroll-padding-top: 5.5rem;
     font-family: var(--font-sans);
+    color-scheme: light dark;
+  }
+
+  html.dark {
     color-scheme: dark;
   }
 
+  html:not(.dark) {
+    color-scheme: light;
+  }
+
   body {
-    background-color: #0b1120;
-    color: #f8fafc;
+    background-color: #f8fafc;
+    color: #0f172a;
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+  }
+
+  html.dark body {
+    background-color: #0b1120;
+    color: #f8fafc;
   }
 }
 
@@ -35,16 +50,26 @@
 .bg-grid-subtle {
   background-size: 36px 36px;
   background-image: 
+    linear-gradient(to right, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.04) 1px, transparent 1px);
+}
+
+html.dark .bg-grid-subtle {
+  background-image: 
     linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
 }
 
 /* Clean cards without saturated glows */
 .card-clean {
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 1rem;
+}
+
+html.dark .card-clean {
   background-color: rgba(17, 24, 39, 0.7);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 1rem;
-  transition: border-color 0.2s ease, transform 0.2s ease;
 }
 
 .card-clean:hover {

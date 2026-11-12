@@ -23,43 +23,40 @@ const faqs = [
 ];
 ---
 
-<section id="faqs" class="py-20 bg-slate-950 border-t border-slate-800">
+<section id="faqs" class="py-20 bg-white dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800">
   <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="max-w-2xl mb-12">
-      <span class="text-xs font-semibold uppercase tracking-wider text-sky-400 block mb-2 font-mono">
+      <span class="text-xs font-semibold uppercase tracking-wider text-sky-600 dark:text-sky-400 block mb-2 font-mono">
         Dudas Frecuentes
       </span>
-      <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight">
+      <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
         Preguntas Habituales de Nuestros Clientes
       </h2>
-      <p class="text-slate-400 text-sm mt-2 leading-relaxed">
+      <p class="text-slate-600 dark:text-slate-400 text-sm mt-2 leading-relaxed">
         Respuestas directas sobre tiempos de visita, protocolos de limpieza en tu hogar y el funcionamiento de la garantía de 30 días.
       </p>
     </div>
 
     <!-- Smooth Zero-Jank Accordion -->
     <div class="space-y-3.5">
-      {faqs.map((faq, index) => (
-        <details class="group rounded-2xl bg-slate-900/80 border border-slate-800/80 p-5 open:border-sky-500/40 transition-colors shadow-md">
+      {faqs.map((faq) => (
+        <details class="group rounded-2xl bg-slate-50 dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800/80 p-5 open:border-sky-500/40 dark:open:border-sky-500/40  shadow-sm">
           <summary class="flex items-center justify-between cursor-pointer list-none select-none">
-            <div class="flex items-center gap-3.5 pr-4">
-              <span class="text-xs font-mono font-bold text-sky-400 shrink-0">
-                0{index + 1}.
-              </span>
-              <h3 class="text-sm sm:text-base font-bold text-slate-100 group-hover:text-sky-300 transition-colors leading-snug">
+            <div class="pr-4">
+              <h3 class="text-sm sm:text-base font-bold text-slate-900 dark:text-slate-100 group-hover:text-sky-600 dark:group-hover:text-sky-300 leading-snug">
                 {faq.question}
               </h3>
             </div>
-            <div class="w-7 h-7 rounded-full bg-slate-800/90 border border-slate-700/60 flex items-center justify-center shrink-0 text-slate-300 group-hover:text-sky-300 transition-all group-open:bg-sky-950 group-open:border-sky-600/50">
-              <svg class="w-4 h-4 transition-transform duration-300 group-open:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <div class="w-7 h-7 rounded-full bg-slate-200/80 dark:bg-slate-800/90 border border-slate-300 dark:border-slate-700/60 flex items-center justify-center shrink-0 text-slate-700 dark:text-slate-300 group-hover:text-sky-600 dark:group-hover:text-sky-300 group-open:bg-sky-100 dark:group-open:bg-sky-950 group-open:border-sky-400 dark:group-open:border-sky-600/50">
+              <svg class="w-4 h-4 group-open:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                 <polyline points="6 9 12 15 18 9"></polyline>
               </svg>
             </div>
           </summary>
           
-          <div class="grid grid-rows-[0fr] transition-[grid-template-rows] duration-300 ease-out group-open:grid-rows-[1fr]">
+          <div class="grid grid-rows-[0fr] group-open:grid-rows-[1fr]">
             <div class="overflow-hidden">
-              <div class="pt-4 mt-3 border-t border-slate-800/80 text-xs sm:text-sm text-slate-300 leading-relaxed pl-7">
+              <div class="pt-4 mt-3 border-t border-slate-200 dark:border-slate-800/80 text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed pl-7">
                 <p>{faq.answer}</p>
               </div>
             </div>

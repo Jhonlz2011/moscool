@@ -1,6 +1,0 @@
-<svg viewBox="0 0 160 40" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-auto h-7">
-  <!-- Whirlpool wordmark representation -->
-  <path d="M12 20C12 14.4772 16.4772 10 22 10C27.5228 10 32 14.4772 32 20C32 25.5228 27.5228 30 22 30" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-  <circle cx="22" cy="20" r="3" fill="currentColor"/>
-  <text x="96" y="58%" dominant-baseline="middle" text-anchor="middle" fill="currentColor" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="800" font-size="18" letter-spacing="1">Whirlpool</text>
-</svg>

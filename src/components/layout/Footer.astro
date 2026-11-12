@@ -6,55 +6,60 @@ import CheckIcon from "../ui/icons/CheckIcon.astro";
 import ShieldCheckIcon from "../ui/icons/ShieldCheckIcon.astro";
 ---
 
-<footer class="bg-slate-950 border-t border-slate-800 pt-14 pb-24 md:pb-12 text-slate-400 text-xs">
+<footer class="bg-slate-100 dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800 pt-14 pb-24 md:pb-12 text-slate-600 dark:text-slate-400 text-xs">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-slate-800">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-slate-200 dark:border-slate-800">
       
       <!-- Col 1: Brand & Contact -->
       <div class="space-y-4">
         <div class="flex items-center gap-3">
-          <div class="w-10 h-10 rounded-xl bg-white p-1 flex items-center justify-center shrink-0">
+          <div class="w-10 h-10 rounded-xl bg-white shadow-sm border border-slate-200 dark:border-slate-700 p-1 flex items-center justify-center shrink-0">
             <img src="/brand/logo.png" alt="Servicio Técnico Mendoza" class="w-full h-full object-contain" width="40" height="40" />
           </div>
           <div>
-            <span class="font-bold text-base text-white tracking-tight">{siteConfig.name}</span>
+            <span class="font-bold text-base text-slate-900 dark:text-white tracking-tight">{siteConfig.name}</span>
             <p class="text-[11px] text-slate-500">Servicio Técnico a Domicilio</p>
           </div>
         </div>
 
-        <p class="text-xs text-slate-400 leading-relaxed">
+        <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
           {siteConfig.tagline}
         </p>
 
         <div class="space-y-1.5 pt-2 text-xs">
           <div>
-            <span class="text-slate-500">Teléfono / WhatsApp:</span>
-            <a href={`tel:${siteConfig.phone.replace(/\s+/g, '')}`} class="block font-semibold text-white hover:text-sky-400">
+            <span class="text-slate-500">WhatsApp / Contacto:</span>
+            <a
+              href={`https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent(siteConfig.whatsappMessageDefault)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="block font-semibold text-slate-900 dark:text-white hover:text-emerald-600 dark:hover:text-emerald-400"
+            >
               {siteConfig.phoneFormatted}
             </a>
           </div>
           <div>
             <span class="text-slate-500">Correo Electrónico:</span>
-            <a href={`mailto:${siteConfig.email}`} class="block font-semibold text-slate-300 hover:text-white">
+            <a href={`mailto:${siteConfig.email}`} class="block font-semibold text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white">
               {siteConfig.email}
             </a>
           </div>
           <div>
             <span class="text-slate-500">Zonas de atención:</span>
-            <span class="block text-slate-300">Guayaquil, Samborondón y Durán</span>
+            <span class="block text-slate-700 dark:text-slate-300">Guayaquil, Samborondón y Durán</span>
           </div>
         </div>
       </div>
 
       <!-- Col 2: Services -->
       <div>
-        <h4 class="text-xs uppercase tracking-wider text-white font-bold mb-4">
+        <h4 class="text-xs uppercase tracking-wider text-slate-900 dark:text-white font-bold mb-4">
           Servicios Especializados
         </h4>
         <ul class="space-y-2.5">
           {servicesData.map((s) => (
             <li>
-              <a href="#servicios" class="hover:text-white transition-colors">
+              <a href="#servicios" class="hover:text-slate-900 dark:hover:text-white ">
                 {s.title}
               </a>
             </li>
@@ -64,13 +69,13 @@ import ShieldCheckIcon from "../ui/icons/ShieldCheckIcon.astro";
 
       <!-- Col 3: Coverage -->
       <div>
-        <h4 class="text-xs uppercase tracking-wider text-white font-bold mb-4">
+        <h4 class="text-xs uppercase tracking-wider text-slate-900 dark:text-white font-bold mb-4">
           Zonas de Cobertura
         </h4>
         <ul class="space-y-2.5">
           {coverageZones.map((z) => (
             <li>
-              <span class="text-white font-medium">{z.name}</span>
+              <span class="text-slate-900 dark:text-white font-medium">{z.name}</span>
               <span class="block text-[11px] text-slate-500">Tiempo estimado: {z.estimatedTime}</span>
             </li>
           ))}
@@ -79,25 +84,25 @@ import ShieldCheckIcon from "../ui/icons/ShieldCheckIcon.astro";
 
       <!-- Col 4: Assurance -->
       <div>
-        <h4 class="text-xs uppercase tracking-wider text-white font-bold mb-4">
+        <h4 class="text-xs uppercase tracking-wider text-slate-900 dark:text-white font-bold mb-4">
           Respaldo y Garantía
         </h4>
         <div class="space-y-3">
-          <div class="p-3.5 rounded-xl bg-slate-900 border border-slate-800">
-            <div class="flex items-center gap-1.5 text-emerald-400 font-semibold mb-1">
-              <ShieldCheckIcon class="w-4 h-4 text-emerald-400" />
+          <div class="p-3.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
+            <div class="flex items-center gap-1.5 text-emerald-600 dark:text-emerald-400 font-semibold mb-1">
+              <ShieldCheckIcon class="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
               <span>30 Días de Garantía</span>
             </div>
-            <p class="text-slate-400 text-[11px] leading-relaxed">
+            <p class="text-slate-600 dark:text-slate-400 text-[11px] leading-relaxed">
               {siteConfig.warrantyPeriod}
             </p>
           </div>
-          <div class="p-3.5 rounded-xl bg-slate-900 border border-slate-800">
-            <div class="flex items-center gap-1.5 text-sky-400 font-semibold mb-1">
-              <CheckIcon class="w-4 h-4 text-sky-400" />
+          <div class="p-3.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
+            <div class="flex items-center gap-1.5 text-sky-600 dark:text-sky-400 font-semibold mb-1">
+              <CheckIcon class="w-4 h-4 text-sky-600 dark:text-sky-400" />
               <span>Presupuesto Formal</span>
             </div>
-            <p class="text-slate-400 text-[11px] leading-relaxed">
+            <p class="text-slate-600 dark:text-slate-400 text-[11px] leading-relaxed">
               {siteConfig.proformaValidity}
             </p>
           </div>
@@ -110,13 +115,13 @@ import ShieldCheckIcon from "../ui/icons/ShieldCheckIcon.astro";
     <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
       <p>© {new Date().getFullYear()} {siteConfig.name}. Todos los derechos reservados.</p>
       <div class="flex items-center gap-4">
-        <a href="#averias" class="hover:text-slate-400">Averías</a>
+        <a href="#averias" class="hover:text-slate-700 dark:hover:text-slate-400">Averías</a>
         <span>•</span>
-        <a href="#servicios" class="hover:text-slate-400">Servicios</a>
+        <a href="#servicios" class="hover:text-slate-700 dark:hover:text-slate-400">Servicios</a>
         <span>•</span>
-        <a href="#confianza" class="hover:text-slate-400">Garantía</a>
+        <a href="#confianza" class="hover:text-slate-700 dark:hover:text-slate-400">Garantía</a>
         <span>•</span>
-        <a href="#cobertura" class="hover:text-slate-400">Cobertura</a>
+        <a href="#cobertura" class="hover:text-slate-700 dark:hover:text-slate-400">Cobertura</a>
       </div>
     </div>
   </div>

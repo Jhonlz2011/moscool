@@ -11,35 +11,39 @@ const trustPillars = [
     title: "Cuidado de tus Paredes y Pisos",
     description: "Al realizar mantenimiento a splits instalamos fundas impermeables con colector cerrado. El agua sucia y químicos nunca tocan tus paredes de yeso, cortinas ni pisos.",
     icon: HomeShieldIcon,
+    tag: "Funda hermética in-situ",
   },
   {
     title: "Diagnóstico Honesto y Verificable",
-    description: "Si tu aire o nevera solo tiene un capacitor defectuoso o suciedad acumulada, te cobramos exactamente eso. No inventamos 'fugas de gas' inexistentes para inflar la cuenta.",
+    description: "Si tu aire o nevera solo tiene un capacitor defectuoso o suciedad acumulada, te cobramos exactamente eso. No inventamos fugas de gas inexistentes para inflar la cuenta.",
     icon: WrenchToolIcon,
+    tag: "Medición en tu presencia",
   },
   {
-    title: "Coordinación Ágil para Garitas",
-    description: "Proporcionamos nombre e identificación con anticipación para facilitar el ingreso vehicular en urbanizaciones cerradas de Samborondón, Ceibos y Vía a la Costa.",
+    title: "Presupuesto Previo (Validez 15 Días)",
+    description: "Evaluamos el equipo y emitimos un presupuesto formal con desglose exacto de repuestos y mano de obra antes de iniciar. Tienes 15 días de vigencia para decidir.",
     icon: ClockFastIcon,
+    tag: "Sin cobros sorpresa",
   },
   {
     title: "Garantía de 30 Días por Escrito",
-    description: "Cada intervención incluye respaldo formal por escrito. Si el equipo presenta novedades durante el periodo de garantía, acudimos a revisar sin cobros adicionales.",
+    description: "Cada intervención incluye respaldo formal por escrito. Si el componente reparado presenta novedades en ese periodo, acudimos a resolver sin cobros adicionales.",
     icon: ShieldCheckIcon,
+    tag: "Comprobante formal",
   },
 ];
 ---
 
-<section class="py-20 bg-slate-950 border-t border-slate-800" id="confianza">
+<section class="py-20 bg-slate-50 dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800" id="confianza">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="max-w-3xl mb-14">
-      <span class="text-xs font-semibold uppercase tracking-wider text-emerald-400 block mb-2 font-mono">
+      <span class="text-xs font-semibold uppercase tracking-wider text-emerald-600 dark:text-emerald-400 block mb-2 font-mono">
         Confianza y Profesionalismo
       </span>
-      <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight">
+      <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
         Por Qué los Hogares en Guayaquil y Samborondón Confían en Nosotros
       </h2>
-      <p class="text-slate-400 text-sm sm:text-base mt-2 leading-relaxed">
+      <p class="text-slate-600 dark:text-slate-400 text-sm sm:text-base mt-2 leading-relaxed">
         Sabemos que abrir la puerta de tu hogar a un técnico requiere seguridad, limpieza y honestidad. Nuestro estándar de servicio está diseñado para darte total tranquilidad.
       </p>
     </div>
@@ -49,24 +53,24 @@ const trustPillars = [
       {trustPillars.map((tp) => {
         const IconComponent = tp.icon;
         return (
-          <div class="rounded-2xl bg-slate-900/80 border border-slate-800 p-6 flex flex-col justify-between hover:border-slate-700 transition-colors shadow-lg">
+          <div class="rounded-2xl bg-white dark:bg-slate-900/80 border border-slate-200 dark:border-slate-800 p-6 flex flex-col justify-between hover:border-slate-300 dark:hover:border-slate-700 shadow-sm dark:shadow-lg">
             <div>
-              <div class="w-10 h-10 rounded-xl bg-slate-800 border border-slate-700 flex items-center justify-center mb-4">
-                <IconComponent class="w-5 h-5 text-sky-400" />
+              <div class="w-10 h-10 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center mb-4">
+                <IconComponent class="w-5 h-5 text-sky-600 dark:text-sky-400" />
               </div>
 
-              <h3 class="text-base font-bold text-white mb-2 leading-snug">
+              <h3 class="text-base font-bold text-slate-900 dark:text-white mb-2 leading-snug">
                 {tp.title}
               </h3>
 
-              <p class="text-xs text-slate-300 leading-relaxed">
+              <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
                 {tp.description}
               </p>
             </div>
 
-            <div class="pt-4 mt-4 border-t border-slate-800/80 flex items-center gap-1.5 text-xs text-emerald-400 font-semibold">
-              <CheckIcon class="w-3.5 h-3.5 text-emerald-400" />
-              <span>Compromiso Cumplido</span>
+            <div class="pt-4 mt-4 border-t border-slate-100 dark:border-slate-800/80 flex items-center gap-1.5 text-xs text-slate-500 dark:text-slate-400 font-mono">
+              <CheckIcon class="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400 shrink-0" />
+              <span>{tp.tag}</span>
             </div>
           </div>
         );
@@ -74,15 +78,15 @@ const trustPillars = [
     </div>
 
     <!-- Before / After Interactive Visual Proof Module -->
-    <div class="rounded-3xl border border-slate-800 bg-slate-900/60 p-6 sm:p-10 shadow-2xl">
+    <div class="rounded-3xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/60 p-6 sm:p-10 shadow-md dark:shadow-2xl">
       <div class="max-w-3xl mx-auto text-center mb-8">
-        <span class="text-xs font-mono font-bold uppercase tracking-wider text-sky-400 block mb-1">
+        <span class="text-xs font-mono font-bold uppercase tracking-wider text-sky-600 dark:text-sky-400 block mb-1">
           Demostración Visual de Mantenimiento Profundo
         </span>
-        <h3 class="text-xl sm:text-2xl md:text-3xl font-extrabold text-white">
+        <h3 class="text-xl sm:text-2xl md:text-3xl font-extrabold text-slate-900 dark:text-white">
           Inspección Interactiva: Turbina y Serpentín de Split
         </h3>
-        <p class="text-slate-300 text-xs sm:text-sm mt-2">
+        <p class="text-slate-600 dark:text-slate-300 text-xs sm:text-sm mt-2">
           En el clima húmedo de Guayaquil, la turbina acumula moho negro que bloquea el aire y genera malos olores. Desliza la barra para ver la diferencia de un lavado técnico con funda colectora sin manchar tu pared.
         </p>
       </div>

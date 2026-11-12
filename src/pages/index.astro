@@ -2,14 +2,13 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Navbar from "../components/layout/Navbar.astro";
 import Footer from "../components/layout/Footer.astro";
-import FloatingEmergencyBar from "../components/layout/FloatingEmergencyBar.astro";
+import FloatingWhatsApp from "../components/ui/FloatingWhatsApp.astro";
 import Hero from "../components/sections/Hero.astro";
 import BrandTicker from "../components/sections/BrandTicker.astro";
 import UrgentProblems from "../components/sections/UrgentProblems.astro";
 import ServicesGrid from "../components/sections/ServicesGrid.astro";
 import WhyTrustUs from "../components/sections/WhyTrustUs.astro";
 import DiagnosticSection from "../components/sections/DiagnosticSection.astro";
-import ServiceGuarantee from "../components/sections/ServiceGuarantee.astro";
 import CoverageAreas from "../components/sections/CoverageAreas.astro";
 import FAQSection from "../components/sections/FAQSection.astro";
 import FinalCta from "../components/sections/FinalCta.astro";
@@ -28,11 +27,10 @@ import { siteConfig } from "../data/siteConfig";
     <ServicesGrid />
     <WhyTrustUs />
     <DiagnosticSection />
-    <ServiceGuarantee />
     <CoverageAreas />
     <FAQSection />
     <FinalCta />
   </main>
   <Footer />
-  <FloatingEmergencyBar />
+  <FloatingWhatsApp />
 </BaseLayout>

@@ -7,21 +7,23 @@ const brands = [
   { name: "Carrier", logo: "/assets/brands/carrier.svg" },
   { name: "Electrolux", logo: "/assets/brands/electrolux.svg" },
   { name: "General Electric", logo: "/assets/brands/general-electric.svg" },
-  { name: "Indurama", logo: "/assets/brands/indurama.svg" },
-  { name: "Panasonic", logo: "/assets/brands/panasonic.svg" },
+  { name: "Indurama", logo: "/assets/brands/indurama.png" },
+  { name: "TCL", logo: "/assets/brands/tcl.svg" },
+  { name: "RCA", logo: "/assets/brands/rca.svg" },
+  { name: "Midea", logo: "/assets/brands/midea.svg" }
 ];
 
 // Duplicate for continuous seamless infinite loop
 const doubleBrands = [...brands, ...brands];
 ---
 
-<section class="py-8 bg-slate-950/90 border-y border-slate-800/80 overflow-hidden relative">
+<section class="py-8 bg-white dark:bg-slate-950/90 border-y border-slate-200 dark:border-slate-800/80 overflow-hidden relative ">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-4">
     <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-      <span class="text-xs font-mono font-bold uppercase tracking-wider text-slate-400">
+      <span class="text-xs font-mono font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400">
         Compatibilidad y Repuestos Originales
       </span>
-      <span class="text-xs text-slate-400 font-mono">
+      <span class="text-xs text-slate-500 dark:text-slate-400 font-mono">
         Climatización Inverter y Línea Blanca Residencial
       </span>
     </div>
@@ -29,13 +31,13 @@ const doubleBrands = [...brands, ...brands];
 
   <!-- Marquee Container with side fade masks -->
   <div class="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
-    <div class="flex items-center gap-12 w-max animate-ticker hover:[animation-play-state:paused] py-2">
+    <div class="flex items-center gap-8 sm:gap-12 w-max animate-ticker hover:[animation-play-state:paused] py-2">
       {doubleBrands.map((brand) => (
-        <div class="flex items-center justify-center px-4 py-2 rounded-lg bg-slate-900/60 border border-slate-800/60 text-slate-400 hover:text-sky-300 hover:border-sky-500/40 transition-colors flex-shrink-0 group">
+        <div class="flex items-center justify-center px-4 py-2.5 rounded-xl bg-slate-50 dark:bg-white p-2 border border-slate-200 dark:border-slate-300 text-slate-700 hover:border-sky-500/60  flex-shrink-0 group shadow-sm hover:scale-105 duration-200">
           <img
             src={brand.logo}
             alt={brand.name}
-            class="h-6 w-auto opacity-70 group-hover:opacity-100 transition-opacity filter invert-[.85]"
+            class="h-6 w-auto opacity-80 group-hover:opacity-100 filter object-contain"
             loading="lazy"
           />
         </div>

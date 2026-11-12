@@ -1,8 +1,6 @@
 ---
 import { siteConfig } from "../../data/siteConfig";
 import WhatsAppIcon from "../ui/icons/WhatsAppIcon.astro";
-import PhoneIcon from "../ui/icons/PhoneIcon.astro";
-import CheckIcon from "../ui/icons/CheckIcon.astro";
 import ShieldCheckIcon from "../ui/icons/ShieldCheckIcon.astro";
 import ClockFastIcon from "../ui/icons/ClockFastIcon.astro";
 import HomeShieldIcon from "../ui/icons/HomeShieldIcon.astro";
@@ -10,118 +8,76 @@ import HomeShieldIcon from "../ui/icons/HomeShieldIcon.astro";
 
 <section class="relative pt-10 pb-16 md:pt-16 md:pb-24 overflow-hidden bg-grid-subtle">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
       
-      <!-- Left Column: Headline and Call to Action -->
+      <!-- Left Column: Editorial Headline and Direct WhatsApp Action -->
       <div class="lg:col-span-7 space-y-6">
-        <!-- Live Dispatch Micro-Pill -->
-        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/90 border border-emerald-500/40 text-xs text-slate-200 shadow-lg backdrop-blur-sm">
-          <span class="relative flex h-2.5 w-2.5">
-            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-            <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
-          </span>
-          <span class="font-mono text-[11px] tracking-wider text-emerald-400 font-bold uppercase">Técnicos en Ruta</span>
-          <span class="text-slate-500 font-mono">•</span>
-          <span class="text-slate-300">Samborondón, Ceibos, Vía a la Costa y Durán</span>
+        <div class="inline-flex items-center gap-2 text-xs font-mono font-semibold uppercase tracking-wider text-slate-600 dark:text-slate-400">
+          <span>Servicio Técnico a Domicilio</span>
+          <span>•</span>
+          <span class="text-sky-600 dark:text-sky-400">Guayaquil, Samborondón y Durán</span>
         </div>
 
-        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight">
-          ¿Tu Aire Acondicionado o Nevera Dejó de Enfriar?
+        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight">
+          Reparación y mantenimiento de climatización y línea blanca a domicilio.
         </h1>
 
-        <p class="text-base sm:text-lg text-slate-300 leading-relaxed max-w-2xl font-normal">
-          {siteConfig.tagline}. Solucionamos averías urgentes con <strong>diagnóstico honesto</strong>, respeto riguroso por las paredes de tu hogar y <strong>30 días de garantía por escrito</strong>. Recibes presupuesto cerrado antes de iniciar cualquier labor.
+        <p class="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed max-w-2xl font-normal">
+          {siteConfig.tagline}. Solucionamos averías con <strong>diagnóstico honesto</strong>, lavado de splits con funda colectora impermeable que protege tus paredes de yeso y <strong>30 días de garantía por escrito</strong>.
         </p>
 
-        <!-- Action Buttons with Tactile Press Mechanics -->
-        <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-2">
+        <!-- Single Primary Action (WhatsApp Direct) -->
+        <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 pt-2">
           <a
             href={`https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent(siteConfig.whatsappMessageDefault)}`}
             target="_blank"
             rel="noopener noreferrer"
-            class="px-6 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 active:bg-emerald-700 text-white font-semibold text-sm transition-all text-center flex items-center justify-center gap-2.5 shadow-lg shadow-emerald-950/50 hover:shadow-emerald-900/60 active:translate-y-0.5 cursor-pointer"
+            class="px-7 py-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 active:bg-emerald-700 text-white font-semibold text-sm text-center flex items-center justify-center gap-2.5 shadow-lg shadow-emerald-950/20 active:translate-y-0.5 cursor-pointer"
+            aria-label={`Escribir por WhatsApp a ${siteConfig.name}`}
           >
             <WhatsAppIcon class="w-4 h-4 fill-current" />
-            <span>Agendar Visita por WhatsApp</span>
+            <span>Agendar Visita por WhatsApp ({siteConfig.phoneFormatted})</span>
           </a>
 
           <a
-            href={`tel:${siteConfig.phone.replace(/\s+/g, '')}`}
-            class="px-6 py-3.5 rounded-xl bg-slate-900 hover:bg-slate-800 active:bg-slate-950 border border-slate-700 text-slate-200 hover:text-white font-semibold text-sm transition-all text-center flex items-center justify-center gap-2 active:translate-y-0.5 cursor-pointer"
+            href="#averias"
+            class="px-5 py-4 rounded-xl border border-slate-300 dark:border-slate-700 hover:border-slate-400 dark:hover:border-slate-600 active:border-slate-500 text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white text-xs font-semibold text-center flex items-center justify-center cursor-pointer"
           >
-            <PhoneIcon class="w-4 h-4 text-sky-400" />
-            <span>Llamar al Técnico ({siteConfig.phoneFormatted})</span>
+            <span>Ver Averías Frecuentes</span>
           </a>
         </div>
 
-        <!-- 3 Pillars with Pure SVG Icons -->
-        <div class="pt-6 grid grid-cols-1 sm:grid-cols-3 gap-3 border-t border-slate-800 text-xs text-slate-300 font-mono">
+        <!-- Minimalist Proof Strip -->
+        <div class="pt-6 grid grid-cols-1 sm:grid-cols-3 gap-4 border-t border-slate-200 dark:border-slate-800 text-xs text-slate-600 dark:text-slate-400">
           <div class="flex items-center gap-2">
-            <ClockFastIcon class="w-4 h-4 text-amber-400 shrink-0" />
+            <ClockFastIcon class="w-4 h-4 text-sky-600 dark:text-sky-400 shrink-0" />
             <span>Llegada en 1 a 2 horas</span>
           </div>
           <div class="flex items-center gap-2">
-            <HomeShieldIcon class="w-4 h-4 text-sky-400 shrink-0" />
-            <span>Funda Colectora en Pared</span>
+            <HomeShieldIcon class="w-4 h-4 text-sky-600 dark:text-sky-400 shrink-0" />
+            <span>Funda colectora en pared</span>
           </div>
           <div class="flex items-center gap-2">
-            <ShieldCheckIcon class="w-4 h-4 text-emerald-400 shrink-0" />
-            <span>30 Días de Garantía</span>
+            <ShieldCheckIcon class="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
+            <span>Garantía de 30 días</span>
           </div>
         </div>
       </div>
 
-      <!-- Right Column: Visual Technical Workbench Card -->
+      <!-- Right Column: Clean Technical Schematic Frame -->
       <div class="lg:col-span-5">
-        <div class="rounded-2xl bg-slate-900/90 border border-slate-800 p-5 shadow-2xl space-y-4 max-w-lg mx-auto relative group">
-          <!-- Ambient subtle border glow -->
-          <div class="absolute -inset-0.5 bg-gradient-to-r from-sky-500/20 to-emerald-500/20 rounded-2xl blur opacity-30 group-hover:opacity-60 transition duration-500 pointer-events-none"></div>
-
-          <div class="relative space-y-4">
-            <!-- Top Brand Header -->
-            <div class="flex items-center justify-between pb-3 border-b border-slate-800">
-              <div class="flex items-center gap-2.5">
-                <div class="w-9 h-9 rounded-lg bg-white p-1 flex items-center justify-center shrink-0">
-                  <img src="/brand/logo.png" alt="Logo" class="w-full h-full object-contain" width="36" height="36" />
-                </div>
-                <div>
-                  <span class="font-bold text-sm text-white block leading-tight">{siteConfig.name}</span>
-                  <span class="text-[11px] text-slate-400 font-mono">Taller de Climatización y Línea Blanca</span>
-                </div>
-              </div>
-              <span class="text-[10px] font-mono font-bold text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/30 uppercase tracking-wider">
-                Garantía 30 Días
-              </span>
-            </div>
-
-            <!-- Visual Schematic Image Placeholder -->
-            <div class="rounded-xl overflow-hidden border border-slate-800 bg-slate-950 relative aspect-[16/10]">
-              <img
-                src="/assets/images/hero/tecnico-diagnostico.svg"
-                alt="Diagnóstico de split con funda colectora impermeable y medición de presiones"
-                class="w-full h-full object-cover"
-                loading="eager"
-              />
-            </div>
-
-            <!-- Key Service Commitments -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs pt-1">
-              <div class="flex items-start gap-2 p-2 rounded-lg bg-slate-950/80 border border-slate-800/80">
-                <CheckIcon class="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5" />
-                <div>
-                  <span class="font-semibold text-white block text-[11px]">Paredes Protegidas</span>
-                  <p class="text-slate-400 text-[10px]">Cero humedad en gypsum</p>
-                </div>
-              </div>
-
-              <div class="flex items-start gap-2 p-2 rounded-lg bg-slate-950/80 border border-slate-800/80">
-                <CheckIcon class="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5" />
-                <div>
-                  <span class="font-semibold text-white block text-[11px]">Acceso a Garitas</span>
-                  <p class="text-slate-400 text-[10px]">Pase previo en urbanizaciones</p>
-                </div>
-              </div>
-            </div>
+        <div class="rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-3 shadow-md max-w-lg mx-auto">
+          <div class="rounded-xl overflow-hidden border border-slate-100 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 aspect-[16/11]">
+            <img
+              src="/assets/images/hero/tecnico-diagnostico.svg"
+              alt="Mantenimiento técnico de aire acondicionado split con funda colectora impermeable"
+              class="w-full h-full object-cover"
+              loading="eager"
+            />
+          </div>
+          <div class="pt-3 px-2 flex items-center justify-between text-xs text-slate-500 dark:text-slate-400 font-mono">
+            <span>Cuidado riguroso de paredes y pisos</span>
+            <span class="text-emerald-600 dark:text-emerald-400 font-semibold">Garantía Escrita</span>
           </div>
         </div>
       </div>

@@ -47,7 +47,7 @@ export default function BeforeAfterSlider(props: BeforeAfterSliderProps) {
     <div class="w-full max-w-4xl mx-auto">
       <div
         ref={containerRef}
-        class="relative overflow-hidden rounded-2xl border border-slate-700/80 bg-slate-950 select-none shadow-2xl touch-none cursor-ew-resize group"
+        class="relative overflow-hidden rounded-2xl border border-slate-300 dark:border-slate-700/80 bg-slate-100 dark:bg-slate-950 select-none shadow-2xl touch-none cursor-ew-resize group"
         onPointerDown={handlePointerDown}
         onPointerMove={handlePointerMove}
         onPointerUp={handlePointerUp}
@@ -101,7 +101,7 @@ export default function BeforeAfterSlider(props: BeforeAfterSliderProps) {
           <div class="w-0.5 h-full bg-sky-400 shadow-[0_0_12px_rgba(56,189,248,0.8)] -translate-x-1/2"></div>
 
           {/* Central Grabber Button */}
-          <div class="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-slate-900 border-2 border-sky-400 text-sky-300 flex items-center justify-center shadow-xl shadow-sky-950/50 group-hover:scale-110 transition-transform">
+          <div class="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-10 h-10 rounded-full bg-white dark:bg-slate-900 border-2 border-sky-500 dark:border-sky-400 text-sky-600 dark:text-sky-300 flex items-center justify-center shadow-xl shadow-sky-950/20 group-hover:scale-110">
             <svg
               class="w-5 h-5"
               viewBox="0 0 24 24"
@@ -131,7 +131,7 @@ export default function BeforeAfterSlider(props: BeforeAfterSliderProps) {
       </div>
 
       {/* Helpful instruction below slider */}
-      <p class="text-center text-xs text-slate-400 mt-3 font-mono">
+      <p class="text-center text-xs text-slate-500 dark:text-slate-400 mt-3 font-mono">
         Arrastra la barra lateralmente con el cursor o el dedo para comparar la higienización profunda.
       </p>
     </div>

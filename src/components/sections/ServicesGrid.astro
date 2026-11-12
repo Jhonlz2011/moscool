@@ -16,47 +16,47 @@ const iconsMap: Record<string, any> = {
 };
 
 const illustrationsMap: Record<string, string> = {
-  climatizacion: "/assets/images/services/split-mantenimiento-funda.svg",
-  refrigeracion: "/assets/images/services/refrigeracion-no-frost.svg",
-  "lavado-secado": "/assets/images/services/lavadora-transmision.svg",
-  "cocinas-hornos": "/assets/images/services/cocina-calibracion.svg",
+  climatizacion: "/assets/images/services/aire-condicionado.svg",
+  refrigeracion: "/assets/images/services/refrigerador.svg",
+  "lavado-secado": "/assets/images/services/lavadora.svg",
+  "cocinas-hornos": "/assets/images/services/cocina.svg",
 };
 ---
 
-<section id="servicios" class="py-20 bg-slate-950 border-t border-slate-800">
+<section id="servicios" class="py-20 bg-slate-50 dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800 ">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <!-- Header -->
     <div class="max-w-3xl mb-14">
-      <span class="text-xs font-semibold uppercase tracking-wider text-sky-400 block mb-2 font-mono">
+      <span class="text-xs font-semibold uppercase tracking-wider text-sky-600 dark:text-sky-400 block mb-2 font-mono">
         Nuestras Especialidades de Taller
       </span>
-      <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight">
+      <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
         Servicios Técnicos Especializados a Domicilio
       </h2>
-      <p class="text-slate-400 text-sm sm:text-base mt-2 leading-relaxed">
+      <p class="text-slate-600 dark:text-slate-400 text-sm sm:text-base mt-2 leading-relaxed">
         Soluciones integrales para las 4 líneas principales de electrodomésticos en Guayaquil, Samborondón y Durán. Diagnóstico claro, instrumental adecuado y 30 días de garantía por escrito.
       </p>
     </div>
 
-    <!-- 4 Services Grid with Visual Schematics -->
+    <!-- 4 Services Grid with Clean Vector Schematics -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
       {servicesData.map((service) => {
         const IconComponent = iconsMap[service.id] || SnowflakeIcon;
         const illustration = illustrationsMap[service.id];
         return (
-          <div class="rounded-2xl bg-slate-900/90 border border-slate-800 overflow-hidden flex flex-col justify-between hover:border-slate-700 transition-all shadow-xl group">
+          <div class="rounded-2xl bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 overflow-hidden flex flex-col justify-between hover:border-sky-500/50 dark:hover:border-slate-700  shadow-md dark:shadow-xl group">
             <div>
               <!-- Visual Schematic Header -->
               {illustration && (
-                <div class="aspect-[16/9] w-full bg-slate-950 border-b border-slate-800 overflow-hidden relative">
+                <div class="aspect-[16/9] w-full bg-slate-100/90 dark:bg-slate-950/80 border-b border-slate-200 dark:border-slate-800 overflow-hidden relative flex items-center justify-center p-6">
                   <img
                     src={illustration}
                     alt={service.title}
-                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    class="max-h-44 w-auto object-contain group-hover:scale-105 dark:invert dark:hue-rotate-180"
                     loading="lazy"
                   />
                   <div class="absolute top-3 right-3">
-                    <span class="text-[11px] font-mono font-bold text-emerald-400 bg-slate-950/90 px-2.5 py-1 rounded-md border border-emerald-500/30 backdrop-blur-sm">
+                    <span class="text-[11px] font-mono font-bold text-emerald-600 dark:text-emerald-400 bg-white/90 dark:bg-slate-950/90 px-2.5 py-1 rounded-md border border-emerald-500/30 backdrop-blur-sm shadow-sm">
                       {service.warrantyDays} días garantía
                     </span>
                   </div>
@@ -65,30 +65,30 @@ const illustrationsMap: Record<string, string> = {
 
               <div class="p-6 sm:p-7">
                 <div class="flex items-center gap-2.5 mb-3">
-                  <div class="w-7 h-7 rounded-lg bg-slate-800 border border-slate-700 flex items-center justify-center shrink-0">
-                    <IconComponent class="w-3.5 h-3.5 text-sky-400" />
+                  <div class="w-7 h-7 rounded-lg bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center shrink-0">
+                    <IconComponent class="w-3.5 h-3.5 text-sky-600 dark:text-sky-400" />
                   </div>
-                  <span class="text-xs font-mono font-bold uppercase tracking-wider text-sky-400">
+                  <span class="text-xs font-mono font-bold uppercase tracking-wider text-sky-600 dark:text-sky-400">
                     {service.category}
                   </span>
                 </div>
 
-                <h3 class="text-lg sm:text-xl font-bold text-white tracking-tight mb-2">
+                <h3 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white tracking-tight mb-2">
                   {service.title}
                 </h3>
 
-                <p class="text-xs sm:text-sm text-slate-300 leading-relaxed mb-5">
+                <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-5">
                   {service.description}
                 </p>
 
-                <div class="space-y-2 mb-2 p-3.5 rounded-xl bg-slate-950/60 border border-slate-800/80">
-                  <span class="text-xs font-mono font-semibold uppercase tracking-wider text-slate-400 block mb-1">
+                <div class="space-y-2 mb-2 p-3.5 rounded-xl bg-slate-50 dark:bg-slate-950/60 border border-slate-200 dark:border-slate-800/80">
+                  <span class="text-xs font-mono font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 block mb-1">
                     Trabajos frecuentes en domicilio:
                   </span>
                   <ul class="space-y-1.5">
                     {service.included.map((item) => (
-                      <li class="text-xs text-slate-300 flex items-start gap-2">
-                        <CheckIcon class="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5" />
+                      <li class="text-xs text-slate-700 dark:text-slate-300 flex items-start gap-2">
+                        <CheckIcon class="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
                         <span>{item}</span>
                       </li>
                     ))}
@@ -102,7 +102,7 @@ const illustrationsMap: Record<string, string> = {
                 href={`https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent(`Hola Servicio Técnico Mendoza, requiero información y cotización para el servicio de: ${service.title}`)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                class="w-full py-3 px-4 rounded-xl bg-slate-800 hover:bg-emerald-600 active:bg-emerald-700 text-slate-200 hover:text-white font-semibold text-xs transition-all flex items-center justify-center gap-2 active:translate-y-0.5 cursor-pointer shadow-md"
+                class="w-full py-3 px-4 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-emerald-600 dark:hover:bg-emerald-600 active:bg-emerald-700 text-slate-800 dark:text-slate-200 hover:text-white font-semibold text-xs  flex items-center justify-center gap-2 active:translate-y-0.5 cursor-pointer shadow-sm border border-slate-200 dark:border-slate-700 hover:border-emerald-500"
               >
                 <WhatsAppIcon class="w-4 h-4 fill-current" />
                 <span>Consultar este Servicio por WhatsApp</span>
