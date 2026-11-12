@@ -19,11 +19,11 @@ import HomeShieldIcon from "../ui/icons/HomeShieldIcon.astro";
         </div>
 
         <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight">
-          Reparación y mantenimiento de climatización y línea blanca a domicilio.
+          Mantenimiento y reparación técnica de climatización sin manchar tus paredes.
         </h1>
 
         <p class="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed max-w-2xl font-normal">
-          {siteConfig.tagline}. Solucionamos averías con <strong>diagnóstico honesto</strong>, lavado de splits con funda colectora impermeable que protege tus paredes de yeso y <strong>30 días de garantía por escrito</strong>.
+          Especialistas en climatización, refrigeración y línea blanca. Diagnóstico honesto en tu presencia, lavado profundo con funda impermeable que protege molduras y paredes de gypsum, y <strong>garantía de 30 días por escrito</strong>.
         </p>
 
         <!-- Single Primary Action (WhatsApp Direct) -->
@@ -64,20 +64,77 @@ import HomeShieldIcon from "../ui/icons/HomeShieldIcon.astro";
         </div>
       </div>
 
-      <!-- Right Column: Clean Technical Schematic Frame -->
+      <!-- Right Column: Ficha Técnica de Intervención Residencial (Atelier de Ingeniería) -->
       <div class="lg:col-span-5">
-        <div class="rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-3 shadow-md max-w-lg mx-auto">
-          <div class="rounded-xl overflow-hidden border border-slate-100 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 aspect-[16/11]">
-            <img
-              src="/assets/images/hero/tecnico-diagnostico.svg"
-              alt="Mantenimiento técnico de aire acondicionado split con funda colectora impermeable"
-              class="w-full h-full object-cover"
-              loading="eager"
-            />
+        <div class="rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xl overflow-hidden max-w-lg mx-auto">
+          <!-- Technical Header Bar -->
+          <div class="px-4 py-3 bg-slate-50 dark:bg-slate-950/80 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+              <span class="text-[11px] font-mono font-bold tracking-wider text-slate-700 dark:text-slate-300 uppercase">
+                Ficha Técnica · Protocolo In-Situ
+              </span>
+            </div>
+            <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-sky-100 dark:bg-sky-950 text-sky-700 dark:text-sky-300 border border-sky-200 dark:border-sky-800 font-semibold">
+              Norma Residencial
+            </span>
           </div>
-          <div class="pt-3 px-2 flex items-center justify-between text-xs text-slate-500 dark:text-slate-400 font-mono">
-            <span>Cuidado riguroso de paredes y pisos</span>
-            <span class="text-emerald-600 dark:text-emerald-400 font-semibold">Garantía Escrita</span>
+
+          <!-- Schematic Visual Display -->
+          <div class="p-3 bg-slate-100/50 dark:bg-slate-950">
+            <div class="rounded-xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-slate-950 aspect-[16/11] relative">
+              <img
+                src="/assets/images/hero/tecnico-diagnostico.svg"
+                alt="Esquema técnico de mantenimiento de aire acondicionado split con funda colectora impermeable"
+                class="w-full h-full object-cover"
+                loading="eager"
+              />
+            </div>
+          </div>
+
+          <!-- Technical Spec Breakdown (Swiss Tabular Data) -->
+          <div class="p-4 bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 grid grid-cols-1 divide-y divide-slate-100 dark:divide-slate-800/80 text-xs">
+            <div class="py-2.5 flex items-start justify-between gap-3 first:pt-0">
+              <div class="space-y-0.5">
+                <span class="font-mono text-[10px] uppercase font-bold text-slate-400 dark:text-slate-500 tracking-wider block">
+                  Protección de Inmueble
+                </span>
+                <span class="font-semibold text-slate-800 dark:text-slate-200">
+                  Funda hermética con drenaje sellado
+                </span>
+              </div>
+              <span class="text-right text-[11px] font-mono text-emerald-600 dark:text-emerald-400 font-semibold shrink-0">
+                0% humedad en gypsum
+              </span>
+            </div>
+
+            <div class="py-2.5 flex items-start justify-between gap-3">
+              <div class="space-y-0.5">
+                <span class="font-mono text-[10px] uppercase font-bold text-slate-400 dark:text-slate-500 tracking-wider block">
+                  Instrumental y Medición
+                </span>
+                <span class="font-semibold text-slate-800 dark:text-slate-200">
+                  Manometría digital & Amperaje en sitio
+                </span>
+              </div>
+              <span class="text-right text-[11px] font-mono text-sky-600 dark:text-sky-400 font-semibold shrink-0">
+                Prueba en presencia
+              </span>
+            </div>
+
+            <div class="py-2.5 flex items-start justify-between gap-3 last:pb-0">
+              <div class="space-y-0.5">
+                <span class="font-mono text-[10px] uppercase font-bold text-slate-400 dark:text-slate-500 tracking-wider block">
+                  Respaldo Formal
+                </span>
+                <span class="font-semibold text-slate-800 dark:text-slate-200">
+                  Garantía de 30 días por escrito
+                </span>
+              </div>
+              <span class="text-right text-[11px] font-mono text-emerald-600 dark:text-emerald-400 font-semibold shrink-0">
+                Comprobante físico
+              </span>
+            </div>
           </div>
         </div>
       </div>

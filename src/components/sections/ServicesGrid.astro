@@ -21,6 +21,13 @@ const illustrationsMap: Record<string, string> = {
   "lavado-secado": "/assets/images/services/lavadora.svg",
   "cocinas-hornos": "/assets/images/services/cocina.svg",
 };
+
+const refCodesMap: Record<string, string> = {
+  climatizacion: "MOD-01 // CLIMATIZACIÓN",
+  refrigeracion: "MOD-02 // REFRIGERACIÓN",
+  "lavado-secado": "MOD-03 // LAVADO & CENTRIFUGADO",
+  "cocinas-hornos": "MOD-04 // COCCIÓN & HORNOS",
+};
 ---
 
 <section id="servicios" class="py-20 bg-slate-50 dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800 ">
@@ -46,17 +53,26 @@ const illustrationsMap: Record<string, string> = {
         return (
           <div class="rounded-2xl bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 overflow-hidden flex flex-col justify-between hover:border-sky-500/50 dark:hover:border-slate-700  shadow-md dark:shadow-xl group">
             <div>
-              <!-- Visual Schematic Header -->
+              <!-- Visual Blueprint Schematic Header -->
               {illustration && (
-                <div class="aspect-[16/9] w-full bg-slate-100/90 dark:bg-slate-950/80 border-b border-slate-200 dark:border-slate-800 overflow-hidden relative flex items-center justify-center p-6">
+                <div class="aspect-[16/9] w-full bg-slate-100/90 dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800 overflow-hidden relative flex items-center justify-center p-6">
+                  <!-- Technical Coordinate Markers -->
+                  <div class="absolute top-3 left-3 flex items-center gap-1.5">
+                    <span class="w-1.5 h-1.5 rounded-full bg-sky-500"></span>
+                    <span class="text-[10px] font-mono font-bold tracking-wider text-slate-500 dark:text-slate-400">
+                      {refCodesMap[service.id] || "MOD-TECH"}
+                    </span>
+                  </div>
+
                   <img
                     src={illustration}
                     alt={service.title}
-                    class="max-h-44 w-auto object-contain group-hover:scale-105 dark:invert dark:hue-rotate-180"
+                    class="max-h-40 w-auto object-contain dark:invert"
                     loading="lazy"
                   />
+
                   <div class="absolute top-3 right-3">
-                    <span class="text-[11px] font-mono font-bold text-emerald-600 dark:text-emerald-400 bg-white/90 dark:bg-slate-950/90 px-2.5 py-1 rounded-md border border-emerald-500/30 backdrop-blur-sm shadow-sm">
+                    <span class="text-[11px] font-mono font-bold text-emerald-600 dark:text-emerald-400 bg-white/95 dark:bg-slate-900/95 px-2.5 py-1 rounded-md border border-emerald-500/30 shadow-sm">
                       {service.warrantyDays} días garantía
                     </span>
                   </div>

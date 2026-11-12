@@ -25,13 +25,13 @@ import ThemeToggle from "../ui/ThemeToggle.astro";
     </a>
 
     <!-- Desktop Navigation Links -->
-    <nav class="hidden lg:flex items-center gap-6 xl:gap-7 text-xs font-mono font-semibold uppercase tracking-wider text-slate-700 dark:text-slate-300">
-      <a href="#averias" class="hover:text-sky-600 dark:hover:text-sky-400  py-2">Averías</a>
-      <a href="#servicios" class="hover:text-sky-600 dark:hover:text-sky-400  py-2">Servicios</a>
-      <a href="#confianza" class="hover:text-sky-600 dark:hover:text-sky-400  py-2">Por Qué Confiar</a>
-      <a href="#diagnostico" class="hover:text-sky-600 dark:hover:text-sky-300 text-sky-600 dark:text-sky-400  py-2">Simulador</a>
-      <a href="#cobertura" class="hover:text-sky-600 dark:hover:text-sky-400  py-2">Cobertura</a>
-      <a href="#faqs" class="hover:text-sky-600 dark:hover:text-sky-400  py-2">Preguntas</a>
+    <nav class="hidden lg:flex items-center gap-6 xl:gap-8 text-sm font-medium text-slate-600 dark:text-slate-300">
+      <a href="#averias" data-nav-target="averias" class="nav-item hover:text-slate-900 dark:hover:text-white py-2">Averías</a>
+      <a href="#servicios" data-nav-target="servicios" class="nav-item hover:text-slate-900 dark:hover:text-white py-2">Servicios</a>
+      <a href="#confianza" data-nav-target="confianza" class="nav-item hover:text-slate-900 dark:hover:text-white py-2">Por Qué Confiar</a>
+      <a href="#diagnostico" data-nav-target="diagnostico" class="nav-item hover:text-slate-900 dark:hover:text-white py-2">Simulador</a>
+      <a href="#cobertura" data-nav-target="cobertura" class="nav-item hover:text-slate-900 dark:hover:text-white py-2">Cobertura</a>
+      <a href="#faqs" data-nav-target="faqs" class="nav-item hover:text-slate-900 dark:hover:text-white py-2">Preguntas</a>
     </nav>
 
     <!-- Direct Action & Theme Toggle (Desktop) -->
@@ -97,22 +97,22 @@ import ThemeToggle from "../ui/ThemeToggle.astro";
     id="mobile-menu"
     class="hidden lg:hidden border-t border-slate-200 dark:border-slate-800 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md px-5 py-5 space-y-3.5 shadow-2xl "
   >
-    <a href="#averias" class="mobile-nav-link block py-2 text-slate-800 dark:text-slate-200 hover:text-sky-600 dark:hover:text-sky-400 font-medium text-sm border-b border-slate-100 dark:border-slate-800/60">
+    <a href="#averias" data-mobile-nav-target="averias" class="mobile-nav-link block py-2.5 text-slate-700 dark:text-slate-300 hover:text-sky-600 dark:hover:text-sky-400 font-medium text-sm border-b border-slate-100 dark:border-slate-800/60">
       Averías Urgentes
     </a>
-    <a href="#servicios" class="mobile-nav-link block py-2 text-slate-800 dark:text-slate-200 hover:text-sky-600 dark:hover:text-sky-400 font-medium text-sm border-b border-slate-100 dark:border-slate-800/60">
+    <a href="#servicios" data-mobile-nav-target="servicios" class="mobile-nav-link block py-2.5 text-slate-700 dark:text-slate-300 hover:text-sky-600 dark:hover:text-sky-400 font-medium text-sm border-b border-slate-100 dark:border-slate-800/60">
       Servicios de Taller
     </a>
-    <a href="#confianza" class="mobile-nav-link block py-2 text-slate-800 dark:text-slate-200 hover:text-sky-600 dark:hover:text-sky-400 font-medium text-sm border-b border-slate-100 dark:border-slate-800/60">
+    <a href="#confianza" data-mobile-nav-target="confianza" class="mobile-nav-link block py-2.5 text-slate-700 dark:text-slate-300 hover:text-sky-600 dark:hover:text-sky-400 font-medium text-sm border-b border-slate-100 dark:border-slate-800/60">
       Por Qué Confiar en Nosotros
     </a>
-    <a href="#diagnostico" class="mobile-nav-link block py-2 text-sky-600 dark:text-sky-400 font-bold text-sm border-b border-slate-100 dark:border-slate-800/60">
+    <a href="#diagnostico" data-mobile-nav-target="diagnostico" class="mobile-nav-link block py-2.5 text-slate-700 dark:text-slate-300 hover:text-sky-600 dark:hover:text-sky-400 font-medium text-sm border-b border-slate-100 dark:border-slate-800/60">
       Simulador de Consulta
     </a>
-    <a href="#cobertura" class="mobile-nav-link block py-2 text-slate-800 dark:text-slate-200 hover:text-sky-600 dark:hover:text-sky-400 font-medium text-sm border-b border-slate-100 dark:border-slate-800/60">
+    <a href="#cobertura" data-mobile-nav-target="cobertura" class="mobile-nav-link block py-2.5 text-slate-700 dark:text-slate-300 hover:text-sky-600 dark:hover:text-sky-400 font-medium text-sm border-b border-slate-100 dark:border-slate-800/60">
       Zonas de Cobertura
     </a>
-    <a href="#faqs" class="mobile-nav-link block py-2 text-slate-800 dark:text-slate-200 hover:text-sky-600 dark:hover:text-sky-400 font-medium text-sm">
+    <a href="#faqs" data-mobile-nav-target="faqs" class="mobile-nav-link block py-2.5 text-slate-700 dark:text-slate-300 hover:text-sky-600 dark:hover:text-sky-400 font-medium text-sm">
       Preguntas Frecuentes
     </a>
 
@@ -226,6 +226,62 @@ import ThemeToggle from "../ui/ThemeToggle.astro";
         closeMenu();
       }
     });
+
+    // Dynamic Scroll-Spy: Highlights the section currently in view
+    const desktopLinks = document.querySelectorAll<HTMLAnchorElement>("a[data-nav-target]");
+    const mobileNavLinks = document.querySelectorAll<HTMLAnchorElement>("a[data-mobile-nav-target]");
+    const sectionIds = ["averias", "servicios", "confianza", "diagnostico", "cobertura", "faqs"];
+
+    function setActive(id: string | null) {
+      desktopLinks.forEach((link) => {
+        const target = link.getAttribute("data-nav-target");
+        if (id && target === id) {
+          link.classList.add("text-sky-600", "dark:text-sky-400", "font-bold");
+          link.classList.remove("text-slate-600", "dark:text-slate-300");
+        } else {
+          link.classList.remove("text-sky-600", "dark:text-sky-400", "font-bold");
+          link.classList.add("text-slate-600", "dark:text-slate-300");
+        }
+      });
+      mobileNavLinks.forEach((link) => {
+        const target = link.getAttribute("data-mobile-nav-target");
+        if (id && target === id) {
+          link.classList.add("text-sky-600", "dark:text-sky-400", "font-bold");
+        } else {
+          link.classList.remove("text-sky-600", "dark:text-sky-400", "font-bold");
+        }
+      });
+    }
+
+    const sections = sectionIds
+      .map((id) => document.getElementById(id))
+      .filter((el): el is HTMLElement => el !== null);
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const intersecting = entries.filter((e) => e.isIntersecting);
+        if (intersecting.length > 0) {
+          const activeSec = intersecting[0];
+          setActive(activeSec.target.id);
+        }
+      },
+      {
+        rootMargin: "-25% 0px -65% 0px",
+        threshold: [0, 0.25],
+      }
+    );
+
+    sections.forEach((sec) => observer.observe(sec));
+
+    window.addEventListener(
+      "scroll",
+      () => {
+        if (window.scrollY < 120) {
+          setActive(null);
+        }
+      },
+      { passive: true }
+    );
   }
 
   if (document.readyState === "loading") {
