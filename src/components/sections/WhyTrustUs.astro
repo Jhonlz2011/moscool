@@ -4,6 +4,7 @@ import ShieldCheckIcon from "../ui/icons/ShieldCheckIcon.astro";
 import ClockFastIcon from "../ui/icons/ClockFastIcon.astro";
 import WrenchToolIcon from "../ui/icons/WrenchToolIcon.astro";
 import CheckIcon from "../ui/icons/CheckIcon.astro";
+import BeforeAfterSlider from "../islands/BeforeAfterSlider";
 
 const trustPillars = [
   {
@@ -29,10 +30,10 @@ const trustPillars = [
 ];
 ---
 
-<section class="py-20 bg-slate-950 border-t border-slate-800">
+<section class="py-20 bg-slate-950 border-t border-slate-800" id="confianza">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="max-w-3xl mb-14">
-      <span class="text-xs font-semibold uppercase tracking-wider text-emerald-400 block mb-2">
+      <span class="text-xs font-semibold uppercase tracking-wider text-emerald-400 block mb-2 font-mono">
         Confianza y Profesionalismo
       </span>
       <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight">
@@ -43,11 +44,12 @@ const trustPillars = [
       </p>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+    <!-- Trust Pillars 4-Card Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
       {trustPillars.map((tp) => {
         const IconComponent = tp.icon;
         return (
-          <div class="rounded-2xl bg-slate-900 border border-slate-800 p-6 flex flex-col justify-between hover:border-slate-700 transition-colors">
+          <div class="rounded-2xl bg-slate-900/80 border border-slate-800 p-6 flex flex-col justify-between hover:border-slate-700 transition-colors shadow-lg">
             <div>
               <div class="w-10 h-10 rounded-xl bg-slate-800 border border-slate-700 flex items-center justify-center mb-4">
                 <IconComponent class="w-5 h-5 text-sky-400" />
@@ -69,6 +71,31 @@ const trustPillars = [
           </div>
         );
       })}
+    </div>
+
+    <!-- Before / After Interactive Visual Proof Module -->
+    <div class="rounded-3xl border border-slate-800 bg-slate-900/60 p-6 sm:p-10 shadow-2xl">
+      <div class="max-w-3xl mx-auto text-center mb-8">
+        <span class="text-xs font-mono font-bold uppercase tracking-wider text-sky-400 block mb-1">
+          Demostración Visual de Mantenimiento Profundo
+        </span>
+        <h3 class="text-xl sm:text-2xl md:text-3xl font-extrabold text-white">
+          Inspección Interactiva: Turbina y Serpentín de Split
+        </h3>
+        <p class="text-slate-300 text-xs sm:text-sm mt-2">
+          En el clima húmedo de Guayaquil, la turbina acumula moho negro que bloquea el aire y genera malos olores. Desliza la barra para ver la diferencia de un lavado técnico con funda colectora sin manchar tu pared.
+        </p>
+      </div>
+
+      <BeforeAfterSlider
+        client:visible
+        beforeSrc="/assets/images/before-after/split-turbina-sucio.svg"
+        afterSrc="/assets/images/before-after/split-turbina-limpio.svg"
+        beforeAlt="Turbina de split con moho y suciedad antes del mantenimiento"
+        afterAlt="Turbina de split desinfectada y limpia después del mantenimiento"
+        beforeLabel="Antes: Con Moho"
+        afterLabel="Después: Sanitizado"
+      />
     </div>
   </div>
 </section>

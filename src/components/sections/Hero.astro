@@ -8,15 +8,21 @@ import ClockFastIcon from "../ui/icons/ClockFastIcon.astro";
 import HomeShieldIcon from "../ui/icons/HomeShieldIcon.astro";
 ---
 
-<section class="relative pt-12 pb-20 md:pt-20 md:pb-28 overflow-hidden bg-grid-subtle">
+<section class="relative pt-10 pb-16 md:pt-16 md:pb-24 overflow-hidden bg-grid-subtle">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
       
       <!-- Left Column: Headline and Call to Action -->
       <div class="lg:col-span-7 space-y-6">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-900 border border-slate-700 text-xs text-slate-300">
-          <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
-          <span>Atención a Domicilio • Guayaquil, Samborondón y Durán</span>
+        <!-- Live Dispatch Micro-Pill -->
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/90 border border-emerald-500/40 text-xs text-slate-200 shadow-lg backdrop-blur-sm">
+          <span class="relative flex h-2.5 w-2.5">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
+          </span>
+          <span class="font-mono text-[11px] tracking-wider text-emerald-400 font-bold uppercase">Técnicos en Ruta</span>
+          <span class="text-slate-500 font-mono">•</span>
+          <span class="text-slate-300">Samborondón, Ceibos, Vía a la Costa y Durán</span>
         </div>
 
         <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight">
@@ -24,16 +30,16 @@ import HomeShieldIcon from "../ui/icons/HomeShieldIcon.astro";
         </h1>
 
         <p class="text-base sm:text-lg text-slate-300 leading-relaxed max-w-2xl font-normal">
-          {siteConfig.tagline}. Solucionamos averías urgentes con <strong>diagnóstico honesto</strong>, respeto por tu hogar y <strong>30 días de garantía por escrito</strong>. Recibes presupuesto claro antes de iniciar cualquier reparación.
+          {siteConfig.tagline}. Solucionamos averías urgentes con <strong>diagnóstico honesto</strong>, respeto riguroso por las paredes de tu hogar y <strong>30 días de garantía por escrito</strong>. Recibes presupuesto cerrado antes de iniciar cualquier labor.
         </p>
 
-        <!-- Action Buttons -->
+        <!-- Action Buttons with Tactile Press Mechanics -->
         <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-3.5 pt-2">
           <a
             href={`https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent(siteConfig.whatsappMessageDefault)}`}
             target="_blank"
             rel="noopener noreferrer"
-            class="px-6 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-sm transition-colors text-center flex items-center justify-center gap-2.5 shadow-lg shadow-emerald-950/40"
+            class="px-6 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 active:bg-emerald-700 text-white font-semibold text-sm transition-all text-center flex items-center justify-center gap-2.5 shadow-lg shadow-emerald-950/50 hover:shadow-emerald-900/60 active:translate-y-0.5 cursor-pointer"
           >
             <WhatsAppIcon class="w-4 h-4 fill-current" />
             <span>Agendar Visita por WhatsApp</span>
@@ -41,7 +47,7 @@ import HomeShieldIcon from "../ui/icons/HomeShieldIcon.astro";
 
           <a
             href={`tel:${siteConfig.phone.replace(/\s+/g, '')}`}
-            class="px-6 py-3.5 rounded-xl bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-200 hover:text-white font-semibold text-sm transition-colors text-center flex items-center justify-center gap-2"
+            class="px-6 py-3.5 rounded-xl bg-slate-900 hover:bg-slate-800 active:bg-slate-950 border border-slate-700 text-slate-200 hover:text-white font-semibold text-sm transition-all text-center flex items-center justify-center gap-2 active:translate-y-0.5 cursor-pointer"
           >
             <PhoneIcon class="w-4 h-4 text-sky-400" />
             <span>Llamar al Técnico ({siteConfig.phoneFormatted})</span>
@@ -49,14 +55,14 @@ import HomeShieldIcon from "../ui/icons/HomeShieldIcon.astro";
         </div>
 
         <!-- 3 Pillars with Pure SVG Icons -->
-        <div class="pt-6 grid grid-cols-1 sm:grid-cols-3 gap-3 border-t border-slate-800 text-xs text-slate-300">
+        <div class="pt-6 grid grid-cols-1 sm:grid-cols-3 gap-3 border-t border-slate-800 text-xs text-slate-300 font-mono">
           <div class="flex items-center gap-2">
             <ClockFastIcon class="w-4 h-4 text-amber-400 shrink-0" />
-            <span>Atención Rápida (1-2h)</span>
+            <span>Llegada en 1 a 2 horas</span>
           </div>
           <div class="flex items-center gap-2">
             <HomeShieldIcon class="w-4 h-4 text-sky-400 shrink-0" />
-            <span>Cuidado de Paredes y Pisos</span>
+            <span>Funda Colectora en Pared</span>
           </div>
           <div class="flex items-center gap-2">
             <ShieldCheckIcon class="w-4 h-4 text-emerald-400 shrink-0" />
@@ -65,69 +71,57 @@ import HomeShieldIcon from "../ui/icons/HomeShieldIcon.astro";
         </div>
       </div>
 
-      <!-- Right Column: Home Service Guarantee Card -->
+      <!-- Right Column: Visual Technical Workbench Card -->
       <div class="lg:col-span-5">
-        <div class="rounded-2xl bg-slate-900 border border-slate-800 p-6 shadow-2xl space-y-4 max-w-md mx-auto">
-          <!-- Top Card Brand -->
-          <div class="flex items-center justify-between pb-4 border-b border-slate-800">
-            <div class="flex items-center gap-3">
-              <div class="w-10 h-10 rounded-xl bg-white p-1 flex items-center justify-center shrink-0">
-                <img src="/brand/logo.png" alt="Logo" class="w-full h-full object-contain" width="40" height="40" />
-              </div>
-              <div>
-                <span class="font-bold text-sm text-white block leading-tight">{siteConfig.name}</span>
-                <span class="text-[11px] text-slate-400">Servicio Técnico a Domicilio</span>
-              </div>
-            </div>
-            <span class="text-[10px] font-semibold text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">
-              Garantía Formal
-            </span>
-          </div>
+        <div class="rounded-2xl bg-slate-900/90 border border-slate-800 p-5 shadow-2xl space-y-4 max-w-lg mx-auto relative group">
+          <!-- Ambient subtle border glow -->
+          <div class="absolute -inset-0.5 bg-gradient-to-r from-sky-500/20 to-emerald-500/20 rounded-2xl blur opacity-30 group-hover:opacity-60 transition duration-500 pointer-events-none"></div>
 
-          <!-- Key Service Commitments -->
-          <div class="space-y-3 text-xs">
-            <div class="flex items-start gap-2.5 p-2.5 rounded-lg bg-slate-950 border border-slate-800/80">
-              <CheckIcon class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
-              <div>
-                <span class="font-semibold text-white block">Presupuesto Previo sin Sorpresas</span>
-                <p class="text-slate-400 text-[11px] mt-0.5">
-                  Conoces el valor exacto de mano de obra y repuestos antes de iniciar.
-                </p>
+          <div class="relative space-y-4">
+            <!-- Top Brand Header -->
+            <div class="flex items-center justify-between pb-3 border-b border-slate-800">
+              <div class="flex items-center gap-2.5">
+                <div class="w-9 h-9 rounded-lg bg-white p-1 flex items-center justify-center shrink-0">
+                  <img src="/brand/logo.png" alt="Logo" class="w-full h-full object-contain" width="36" height="36" />
+                </div>
+                <div>
+                  <span class="font-bold text-sm text-white block leading-tight">{siteConfig.name}</span>
+                  <span class="text-[11px] text-slate-400 font-mono">Taller de Climatización y Línea Blanca</span>
+                </div>
               </div>
+              <span class="text-[10px] font-mono font-bold text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/30 uppercase tracking-wider">
+                Garantía 30 Días
+              </span>
             </div>
 
-            <div class="flex items-start gap-2.5 p-2.5 rounded-lg bg-slate-950 border border-slate-800/80">
-              <CheckIcon class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
-              <div>
-                <span class="font-semibold text-white block">Protección de tu Espacio</span>
-                <p class="text-slate-400 text-[11px] mt-0.5">
-                  Fundas especiales colectoras al lavar splits para no humedecer tus paredes.
-                </p>
-              </div>
+            <!-- Visual Schematic Image Placeholder -->
+            <div class="rounded-xl overflow-hidden border border-slate-800 bg-slate-950 relative aspect-[16/10]">
+              <img
+                src="/assets/images/hero/tecnico-diagnostico.svg"
+                alt="Diagnóstico de split con funda colectora impermeable y medición de presiones"
+                class="w-full h-full object-cover"
+                loading="eager"
+              />
             </div>
 
-            <div class="flex items-start gap-2.5 p-2.5 rounded-lg bg-slate-950 border border-slate-800/80">
-              <CheckIcon class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
-              <div>
-                <span class="font-semibold text-white block">Repuestos Nuevos con Respaldo</span>
-                <p class="text-slate-400 text-[11px] mt-0.5">
-                  Componentes originales o certificados específicos para tu marca.
-                </p>
+            <!-- Key Service Commitments -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs pt-1">
+              <div class="flex items-start gap-2 p-2 rounded-lg bg-slate-950/80 border border-slate-800/80">
+                <CheckIcon class="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5" />
+                <div>
+                  <span class="font-semibold text-white block text-[11px]">Paredes Protegidas</span>
+                  <p class="text-slate-400 text-[10px]">Cero humedad en gypsum</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-2 p-2 rounded-lg bg-slate-950/80 border border-slate-800/80">
+                <CheckIcon class="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5" />
+                <div>
+                  <span class="font-semibold text-white block text-[11px]">Acceso a Garitas</span>
+                  <p class="text-slate-400 text-[10px]">Pase previo en urbanizaciones</p>
+                </div>
               </div>
             </div>
-          </div>
-
-          <!-- Bottom Action -->
-          <div class="pt-2">
-            <a
-              href={`https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent("Hola, deseo solicitar una visita técnica para mi domicilio.")}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="w-full py-2.5 px-4 rounded-xl bg-slate-800 hover:bg-sky-600 text-white font-semibold text-xs transition-colors flex items-center justify-center gap-2"
-            >
-              <WhatsAppIcon class="w-4 h-4 fill-current" />
-              <span>Coordinar Visita en tu Sector</span>
-            </a>
           </div>
         </div>
       </div>

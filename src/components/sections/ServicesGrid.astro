@@ -14,73 +14,95 @@ const iconsMap: Record<string, any> = {
   "lavado-secado": WashingMachineIcon,
   "cocinas-hornos": FlameIcon,
 };
+
+const illustrationsMap: Record<string, string> = {
+  climatizacion: "/assets/images/services/split-mantenimiento-funda.svg",
+  refrigeracion: "/assets/images/services/refrigeracion-no-frost.svg",
+  "lavado-secado": "/assets/images/services/lavadora-transmision.svg",
+  "cocinas-hornos": "/assets/images/services/cocina-calibracion.svg",
+};
 ---
 
 <section id="servicios" class="py-20 bg-slate-950 border-t border-slate-800">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <!-- Header -->
     <div class="max-w-3xl mb-14">
-      <span class="text-xs font-semibold uppercase tracking-wider text-sky-400 block mb-2">
-        Nuestras Especialidades
+      <span class="text-xs font-semibold uppercase tracking-wider text-sky-400 block mb-2 font-mono">
+        Nuestras Especialidades de Taller
       </span>
       <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight">
         Servicios Técnicos Especializados a Domicilio
       </h2>
       <p class="text-slate-400 text-sm sm:text-base mt-2 leading-relaxed">
-        Soluciones integrales para las 4 líneas principales de electrodomésticos en Guayaquil, Samborondón y Durán. Diagnóstico claro, instrumental adecuado y 30 días de garantía.
+        Soluciones integrales para las 4 líneas principales de electrodomésticos en Guayaquil, Samborondón y Durán. Diagnóstico claro, instrumental adecuado y 30 días de garantía por escrito.
       </p>
     </div>
 
-    <!-- 4 Services Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <!-- 4 Services Grid with Visual Schematics -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
       {servicesData.map((service) => {
         const IconComponent = iconsMap[service.id] || SnowflakeIcon;
+        const illustration = illustrationsMap[service.id];
         return (
-          <div class="rounded-2xl bg-slate-900 border border-slate-800 p-7 flex flex-col justify-between hover:border-slate-700 transition-colors">
+          <div class="rounded-2xl bg-slate-900/90 border border-slate-800 overflow-hidden flex flex-col justify-between hover:border-slate-700 transition-all shadow-xl group">
             <div>
-              <div class="flex items-center justify-between pb-3 border-b border-slate-800 mb-4">
-                <div class="flex items-center gap-2.5">
-                  <div class="w-8 h-8 rounded-lg bg-slate-800 border border-slate-700 flex items-center justify-center">
-                    <IconComponent class="w-4 h-4 text-sky-400" />
+              <!-- Visual Schematic Header -->
+              {illustration && (
+                <div class="aspect-[16/9] w-full bg-slate-950 border-b border-slate-800 overflow-hidden relative">
+                  <img
+                    src={illustration}
+                    alt={service.title}
+                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
+                  />
+                  <div class="absolute top-3 right-3">
+                    <span class="text-[11px] font-mono font-bold text-emerald-400 bg-slate-950/90 px-2.5 py-1 rounded-md border border-emerald-500/30 backdrop-blur-sm">
+                      {service.warrantyDays} días garantía
+                    </span>
                   </div>
-                  <span class="text-xs font-semibold uppercase tracking-wider text-slate-300">
+                </div>
+              )}
+
+              <div class="p-6 sm:p-7">
+                <div class="flex items-center gap-2.5 mb-3">
+                  <div class="w-7 h-7 rounded-lg bg-slate-800 border border-slate-700 flex items-center justify-center shrink-0">
+                    <IconComponent class="w-3.5 h-3.5 text-sky-400" />
+                  </div>
+                  <span class="text-xs font-mono font-bold uppercase tracking-wider text-sky-400">
                     {service.category}
                   </span>
                 </div>
-                <span class="text-xs font-semibold text-emerald-400 bg-emerald-500/10 px-2.5 py-0.5 rounded-full border border-emerald-500/20">
-                  {service.warrantyDays} días de garantía
-                </span>
-              </div>
 
-              <h3 class="text-lg font-bold text-white tracking-tight mb-2">
-                {service.title}
-              </h3>
+                <h3 class="text-lg sm:text-xl font-bold text-white tracking-tight mb-2">
+                  {service.title}
+                </h3>
 
-              <p class="text-xs sm:text-sm text-slate-300 leading-relaxed mb-5">
-                {service.description}
-              </p>
+                <p class="text-xs sm:text-sm text-slate-300 leading-relaxed mb-5">
+                  {service.description}
+                </p>
 
-              <div class="space-y-2 mb-6">
-                <span class="text-xs font-semibold uppercase tracking-wider text-slate-400 block">
-                  Trabajos frecuentes:
-                </span>
-                <ul class="space-y-1.5">
-                  {service.included.map((item) => (
-                    <li class="text-xs text-slate-300 flex items-start gap-2">
-                      <CheckIcon class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
-                      <span>{item}</span>
-                    </li>
-                  ))}
-                </ul>
+                <div class="space-y-2 mb-2 p-3.5 rounded-xl bg-slate-950/60 border border-slate-800/80">
+                  <span class="text-xs font-mono font-semibold uppercase tracking-wider text-slate-400 block mb-1">
+                    Trabajos frecuentes en domicilio:
+                  </span>
+                  <ul class="space-y-1.5">
+                    {service.included.map((item) => (
+                      <li class="text-xs text-slate-300 flex items-start gap-2">
+                        <CheckIcon class="w-3.5 h-3.5 text-emerald-400 shrink-0 mt-0.5" />
+                        <span>{item}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
             </div>
 
-            <div class="pt-5 border-t border-slate-800">
+            <div class="p-6 pt-0">
               <a
-                href={`https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent(`Hola, requiero información y cotización para el servicio de: ${service.title}`)}`}
+                href={`https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent(`Hola Servicio Técnico Mendoza, requiero información y cotización para el servicio de: ${service.title}`)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                class="w-full py-2.5 px-4 rounded-xl bg-slate-800 hover:bg-emerald-600 text-slate-200 hover:text-white font-semibold text-xs transition-colors flex items-center justify-center gap-2"
+                class="w-full py-3 px-4 rounded-xl bg-slate-800 hover:bg-emerald-600 active:bg-emerald-700 text-slate-200 hover:text-white font-semibold text-xs transition-all flex items-center justify-center gap-2 active:translate-y-0.5 cursor-pointer shadow-md"
               >
                 <WhatsAppIcon class="w-4 h-4 fill-current" />
                 <span>Consultar este Servicio por WhatsApp</span>

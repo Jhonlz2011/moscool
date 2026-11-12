@@ -1,0 +1,44 @@
+<svg viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto">
+  <rect width="800" height="600" fill="#090d16"/>
+  <!-- Dark background grid -->
+  <path d="M0 100 H800 M0 200 H800 M0 300 H800 M0 400 H800 M0 500 H800" stroke="#1f2937" stroke-width="1" stroke-dasharray="4 8"/>
+  <path d="M100 0 V600 M200 0 V600 M300 0 V600 M400 0 V600 M500 0 V600 M600 0 V600 M700 0 V600" stroke="#1f2937" stroke-width="1" stroke-dasharray="4 8"/>
+
+  <!-- Evaporator Coil Section (Upper) - Dirty / Clogged -->
+  <g transform="translate(100, 60)">
+    <rect x="0" y="0" width="600" height="150" rx="8" fill="#1e293b" stroke="#78350f" stroke-width="2"/>
+    <!-- Clogged Aluminum fins -->
+    <path d="M 20 20 L 580 20 M 20 40 L 580 40 M 20 60 L 580 60 M 20 80 L 580 80 M 20 100 L 580 100 M 20 120 L 580 120" stroke="#92400e" stroke-width="4" stroke-linecap="round"/>
+    <!-- Mold clusters / grime clumps -->
+    <circle cx="120" cy="50" r="18" fill="#451a03" stroke="#78350f"/>
+    <circle cx="280" cy="70" r="22" fill="#451a03" stroke="#78350f"/>
+    <circle cx="450" cy="45" r="25" fill="#451a03" stroke="#78350f"/>
+    <circle cx="340" cy="90" r="15" fill="#451a03" stroke="#78350f"/>
+    <circle cx="510" cy="85" r="20" fill="#451a03" stroke="#78350f"/>
+    <text x="30" y="140" fill="#f59e0b" font-family="ui-monospace, monospace" font-size="12" font-weight="bold">SERPENTÍN TUPIDO | FLUJO DE AIRE BLOQUEADO AL 65%</text>
+  </g>
+
+  <!-- Cross-Flow Fan Turbine (Turbina Transversal) - Dirty with Mold -->
+  <g transform="translate(100, 240)">
+    <rect x="0" y="0" width="600" height="240" rx="12" fill="#111827" stroke="#dc2626" stroke-width="2"/>
+    <text x="25" y="35" fill="#f87171" font-family="sans-serif" font-size="13" font-weight="bold">TURBINA DE VENTILACIÓN CUBIERTA DE MOHO NEGRO</text>
+
+    <!-- Turbine Blades Cylindrical Array -->
+    <g transform="translate(30, 50)">
+      <!-- Repeated dirty blades -->
+      <path d="M 20 20 Q 35 70 20 120 M 50 20 Q 65 70 50 120 M 80 20 Q 95 70 80 120 M 110 20 Q 125 70 110 120 M 140 20 Q 155 70 140 120 M 170 20 Q 185 70 170 120 M 200 20 Q 215 70 200 120 M 230 20 Q 245 70 230 120 M 260 20 Q 275 70 260 120 M 290 20 Q 305 70 290 120 M 320 20 Q 335 70 320 120 M 350 20 Q 365 70 350 120 M 380 20 Q 395 70 380 120 M 410 20 Q 425 70 410 120 M 440 20 Q 455 70 440 120 M 470 20 Q 485 70 470 120 M 500 20 Q 515 70 500 120 M 530 20 Q 545 70 530 120" stroke="#7f1d1d" stroke-width="8" stroke-linecap="round"/>
+      <!-- Grime layer -->
+      <path d="M 10 70 C 60 90, 120 50, 180 80 C 240 100, 300 60, 360 85 C 420 100, 480 60, 530 80" stroke="#450a0a" stroke-width="18" fill="none" stroke-linecap="round"/>
+    </g>
+
+    <!-- Symptoms Box -->
+    <rect x="25" y="185" width="550" height="40" rx="6" fill="#450a0a" fill-opacity="0.6" stroke="#ef4444"/>
+    <text x="35" y="210" fill="#fecaca" font-family="ui-monospace, monospace" font-size="12">SÍNTOMAS: Gotera en pared, bajo soplido, mal olor a humedad, alto consumo de luz</text>
+  </g>
+
+  <!-- Status Watermark (Top Left) -->
+  <g transform="translate(30, 30)">
+    <rect x="0" y="0" width="160" height="32" rx="6" fill="#7f1d1d" stroke="#ef4444"/>
+    <text x="80" y="21" fill="#ffffff" font-family="sans-serif" font-size="12" font-weight="900" text-anchor="middle">ESTADO: ANTES</text>
+  </g>
+</svg>

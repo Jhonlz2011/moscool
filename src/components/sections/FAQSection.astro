@@ -6,7 +6,7 @@ const faqs = [
   },
   {
     question: "¿Cómo evitan manchar las paredes o pisos al lavar un aire acondicionado split?",
-    answer: "Utilizamos fundas colectoras impermeables de grado profesional que se ajustan alrededor de la unidad interior y canalizan el agua con químico hacia un balde cerrado. Tus paredes de yeso/gypsum, molduras y pisos quedan totalmente protegidos y secos.",
+    answer: "Utilizamos fundas colectoras impermeables de grado profesional que se ajustan herméticamente alrededor de la unidad interior y canalizan el agua con químico hacia un balde cerrado mediante una manguera de desagüe. Tus paredes de yeso/gypsum, molduras y pisos quedan totalmente protegidos y secos.",
   },
   {
     question: "¿Llevan repuestos consigo para solucionar en la primera visita?",
@@ -26,37 +26,43 @@ const faqs = [
 <section id="faqs" class="py-20 bg-slate-950 border-t border-slate-800">
   <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="max-w-2xl mb-12">
-      <span class="text-xs font-semibold uppercase tracking-wider text-sky-400 block mb-2">
+      <span class="text-xs font-semibold uppercase tracking-wider text-sky-400 block mb-2 font-mono">
         Dudas Frecuentes
       </span>
       <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-white tracking-tight">
         Preguntas Habituales de Nuestros Clientes
       </h2>
       <p class="text-slate-400 text-sm mt-2 leading-relaxed">
-        Respuestas directas sobre tiempos de visita, protocolos de limpieza en tu hogar y el funcionamiento de la garantía.
+        Respuestas directas sobre tiempos de visita, protocolos de limpieza en tu hogar y el funcionamiento de la garantía de 30 días.
       </p>
     </div>
 
-    <div class="space-y-4">
+    <!-- Smooth Zero-Jank Accordion -->
+    <div class="space-y-3.5">
       {faqs.map((faq, index) => (
-        <details class="group rounded-xl bg-slate-900 border border-slate-800 p-5 open:border-slate-700">
+        <details class="group rounded-2xl bg-slate-900/80 border border-slate-800/80 p-5 open:border-sky-500/40 transition-colors shadow-md">
           <summary class="flex items-center justify-between cursor-pointer list-none select-none">
-            <div class="flex items-center gap-3 pr-4">
-              <span class="text-xs font-bold text-sky-400">
+            <div class="flex items-center gap-3.5 pr-4">
+              <span class="text-xs font-mono font-bold text-sky-400 shrink-0">
                 0{index + 1}.
               </span>
-              <h3 class="text-sm sm:text-base font-semibold text-white group-hover:text-sky-300 transition-colors">
+              <h3 class="text-sm sm:text-base font-bold text-slate-100 group-hover:text-sky-300 transition-colors leading-snug">
                 {faq.question}
               </h3>
             </div>
-            <div class="w-6 h-6 rounded-full bg-slate-800 flex items-center justify-center shrink-0 text-slate-300 group-hover:text-white">
-              <svg class="w-3.5 h-3.5 transition-transform group-open:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M6 9l6 6 6-6"/>
+            <div class="w-7 h-7 rounded-full bg-slate-800/90 border border-slate-700/60 flex items-center justify-center shrink-0 text-slate-300 group-hover:text-sky-300 transition-all group-open:bg-sky-950 group-open:border-sky-600/50">
+              <svg class="w-4 h-4 transition-transform duration-300 group-open:rotate-180" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
               </svg>
             </div>
           </summary>
-          <div class="mt-3 pt-3 border-t border-slate-800 text-xs sm:text-sm text-slate-300 leading-relaxed pl-6">
-            <p>{faq.answer}</p>
+          
+          <div class="grid grid-rows-[0fr] transition-[grid-template-rows] duration-300 ease-out group-open:grid-rows-[1fr]">
+            <div class="overflow-hidden">
+              <div class="pt-4 mt-3 border-t border-slate-800/80 text-xs sm:text-sm text-slate-300 leading-relaxed pl-7">
+                <p>{faq.answer}</p>
+              </div>
+            </div>
           </div>
         </details>
       ))}

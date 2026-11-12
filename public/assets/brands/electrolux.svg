@@ -1,0 +1,6 @@
+<svg viewBox="0 0 170 40" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-auto h-7">
+  <!-- Electrolux wordmark representation -->
+  <path d="M12 20C12 15 16 11 21 11C26 11 30 15 30 20C30 25 26 29 21 29C16 29 12 25 12 20Z" stroke="currentColor" stroke-width="2"/>
+  <path d="M21 15V25M16 20H26" stroke="currentColor" stroke-width="1.5"/>
+  <text x="100" y="58%" dominant-baseline="middle" text-anchor="middle" fill="currentColor" font-family="'Helvetica Neue', Arial, sans-serif" font-weight="700" font-size="17" letter-spacing="1">Electrolux</text>
+</svg>
