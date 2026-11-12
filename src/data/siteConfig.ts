@@ -6,63 +6,48 @@ export interface SiteConfig {
   url: string;
   phone: string;
   phoneFormatted: string;
-  whatsappNumber: string; // international digits only
+  whatsappNumber: string;
   whatsappMessageDefault: string;
   email: string;
-  address: {
-    street: string;
-    city: string;
-    state: string;
-    country: string;
-    postalCode: string;
-  };
-  geo: {
-    latitude: number;
-    longitude: number;
-  };
-  openingHours: string[];
-  priceRange: string;
+  city: string;
+  country: string;
+  serviceAreas: string[];
   warrantyPeriod: string;
+  proformaValidity: string;
   brandColors: {
     primary: string;
     secondary: string;
     accent: string;
     dark: string;
+    light: string;
   };
 }
 
 export const siteConfig: SiteConfig = {
-  name: "Moscool",
-  legalName: "Servicio Técnico Mendoza - Moscool",
-  tagline: "Climatización y Línea Blanca con Precisión de Grado Industrial",
-  description: "Especialistas certificados en reparación, mantenimiento e instalación de Aires Acondicionados Split e Inverter, Neveras, Lavadoras y Cocinas. Emisión inmediata de Proformas en PDF con validez y garantía por escrito.",
-  url: "https://moscool.zelys.app",
-  phone: "+584120000000",
-  phoneFormatted: "+58 (412) 000-0000",
-  whatsappNumber: "584120000000",
-  whatsappMessageDefault: "Hola Moscool, requiero asistencia técnica especializada para un equipo.",
-  email: "contacto@moscool.zelys.app",
-  address: {
-    street: "Av. Principal Técnica, Edif. Industrial Clima 4",
-    city: "Caracas",
-    state: "Distrito Capital",
-    country: "VE",
-    postalCode: "1010",
-  },
-  geo: {
-    latitude: 10.4806,
-    longitude: -66.9036,
-  },
-  openingHours: [
-    "Mo-Sa 07:30-18:30",
-    "Su 08:00-14:00 (Guardia de Emergencia)"
+  name: "Servicio Técnico Mendoza",
+  legalName: "Servicio Técnico Mendoza",
+  tagline: "Reparación, Mantenimiento e Instalación: Neveras, Lavadoras, Secadoras, Aires Acondicionados, Cocinas a Gas y Eléctricas",
+  description: "Servicio técnico profesional a domicilio en Guayaquil, Samborondón y Durán. Diagnóstico claro, emisión inmediata de proforma digital en PDF y 30 días de garantía por escrito.",
+  url: "https://zelys.app",
+  phone: "+593 99 006 8605",
+  phoneFormatted: "+593 99 006 8605",
+  whatsappNumber: "593990068605",
+  whatsappMessageDefault: "Hola, me comunico desde la página web de Servicio Técnico Mendoza. Requiero asistencia técnica para un equipo.",
+  email: "serviciotecnicomendoza789@gmail.com",
+  city: "Guayaquil",
+  country: "Ecuador",
+  serviceAreas: [
+    "Guayaquil",
+    "Samborondón",
+    "Durán",
   ],
-  priceRange: "$$",
-  warrantyPeriod: "30 a 90 días de garantía certificada por escrito en mano de obra y repuestos.",
+  warrantyPeriod: "30 días de garantía en mano de obra y repuestos instalados.",
+  proformaValidity: "Proforma válida por 15 días a partir de la fecha de emisión.",
   brandColors: {
     primary: "#0F172A",
     secondary: "#0284C7",
     accent: "#0EA5E9",
     dark: "#0B1120",
+    light: "#F8FAFC",
   },
 };

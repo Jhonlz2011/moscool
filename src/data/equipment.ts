@@ -1,7 +1,6 @@
 export interface EquipmentCategory {
   id: string;
   name: string;
-  icon: string;
   description: string;
   capacities: string[];
   symptoms: {
@@ -17,8 +16,7 @@ export const equipmentCatalog: EquipmentCategory[] = [
   {
     id: "aire-split",
     name: "Aire Acondicionado Split / Inverter",
-    icon: "snowflake",
-    description: "Sistemas residenciales y comerciales de alta eficiencia energética.",
+    description: "Sistemas residenciales y comerciales de pared, ventana o ducto.",
     capacities: [
       "9,000 BTU",
       "12,000 BTU (1 Ton)",
@@ -31,35 +29,35 @@ export const equipmentCatalog: EquipmentCategory[] = [
         id: "no-enfria",
         label: "Ventila pero no enfría / Tubería congelada",
         severity: "alta",
-        estimatedAction: "Detección de micro-fugas, presurización con nitrógeno seco y recarga R410A/R32.",
+        estimatedAction: "Detección de fuga de gas, presurización y recarga de refrigerante.",
         typicalDuration: "1 a 2 horas",
       },
       {
         id: "gotea-agua",
         label: "Bota agua hacia la pared interior",
         severity: "media",
-        estimatedAction: "Desobstrucción química de bandeja y canalización con bomba de drenaje.",
+        estimatedAction: "Limpieza y desobstrucción de bandeja y canalización de drenaje.",
         typicalDuration: "45 a 60 min",
       },
       {
         id: "error-inverter",
-        label: "Luces titilan / Código de error en display (E1, E6, etc.)",
+        label: "Luces parpadean / Código de error en pantalla",
         severity: "critica",
-        estimatedAction: "Diagnóstico osciloscópico de placa inverter, sensores thermistor y IPM.",
-        typicalDuration: "1 a 3 horas",
-      },
-      {
-        id: "ruido-vibracion",
-        label: "Ruido metálico o vibración en unidad exterior",
-        severity: "alta",
-        estimatedAction: "Alineación de turbina, cambio de rodamientos o silentblocks de compresor.",
+        estimatedAction: "Diagnóstico de tarjeta electrónica, sensores y compresión.",
         typicalDuration: "1 a 2 horas",
       },
       {
+        id: "ruido-vibracion",
+        label: "Ruido excesivo o vibración en unidad exterior",
+        severity: "alta",
+        estimatedAction: "Revisión de turbina, soportes de compresor o aspas de ventilador.",
+        typicalDuration: "1 hora",
+      },
+      {
         id: "mantenimiento-rutina",
-        label: "Mantenimiento preventivo químico profundo",
+        label: "Mantenimiento preventivo periódico",
         severity: "media",
-        estimatedAction: "Hidrolavado a presión con desengrasante biodegradable, serpentines y turbinas.",
+        estimatedAction: "Limpieza profunda de serpentines, filtros y revisión de presiones.",
         typicalDuration: "1 hora",
       },
     ],
@@ -67,8 +65,7 @@ export const equipmentCatalog: EquipmentCategory[] = [
   {
     id: "refrigeracion",
     name: "Nevera / Refrigerador / Congelador",
-    icon: "refrigerator",
-    description: "Neveras No-Frost, sistemas Side-by-Side, French Door y cavas de conservación.",
+    description: "Neveras No-Frost, convencionales, Side-by-Side y congeladores.",
     capacities: [
       "10 a 14 Pies Cúbicos",
       "16 a 22 Pies Cúbicos",
@@ -78,30 +75,30 @@ export const equipmentCatalog: EquipmentCategory[] = [
     symptoms: [
       {
         id: "enfria-arriba-no-abajo",
-        label: "Congela arriba pero no enfría en la parte de abajo",
+        label: "Congela arriba pero no enfría en la parte inferior",
         severity: "alta",
-        estimatedAction: "Revisión de bimetálico, resistencia de descongelamiento, damper y timer/tarjeta.",
+        estimatedAction: "Revisión del sistema de deshielo (resistencia, bimetal y ductos).",
         typicalDuration: "1 a 2 horas",
       },
       {
         id: "no-arranca-motor",
-        label: "El motor intenta arrancar con un 'clic' y se apaga",
+        label: "El motor intenta arrancar con un 'clic' y se detiene",
         severity: "critica",
-        estimatedAction: "Comprobación de relay PTC, capacitor de arranque o bobinas de compresor.",
+        estimatedAction: "Comprobación de relay de arranque, capacitor o motor compresor.",
         typicalDuration: "1 a 2 horas",
       },
       {
         id: "fuga-gas-nevera",
-        label: "Poco frío, motor trabaja sin parar y tubería tibia",
+        label: "Poco frío y el motor trabaja continuamente sin parar",
         severity: "critica",
-        estimatedAction: "Test de estanqueidad, cambio de filtro deshidratador y carga R134a/R600a.",
-        typicalDuration: "2 a 3 horas",
+        estimatedAction: "Verificación de presiones, cambio de filtro y recarga de refrigerante.",
+        typicalDuration: "2 horas",
       },
       {
         id: "bota-agua-piso",
-        label: "Agua acumulada en gavetas de vegetales o piso",
+        label: "Acumulación de agua en el piso o cajones de vegetales",
         severity: "media",
-        estimatedAction: "Limpieza y destape de conducto de evaporación hacia bandeja de condensado.",
+        estimatedAction: "Limpieza del ducto de desagüe hacia la bandeja posterior.",
         typicalDuration: "45 min",
       },
     ],
@@ -109,8 +106,7 @@ export const equipmentCatalog: EquipmentCategory[] = [
   {
     id: "lavado-secado",
     name: "Lavadora / Secadora Automática",
-    icon: "washing-machine",
-    description: "Carga frontal, carga superior, centros de lavado eléctricos y a gas.",
+    description: "Carga frontal, superior y centros de lavado.",
     capacities: [
       "8 a 12 Kg Residencial",
       "14 a 19 Kg Carga Pesada",
@@ -120,30 +116,30 @@ export const equipmentCatalog: EquipmentCategory[] = [
     symptoms: [
       {
         id: "no-centrifuga",
-        label: "Lava pero no centrifuga / Ropa sale empapada",
+        label: "Lava pero no centrifuga / La ropa queda con agua",
         severity: "alta",
-        estimatedAction: "Comprobación de bomba de drenaje, sensor de nivel de agua y switch de puerta.",
+        estimatedAction: "Revisión de bomba de drenaje, sensor de nivel y seguro de puerta.",
         typicalDuration: "1 a 2 horas",
       },
       {
         id: "golpeteo-fuerte",
-        label: "Golpea fuerte al girar / Salta de su lugar",
+        label: "Golpeteo fuerte o vibración al girar",
         severity: "alta",
-        estimatedAction: "Sustitución de varillas de suspensión, amortiguadores o cruceta de tambor.",
-        typicalDuration: "1.5 horas",
-      },
-      {
-        id: "no-calienta-secadora",
-        label: "Secadora gira normal pero no genera calor",
-        severity: "alta",
-        estimatedAction: "Comprobación de termostatos de seguridad, bimetales, ignitor o resistencia.",
+        estimatedAction: "Revisión de amortiguadores, varillas de suspensión y rodamientos.",
         typicalDuration: "1 a 2 horas",
       },
       {
+        id: "no-calienta-secadora",
+        label: "La secadora gira pero no calienta",
+        severity: "alta",
+        estimatedAction: "Comprobación de resistencias, termostatos y sensores térmicos.",
+        typicalDuration: "1 hora",
+      },
+      {
         id: "no-entra-agua",
-        label: "Marca error al llenar / Entrada de agua insuficiente",
+        label: "No ingresa agua o llena muy lento",
         severity: "media",
-        estimatedAction: "Inspección de solenoides de electroválvula y limpieza de filtros de malla.",
+        estimatedAction: "Limpieza de filtros y verificación de electroválvulas de entrada.",
         typicalDuration: "45 min",
       },
     ],
@@ -151,34 +147,33 @@ export const equipmentCatalog: EquipmentCategory[] = [
   {
     id: "cocinas-hornos",
     name: "Cocina a Gas / Eléctrica / Horno",
-    icon: "flame",
-    description: "Estufas, hornos empotrables, encendido electrónico y válvulas termopar.",
+    description: "Cocinas de piso, empotrables y hornos.",
     capacities: [
       "4 Quemadores",
       "5 a 6 Quemadores",
       "Horno Empotrable",
-      "Tope de Inducción / Vitrocerámica",
+      "Cocina Eléctrica / Inducción",
     ],
     symptoms: [
       {
         id: "llama-amarilla",
         label: "Llama amarilla y ahúma las ollas / Olor a gas",
         severity: "critica",
-        estimatedAction: "Ajuste de espreas, calibración del venturi y verificación de estanqueidad.",
+        estimatedAction: "Calibración de quemadores, espreas y revisión de conexiones de gas.",
         typicalDuration: "1 hora",
       },
       {
         id: "no-mantiene-llama-horno",
-        label: "El horno prende pero al soltar la perilla se apaga",
+        label: "El horno enciende pero al soltar la perilla se apaga",
         severity: "alta",
-        estimatedAction: "Calibración o reemplazo de termocupla de seguridad y válvula de paso.",
+        estimatedAction: "Reemplazo o calibración de la termocupla de seguridad.",
         typicalDuration: "1 hora",
       },
       {
         id: "chispa-continua",
-        label: "Chispómetro suena sin parar o no produce chispa",
+        label: "Chispómetro no acciona o suena continuamente",
         severity: "media",
-        estimatedAction: "Revisión de módulo generador de impulsos, microswitches y bujías cerámicas.",
+        estimatedAction: "Revisión de bujías, pulsadores y módulo generador de chispas.",
         typicalDuration: "45 min",
       },
     ],

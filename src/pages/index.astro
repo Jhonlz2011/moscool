@@ -4,12 +4,10 @@ import Navbar from "../components/layout/Navbar.astro";
 import Footer from "../components/layout/Footer.astro";
 import FloatingEmergencyBar from "../components/layout/FloatingEmergencyBar.astro";
 import Hero from "../components/sections/Hero.astro";
-import LiveTelemetryTicker from "../components/sections/LiveTelemetryTicker.astro";
-import ServicesBento from "../components/sections/ServicesBento.astro";
+import ServicesGrid from "../components/sections/ServicesGrid.astro";
 import DiagnosticSection from "../components/sections/DiagnosticSection.astro";
-import WhyMoscoolComparison from "../components/sections/WhyMoscoolComparison.astro";
+import ServiceGuarantee from "../components/sections/ServiceGuarantee.astro";
 import ProformaAppSpotlight from "../components/sections/ProformaAppSpotlight.astro";
-import WorkflowSteps from "../components/sections/WorkflowSteps.astro";
 import CoverageAreas from "../components/sections/CoverageAreas.astro";
 import FAQSection from "../components/sections/FAQSection.astro";
 import FinalCta from "../components/sections/FinalCta.astro";
@@ -17,18 +15,16 @@ import { siteConfig } from "../data/siteConfig";
 ---
 
 <BaseLayout
-  title={`${siteConfig.name} | Servicio Técnico Especializado en Climatización y Línea Blanca`}
+  title={`${siteConfig.name} | Climatización y Línea Blanca a Domicilio en Guayaquil, Samborondón y Durán`}
   description={siteConfig.description}
 >
   <Navbar />
   <main>
     <Hero />
-    <LiveTelemetryTicker />
-    <ServicesBento />
+    <ServicesGrid />
     <DiagnosticSection />
-    <WhyMoscoolComparison />
+    <ServiceGuarantee />
     <ProformaAppSpotlight />
-    <WorkflowSteps />
     <CoverageAreas />
     <FAQSection />
     <FinalCta />

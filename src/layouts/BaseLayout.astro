@@ -3,7 +3,6 @@ import "../styles/global.css";
 import { siteConfig } from "../data/siteConfig";
 import { servicesData } from "../data/services";
 import { faqsData } from "../data/faqs";
-import { coverageZones } from "../data/coverage";
 
 interface Props {
   title?: string;
@@ -13,7 +12,7 @@ interface Props {
 }
 
 const {
-  title = `${siteConfig.name} | Servicio Técnico de Climatización y Línea Blanca`,
+  title = `${siteConfig.name} | Climatización y Línea Blanca en Guayaquil, Samborondón y Durán`,
   description = siteConfig.description,
   image = "/brand/logo.png",
   canonical = Astro.url.href,
@@ -22,57 +21,32 @@ const {
 const canonicalURL = new URL(canonical, siteConfig.url).toString();
 const ogImageURL = new URL(image, siteConfig.url).toString();
 
-// Structured Data: HVACBusiness & LocalBusiness
-const hvacBusinessSchema = {
+// Structured Data: LocalBusiness & HVACBusiness
+const localBusinessSchema = {
   "@context": "https://schema.org",
-  "@type": ["HVACBusiness", "HomeAndConstructionBusiness"],
+  "@type": ["LocalBusiness", "HVACBusiness"],
   "@id": `${siteConfig.url}/#business`,
   name: siteConfig.name,
-  alternateName: siteConfig.legalName,
   description: siteConfig.description,
   url: siteConfig.url,
   logo: `${siteConfig.url}/brand/logo.png`,
   image: `${siteConfig.url}/brand/logo.png`,
   telephone: siteConfig.phone,
   email: siteConfig.email,
-  priceRange: siteConfig.priceRange,
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: siteConfig.address.street,
-    addressLocality: siteConfig.address.city,
-    addressRegion: siteConfig.address.state,
-    addressCountry: siteConfig.address.country,
-    postalCode: siteConfig.address.postalCode,
-  },
-  geo: {
-    "@type": "GeoCoordinates",
-    latitude: siteConfig.geo.latitude,
-    longitude: siteConfig.geo.longitude,
-  },
-  openingHoursSpecification: [
-    {
-      "@type": "OpeningHoursSpecification",
-      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-      opens: "07:30",
-      closes: "18:30",
-    },
-    {
-      "@type": "OpeningHoursSpecification",
-      dayOfWeek: "Sunday",
-      opens: "08:00",
-      closes: "14:00",
-    },
-  ],
-  areaServed: coverageZones.flatMap((z) => z.sectors),
+  priceRange: "$$",
+  areaServed: siteConfig.serviceAreas.map((area) => ({
+    "@type": "City",
+    name: area,
+  })),
   hasOfferCatalog: {
     "@type": "OfferCatalog",
-    name: "Servicios Técnicos Especializados Moscool",
+    name: "Servicios Técnicos Especializados",
     itemListElement: servicesData.map((s, index) => ({
       "@type": "Offer",
       itemOffered: {
         "@type": "Service",
         name: s.title,
-        description: s.shortSummary,
+        description: s.description,
       },
       position: index + 1,
     })),
@@ -101,7 +75,7 @@ const faqSchema = {
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
     <title>{title}</title>
     <meta name="description" content={description} />
-    <meta name="keywords" content="servicio técnico moscool, reparación de aires acondicionados, mantenimiento split inverter, proformas en pdf, arreglo de lavadoras, reparación de neveras, recarga gas r410a r32, servicio técnico mendoza" />
+    <meta name="keywords" content="servicio técnico mendoza, reparación de aires acondicionados guayaquil, mantenimiento split samborondón, arreglo de lavadoras durán, reparación de neveras guayaquil, servicio técnico a domicilio" />
     <link rel="canonical" href={canonicalURL} />
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
 
@@ -111,14 +85,14 @@ const faqSchema = {
     <link rel="manifest" href="/site.webmanifest" />
     <meta name="theme-color" content="#0F172A" />
 
-    <!-- Open Graph / Facebook -->
+    <!-- Open Graph -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={ogImageURL} />
     <meta property="og:site_name" content={siteConfig.name} />
-    <meta property="og:locale" content="es_ES" />
+    <meta property="og:locale" content="es_EC" />
 
     <!-- Twitter Cards -->
     <meta name="twitter:card" content="summary_large_image" />
@@ -127,11 +101,11 @@ const faqSchema = {
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImageURL} />
 
-    <!-- JSON-LD Structured Data for Rich Search Results -->
-    <script type="application/ld+json" set:html={JSON.stringify(hvacBusinessSchema)} />
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />
     <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
   </head>
-  <body class="min-h-screen bg-[#0B1120] text-slate-100 selection:bg-sky-500 selection:text-white flex flex-col font-sans">
+  <body class="min-h-screen bg-[#0B1120] text-slate-100 selection:bg-sky-600 selection:text-white flex flex-col font-sans">
     <slot />
   </body>
 </html>

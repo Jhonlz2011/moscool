@@ -5,7 +5,7 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://moscool.zelys.app',
+  site: 'https://zelys.app',
   integrations: [
     solidJs(),
     sitemap(),

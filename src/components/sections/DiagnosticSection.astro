@@ -2,21 +2,17 @@
 import DiagnosticProformaCalculator from "../islands/DiagnosticProformaCalculator";
 ---
 
-<section id="diagnostico" class="py-24 relative bg-tech-dots">
+<section id="diagnostico" class="py-20 bg-slate-950 border-t border-slate-800">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="max-w-3xl mx-auto text-center mb-12">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md text-xs font-mono font-medium bg-sky-500/10 text-sky-400 border border-sky-500/20 mb-3">
-        HERRAMIENTA DIGITAL EN VIVO
-      </div>
-      <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-        Simulador de Diagnóstico y <span class="text-gradient-cyan">Pre-Proforma</span>
+    <div class="max-w-3xl mx-auto text-center mb-10">
+      <h2 class="text-3xl font-extrabold text-white tracking-tight">
+        Simulador de Consulta Técnica
       </h2>
-      <p class="text-slate-400 text-sm sm:text-base mt-2">
-        Obtén una evaluación técnica inmediata del problema de tu equipo y envía tu ticket directo a nuestro equipo técnico.
+      <p class="text-slate-400 text-sm mt-2">
+        Indica el tipo de equipo y la falla observada para obtener una guía preliminar y comunicarte directamente con el técnico a domicilio.
       </p>
     </div>
 
-    <!-- SolidJS Island -->
     <div class="max-w-5xl mx-auto">
       <DiagnosticProformaCalculator client:visible />
     </div>
