@@ -1,0 +1,137 @@
+---
+import "../styles/global.css";
+import { siteConfig } from "../data/siteConfig";
+import { servicesData } from "../data/services";
+import { faqsData } from "../data/faqs";
+import { coverageZones } from "../data/coverage";
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  canonical?: string;
+}
+
+const {
+  title = `${siteConfig.name} | Servicio Técnico de Climatización y Línea Blanca`,
+  description = siteConfig.description,
+  image = "/brand/logo.png",
+  canonical = Astro.url.href,
+} = Astro.props;
+
+const canonicalURL = new URL(canonical, siteConfig.url).toString();
+const ogImageURL = new URL(image, siteConfig.url).toString();
+
+// Structured Data: HVACBusiness & LocalBusiness
+const hvacBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": ["HVACBusiness", "HomeAndConstructionBusiness"],
+  "@id": `${siteConfig.url}/#business`,
+  name: siteConfig.name,
+  alternateName: siteConfig.legalName,
+  description: siteConfig.description,
+  url: siteConfig.url,
+  logo: `${siteConfig.url}/brand/logo.png`,
+  image: `${siteConfig.url}/brand/logo.png`,
+  telephone: siteConfig.phone,
+  email: siteConfig.email,
+  priceRange: siteConfig.priceRange,
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: siteConfig.address.street,
+    addressLocality: siteConfig.address.city,
+    addressRegion: siteConfig.address.state,
+    addressCountry: siteConfig.address.country,
+    postalCode: siteConfig.address.postalCode,
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: siteConfig.geo.latitude,
+    longitude: siteConfig.geo.longitude,
+  },
+  openingHoursSpecification: [
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+      opens: "07:30",
+      closes: "18:30",
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: "Sunday",
+      opens: "08:00",
+      closes: "14:00",
+    },
+  ],
+  areaServed: coverageZones.flatMap((z) => z.sectors),
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Servicios Técnicos Especializados Moscool",
+    itemListElement: servicesData.map((s, index) => ({
+      "@type": "Offer",
+      itemOffered: {
+        "@type": "Service",
+        name: s.title,
+        description: s.shortSummary,
+      },
+      position: index + 1,
+    })),
+  },
+};
+
+// Structured Data: FAQPage
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqsData.map((f) => ({
+    "@type": "Question",
+    name: f.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: f.answer,
+    },
+  })),
+};
+---
+
+<!doctype html>
+<html lang="es" class="dark scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content="servicio técnico moscool, reparación de aires acondicionados, mantenimiento split inverter, proformas en pdf, arreglo de lavadoras, reparación de neveras, recarga gas r410a r32, servicio técnico mendoza" />
+    <link rel="canonical" href={canonicalURL} />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+
+    <!-- Favicon & Icons -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/brand/logo.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="theme-color" content="#0F172A" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImageURL} />
+    <meta property="og:site_name" content={siteConfig.name} />
+    <meta property="og:locale" content="es_ES" />
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content={canonicalURL} />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImageURL} />
+
+    <!-- JSON-LD Structured Data for Rich Search Results -->
+    <script type="application/ld+json" set:html={JSON.stringify(hvacBusinessSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  </head>
+  <body class="min-h-screen bg-[#0B1120] text-slate-100 selection:bg-sky-500 selection:text-white flex flex-col font-sans">
+    <slot />
+  </body>
+</html>

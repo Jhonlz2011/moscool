@@ -1,0 +1,21 @@
+# Build outputs
+dist/
+.astro/
+
+# Dependencies
+node_modules/
+bun.lock
+bun.lockb
+
+# Environment
+.env
+.env.production
+.env.local
+.env.*.local
+
+# OS & Editors
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.log

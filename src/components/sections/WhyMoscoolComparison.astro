@@ -1,0 +1,76 @@
+---
+const comparisonPoints = [
+  {
+    feature: "Presupuesto y Cobro",
+    informal: "Precios verbales sobre la marcha. Cobros sorpresa por imprevistos no justificados.",
+    moscool: "Proforma Digital en PDF emitida con la app móvil Moscool con desglose exacto de mano de obra y repuestos.",
+  },
+  {
+    feature: "Procedimiento de Vacío Frigorífico",
+    informal: "'Barrido' con el mismo gas refrigerante sin bomba de vacío (destruye el aceite del compresor en meses).",
+    moscool: "Bomba de doble etapa + vacuómetro digital a <500 micrones. Certificación de estanqueidad total.",
+  },
+  {
+    feature: "Garantía de Servicio",
+    informal: "Sin garantía por escrito. Si la falla regresa, el técnico no responde o cobra de nuevo.",
+    moscool: "30 a 90 Días de Garantía Certificada por escrito en la proforma. Seguimiento post-servicio.",
+  },
+  {
+    feature: "Instrumental Técnico",
+    informal: "Manómetro análogo descalibrado, detector de fugas con agua y jabón, prueba de frío 'al ojo'.",
+    moscool: "Manifolds digitales, detectores electrónicos de fugas, pinzas True-RMS y termómetros láser.",
+  },
+  {
+    feature: "Calidad de Repuestos",
+    informal: "Piezas usadas, genéricos no compatibles o adaptaciones caseras que anulan garantías de fábrica.",
+    moscool: "Repuestos homologados de grado OEM específicos para la marca y modelo de tu equipo.",
+  },
+];
+---
+
+<section id="estandar" class="py-24 bg-[#090D16] border-t border-slate-800">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl mx-auto text-center mb-16">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md text-xs font-mono font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 mb-3">
+        TRANSPARENCIA TOTAL
+      </div>
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+        ¿Por qué elegir el <span class="text-gradient-cyan">Estándar Moscool</span>?
+      </h2>
+      <p class="text-slate-400 text-sm sm:text-base mt-2">
+        La diferencia entre una reparación profesional definitiva y un gasto recurrente e inseguro.
+      </p>
+    </div>
+
+    <!-- Comparison Table -->
+    <div class="rounded-2xl border border-slate-800 bg-slate-900/60 overflow-hidden shadow-2xl">
+      <div class="grid grid-cols-1 md:grid-cols-12 bg-slate-950/80 p-4 border-b border-slate-800 text-xs font-mono font-bold tracking-wider">
+        <div class="hidden md:block md:col-span-3 text-slate-400 uppercase">Criterio de Evaluación</div>
+        <div class="md:col-span-4 text-red-400 flex items-center gap-2 uppercase">
+          <span>✕</span> Técnico Informal / Tradicional
+        </div>
+        <div class="md:col-span-5 text-emerald-400 flex items-center gap-2 uppercase mt-2 md:mt-0">
+          <span>✓</span> Estándar Moscool Certificado
+        </div>
+      </div>
+
+      <div class="divide-y divide-slate-800/80 text-xs">
+        {comparisonPoints.map((point) => (
+          <div class="grid grid-cols-1 md:grid-cols-12 p-5 gap-3 hover:bg-slate-800/30 transition-colors">
+            <div class="md:col-span-3 font-semibold text-white font-mono text-[11px] uppercase tracking-wider flex items-center">
+              {point.feature}
+            </div>
+            <div class="md:col-span-4 text-slate-400 pl-4 border-l-2 border-red-500/30 py-1">
+              <span class="md:hidden text-[10px] font-mono text-red-400 block mb-0.5">Informal:</span>
+              {point.informal}
+            </div>
+            <div class="md:col-span-5 text-slate-200 pl-4 border-l-2 border-emerald-500/60 py-1 bg-emerald-500/5 rounded-r-lg">
+              <span class="md:hidden text-[10px] font-mono text-emerald-400 block mb-0.5">Moscool:</span>
+              <strong class="font-medium text-slate-100">{point.moscool}</strong>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

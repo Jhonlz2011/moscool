@@ -1,0 +1,21 @@
+{
+  "name": "Moscool | Servicio Técnico Especializado",
+  "short_name": "Moscool",
+  "description": "Reparación, mantenimiento e instalación de Aires Acondicionados y Línea Blanca con Proformas en PDF y garantía escrita.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0B1120",
+  "theme_color": "#0284C7",
+  "icons": [
+    {
+      "src": "/brand/logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/brand/logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

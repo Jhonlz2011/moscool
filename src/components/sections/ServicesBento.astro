@@ -1,0 +1,105 @@
+---
+import { servicesData } from "../../data/services";
+import { siteConfig } from "../../data/siteConfig";
+---
+
+<section id="servicios" class="py-24 relative bg-[#090D16]">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    {/* Section Header */}
+    <div class="max-w-3xl mb-16">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md text-xs font-mono font-medium bg-sky-500/10 text-sky-400 border border-sky-500/20 mb-3">
+        PROTOCOLO DE SERVICIO Y DIAGNÓSTICO
+      </div>
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+        Servicios Técnicos Especializados con <span class="text-gradient-cyan">Instrumental Calibrado</span>
+      </h2>
+      <p class="text-slate-400 text-sm sm:text-base mt-3 leading-relaxed">
+        Evitamos las improvisaciones del técnico empírico. Cada intervención sigue rigurosos parámetros termodinámicos y eléctricos con repuestos originales y trazabilidad total.
+      </p>
+    </div>
+
+    {/* Bento Grid */}
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {servicesData.map((service, index) => {
+        const isWide = index === 0 || index === 1;
+        return (
+          <div
+            class={`rounded-2xl bg-slate-900/70 border border-slate-800 p-7 flex flex-col justify-between glass-panel-hover relative overflow-hidden ${
+              isWide ? "lg:col-span-1 md:col-span-1" : ""
+            }`}
+          >
+            {/* Top Code Badge & Warranty */}
+            <div>
+              <div class="flex items-center justify-between pb-4 border-b border-slate-800/80 mb-5">
+                <span class="text-[11px] font-mono text-sky-400 font-bold tracking-wider">
+                  [{service.code}]
+                </span>
+                <span class="text-[11px] font-mono px-2.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 font-semibold">
+                  {service.warrantyDays} DÍAS GARANTÍA
+                </span>
+              </div>
+
+              {/* Category */}
+              <span class="text-[11px] font-mono text-slate-400 uppercase tracking-wider block mb-1">
+                {service.category}
+              </span>
+
+              {/* Title */}
+              <h3 class="text-lg font-bold text-white tracking-tight mb-3">
+                {service.title}
+              </h3>
+
+              {/* Summary */}
+              <p class="text-xs text-slate-300 leading-relaxed mb-5">
+                {service.fullDescription}
+              </p>
+
+              {/* Technical Specifications */}
+              <div class="space-y-2 mb-6">
+                <span class="text-[10px] font-mono uppercase tracking-wider text-slate-400 block font-semibold">
+                  Especificaciones Técnicas:
+                </span>
+                <ul class="space-y-1.5">
+                  {service.keySpecs.map((spec) => (
+                    <li class="text-xs text-slate-300 flex items-start gap-2">
+                      <span class="text-sky-400 font-bold shrink-0">›</span>
+                      <span>{spec}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            {/* Bottom Tools & CTA */}
+            <div class="pt-5 border-t border-slate-800/80">
+              <div class="mb-4">
+                <span class="text-[10px] font-mono uppercase tracking-wider text-slate-500 block mb-1.5">
+                  Instrumental Utilizado:
+                </span>
+                <div class="flex flex-wrap gap-1.5">
+                  {service.toolsUsed.map((tool) => (
+                    <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">
+                      {tool}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <a
+                href={`https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent(`Hola Moscool, solicito información y cotización para el servicio: ${service.title} (${service.code})`)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="w-full py-2.5 px-4 rounded-xl bg-slate-800 hover:bg-sky-600 text-slate-200 hover:text-white font-semibold text-xs transition-all flex items-center justify-center gap-2 group"
+              >
+                <span>Solicitar Proforma para este Servicio</span>
+                <svg class="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  </div>
+</section>

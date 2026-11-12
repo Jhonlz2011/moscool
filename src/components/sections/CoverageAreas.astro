@@ -1,0 +1,83 @@
+---
+import { coverageZones } from "../../data/coverage";
+import { siteConfig } from "../../data/siteConfig";
+---
+
+<section id="cobertura" class="py-24 bg-slate-950 border-t border-slate-800">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      
+      {/* Left Info */}
+      <div class="lg:col-span-5 space-y-5">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md text-xs font-mono font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+          DISPONIBILIDAD INMEDIATA
+        </div>
+
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
+          Zonas de Cobertura y <span class="text-gradient-cyan">Despacho Móvil</span>
+        </h2>
+
+        <p class="text-slate-300 text-sm leading-relaxed">
+          Nuestras unidades técnicas se desplazan equipadas con bombas de vacío, manómetros digitales, químicos de limpieza y stock de repuestos comunes para solucionar en la primera visita.
+        </p>
+
+        <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 text-xs font-mono text-slate-300 space-y-2">
+          <div class="flex items-center gap-2 text-emerald-400 font-semibold">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span>Unidades Móviles en Circulación Hoy</span>
+          </div>
+          <p class="text-slate-400 text-[11px] font-sans">
+            Para urgencias en cámaras frigoríficas, locales comerciales o residencias, priorizamos la asignación según cercanía geográfica.
+          </p>
+        </div>
+
+        <div>
+          <a
+            href={`https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent("Hola Moscool, quisiera consultar disponibilidad de visita técnica para mi zona.")}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-sky-600 hover:bg-sky-500 text-white font-semibold text-xs transition-all shadow-md shadow-sky-950"
+          >
+            <span>Consultar Disponibilidad en mi Sector</span>
+            <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      {/* Right Grid of Zones */}
+      <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
+        {coverageZones.map((zone) => (
+          <div class="rounded-xl bg-slate-900/90 border border-slate-800 p-5 space-y-3 glass-panel-hover">
+            <div class="flex items-center justify-between">
+              <h3 class="font-bold text-white text-sm tracking-tight">{zone.name}</h3>
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-sky-500/20 text-sky-400 font-semibold">
+                {zone.badge}
+              </span>
+            </div>
+
+            <div class="text-[11px] font-mono text-slate-400 flex items-center gap-2">
+              <span class="text-slate-500">Tiempo estimado:</span>
+              <span class="text-emerald-400 font-bold">{zone.avgResponseHours}</span>
+            </div>
+
+            <div class="pt-2 border-t border-slate-800/80">
+              <span class="text-[10px] font-mono uppercase tracking-wider text-slate-500 block mb-1.5">
+                Sectores Frecuentes:
+              </span>
+              <div class="flex flex-wrap gap-1.5">
+                {zone.sectors.map((sec) => (
+                  <span class="text-[10px] px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700/60">
+                    {sec}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+    </div>
+  </div>
+</section>
