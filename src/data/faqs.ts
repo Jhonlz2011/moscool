@@ -28,6 +28,6 @@ export const faqsData: FAQItem[] = [
   {
     category: "Cobertura y Citas",
     question: "¿Qué sectores cubren y cómo solicito una visita a domicilio?",
-    answer: "Brindamos atención técnica a domicilio en Guayaquil, Samborondón y Durán. Puedes contactarnos directamente por WhatsApp (+593 99 006 8605) o por llamada telefónica indicando tu sector y la falla del equipo para coordinar la visita técnica.",
+    answer: "Brindamos atención técnica a domicilio en Guayaquil, Samborondón y Durán. Puedes contactarnos directamente por WhatsApp (+593 99 006 8605) indicando tu sector y la falla del equipo para coordinar la visita técnica.",
   },
 ];

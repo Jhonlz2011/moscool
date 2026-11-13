@@ -3,7 +3,38 @@ import { siteConfig } from "../../data/siteConfig";
 import WhatsAppIcon from "../ui/icons/WhatsAppIcon.astro";
 import ShieldCheckIcon from "../ui/icons/ShieldCheckIcon.astro";
 import ClockFastIcon from "../ui/icons/ClockFastIcon.astro";
-import HomeShieldIcon from "../ui/icons/HomeShieldIcon.astro";
+import WrenchToolIcon from "../ui/icons/WrenchToolIcon.astro";
+import SnowflakeIcon from "../ui/icons/SnowflakeIcon.astro";
+import RefrigeratorIcon from "../ui/icons/RefrigeratorIcon.astro";
+import WashingMachineIcon from "../ui/icons/WashingMachineIcon.astro";
+import FlameIcon from "../ui/icons/FlameIcon.astro";
+
+const applianceCards = [
+  {
+    title: "Climatización",
+    specs: "Splits Inverter y Ventana",
+    tag: "Revisión In-Situ",
+    icon: SnowflakeIcon,
+  },
+  {
+    title: "Refrigeración",
+    specs: "No-Frost y Congeladores",
+    tag: "Control Frío y Motor",
+    icon: RefrigeratorIcon,
+  },
+  {
+    title: "Lavado y Secado",
+    specs: "Carga Frontal y Superior",
+    tag: "Bombas y Rodamientos",
+    icon: WashingMachineIcon,
+  },
+  {
+    title: "Cocinas y Hornos",
+    specs: "Gas y Eléctricas",
+    tag: "Calibración Segura",
+    icon: FlameIcon,
+  },
+];
 ---
 
 <section class="relative pt-10 pb-16 md:pt-16 md:pb-24 overflow-hidden bg-grid-subtle">
@@ -19,11 +50,11 @@ import HomeShieldIcon from "../ui/icons/HomeShieldIcon.astro";
         </div>
 
         <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight leading-tight">
-          Mantenimiento y reparación técnica de climatización sin manchar tus paredes.
+          Mantenimiento y Reparación de Climatización y Línea Blanca a Domicilio
         </h1>
 
         <p class="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed max-w-2xl font-normal">
-          Especialistas en climatización, refrigeración y línea blanca. Diagnóstico honesto en tu presencia, lavado profundo con funda impermeable que protege molduras y paredes de gypsum, y <strong>garantía de 30 días por escrito</strong>.
+          Especialistas en climatización, refrigeración, lavadoras y cocinas. Diagnóstico honesto en tu presencia, repuestos de calidad y <strong>garantía de 30 días por escrito</strong>.
         </p>
 
         <!-- Single Primary Action (WhatsApp Direct) -->
@@ -54,8 +85,8 @@ import HomeShieldIcon from "../ui/icons/HomeShieldIcon.astro";
             <span>Llegada en 1 a 2 horas</span>
           </div>
           <div class="flex items-center gap-2">
-            <HomeShieldIcon class="w-4 h-4 text-sky-600 dark:text-sky-400 shrink-0" />
-            <span>Funda colectora en pared</span>
+            <WrenchToolIcon class="w-4 h-4 text-sky-600 dark:text-sky-400 shrink-0" />
+            <span>Repuestos de calidad</span>
           </div>
           <div class="flex items-center gap-2">
             <ShieldCheckIcon class="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
@@ -64,7 +95,7 @@ import HomeShieldIcon from "../ui/icons/HomeShieldIcon.astro";
         </div>
       </div>
 
-      <!-- Right Column: Ficha de Control de Servicio en Domicilio -->
+      <!-- Right Column: Ficha de Atención Técnica a Domicilio -->
       <div class="lg:col-span-5">
         <div class="rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-xl overflow-hidden max-w-lg mx-auto">
           <!-- Technical Header Bar -->
@@ -72,60 +103,75 @@ import HomeShieldIcon from "../ui/icons/HomeShieldIcon.astro";
             <div class="flex items-center gap-2">
               <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
               <span class="text-[11px] font-bold tracking-wider text-slate-700 dark:text-slate-300 uppercase">
-                Control Técnico · Protocolo a Domicilio
+                Servicio Técnico a Domicilio
               </span>
             </div>
             <span class="text-[10px] px-2 py-0.5 rounded bg-sky-100 dark:bg-sky-950 text-sky-700 dark:text-sky-300 border border-sky-200 dark:border-sky-800 font-semibold">
-              Servicio Verificado
+              Guayas · 3 Cantones
             </span>
           </div>
 
-          <!-- Schematic Visual Display -->
-          <div class="p-3 bg-slate-100/50 dark:bg-slate-950">
-            <div class="rounded-xl overflow-hidden border border-slate-200 dark:border-slate-800 bg-slate-950 aspect-[16/11] relative">
-              <img
-                src="/assets/images/hero/tecnico-diagnostico.svg"
-                alt="Esquema técnico de mantenimiento de aire acondicionado split con funda colectora impermeable"
-                class="w-full h-full object-cover"
-                loading="eager"
-              />
-            </div>
+          <!-- 2x2 Appliance Showcase Matrix -->
+          <div class="p-4 bg-slate-50/50 dark:bg-slate-950/50 grid grid-cols-2 gap-3">
+            {applianceCards.map((card) => {
+              const IconComp = card.icon;
+              return (
+                <div class="p-3.5 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm flex flex-col justify-between">
+                  <div class="flex items-start justify-between gap-2 mb-2">
+                    <div class="w-8 h-8 rounded-lg bg-sky-50 dark:bg-slate-800 border border-sky-100 dark:border-slate-700 flex items-center justify-center text-sky-600 dark:text-sky-400 shrink-0">
+                      <IconComp class="w-4 h-4" />
+                    </div>
+                    <span class="text-[9px] font-mono px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-700">
+                      {card.tag}
+                    </span>
+                  </div>
+                  <div>
+                    <h4 class="text-xs font-bold text-slate-900 dark:text-white leading-tight">
+                      {card.title}
+                    </h4>
+                    <p class="text-[11px] text-slate-500 dark:text-slate-400 mt-0.5 leading-tight">
+                      {card.specs}
+                    </p>
+                  </div>
+                </div>
+              );
+            })}
           </div>
 
-          <!-- Technical Spec Breakdown (Swiss Tabular Data) -->
+          <!-- Protocol Commitments Breakdown (Swiss Tabular Data) -->
           <div class="p-4 bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800 grid grid-cols-1 divide-y divide-slate-100 dark:divide-slate-800/80 text-xs">
             <div class="py-2.5 flex items-start justify-between gap-3 first:pt-0">
               <div class="space-y-0.5">
                 <span class="font-mono text-[10px] uppercase font-bold text-slate-400 dark:text-slate-500 tracking-wider block">
-                  Protección de Inmueble
+                  Inspección y Diagnóstico
                 </span>
                 <span class="font-semibold text-slate-800 dark:text-slate-200">
-                  Funda hermética con drenaje sellado
+                  Prueba instrumental en tu presencia
                 </span>
               </div>
               <span class="text-right text-[11px] font-mono text-emerald-600 dark:text-emerald-400 font-semibold shrink-0">
-                0% humedad en gypsum
+                Honesto y claro
               </span>
             </div>
 
             <div class="py-2.5 flex items-start justify-between gap-3">
               <div class="space-y-0.5">
                 <span class="font-mono text-[10px] uppercase font-bold text-slate-400 dark:text-slate-500 tracking-wider block">
-                  Instrumental y Medición
+                  Presupuesto Previo
                 </span>
                 <span class="font-semibold text-slate-800 dark:text-slate-200">
-                  Manometría digital & Amperaje en sitio
+                  Desglose formal antes de iniciar
                 </span>
               </div>
               <span class="text-right text-[11px] font-mono text-sky-600 dark:text-sky-400 font-semibold shrink-0">
-                Prueba en presencia
+                Sin sorpresas
               </span>
             </div>
 
             <div class="py-2.5 flex items-start justify-between gap-3 last:pb-0">
               <div class="space-y-0.5">
                 <span class="font-mono text-[10px] uppercase font-bold text-slate-400 dark:text-slate-500 tracking-wider block">
-                  Respaldo Formal
+                  Respaldo Técnico
                 </span>
                 <span class="font-semibold text-slate-800 dark:text-slate-200">
                   Garantía de 30 días por escrito
