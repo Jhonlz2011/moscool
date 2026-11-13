@@ -21,13 +21,6 @@ const illustrationsMap: Record<string, string> = {
   "lavado-secado": "/assets/images/services/lavadora.svg",
   "cocinas-hornos": "/assets/images/services/cocina.svg",
 };
-
-const refCodesMap: Record<string, string> = {
-  climatizacion: "MOD-01 // CLIMATIZACIÓN",
-  refrigeracion: "MOD-02 // REFRIGERACIÓN",
-  "lavado-secado": "MOD-03 // LAVADO & CENTRIFUGADO",
-  "cocinas-hornos": "MOD-04 // COCCIÓN & HORNOS",
-};
 ---
 
 <section id="servicios" class="py-20 bg-slate-50 dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800">
@@ -36,32 +29,32 @@ const refCodesMap: Record<string, string> = {
     <!-- Section Header -->
     <div class="max-w-3xl mb-12">
       <span class="text-xs font-semibold uppercase tracking-wider text-sky-600 dark:text-sky-400 block mb-2 font-mono">
-        Directorio Técnico de Especialidades
+        Especialidades Técnicas a Domicilio
       </span>
       <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-        Servicios Técnicos Especializados a Domicilio
+        Líneas de Atención Técnica Residencial
       </h2>
       <p class="text-slate-600 dark:text-slate-400 text-sm sm:text-base mt-2 leading-relaxed">
-        Soluciones metódicas para las 4 líneas principales de electrodomésticos en Guayaquil, Samborondón y Durán. Diagnóstico en tu presencia, instrumental de calibración y 30 días de garantía por escrito.
+        Soluciones con herramientas de precisión para las 4 líneas clave del hogar en Guayaquil, Samborondón y Durán. Diagnóstico en tu presencia, repuestos verificados y 30 días de garantía por escrito.
       </p>
     </div>
 
-    <!-- Balanced 2x2 Architectural Grid -->
+    <!-- Balanced 2x2 Clean Services Grid -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
       {servicesData.map((service) => {
         const IconComponent = iconsMap[service.id] || SnowflakeIcon;
         const illustration = illustrationsMap[service.id];
         return (
-          <div class="rounded-2xl bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 overflow-hidden flex flex-col justify-between hover:border-slate-300 dark:hover:border-slate-700 shadow-sm hover:shadow-md">
+          <div class="rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 overflow-hidden flex flex-col justify-between hover:border-slate-300 dark:hover:border-slate-700 shadow-sm">
             <div>
-              <!-- Visual Blueprint Schematic Header -->
+              <!-- Visual Schematic Header -->
               {illustration && (
-                <div class="aspect-[16/9] w-full bg-slate-100/90 dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800 overflow-hidden relative flex items-center justify-center p-6">
-                  <!-- Technical Coordinate Markers -->
+                <div class="aspect-[16/9] w-full bg-slate-100/90 dark:bg-slate-950/80 border-b border-slate-200 dark:border-slate-800 overflow-hidden relative flex items-center justify-center p-6">
+                  <!-- Category Badge Tag -->
                   <div class="absolute top-3 left-3 flex items-center gap-1.5">
                     <span class="w-1.5 h-1.5 rounded-full bg-sky-500"></span>
-                    <span class="text-[10px] font-mono font-bold tracking-wider text-slate-500 dark:text-slate-400">
-                      {refCodesMap[service.id] || "MOD-TECH"}
+                    <span class="text-[11px] font-bold tracking-wide uppercase text-slate-600 dark:text-slate-300">
+                      {service.category}
                     </span>
                   </div>
 
@@ -72,8 +65,9 @@ const refCodesMap: Record<string, string> = {
                     loading="lazy"
                   />
 
+                  <!-- 30-Day Written Warranty Badge -->
                   <div class="absolute top-3 right-3">
-                    <span class="text-[11px] font-mono font-bold text-emerald-600 dark:text-emerald-400 bg-white/95 dark:bg-slate-900/95 px-2.5 py-1 rounded-md border border-emerald-500/30 shadow-sm">
+                    <span class="text-[11px] font-semibold text-emerald-700 dark:text-emerald-300 bg-white/95 dark:bg-slate-900/95 px-2.5 py-1 rounded-md border border-emerald-500/30 shadow-sm">
                       {service.warrantyDays} días garantía
                     </span>
                   </div>
@@ -82,25 +76,22 @@ const refCodesMap: Record<string, string> = {
 
               <div class="p-6 sm:p-7">
                 <div class="flex items-center gap-2.5 mb-3">
-                  <div class="w-7 h-7 rounded-lg bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center shrink-0">
+                  <div class="w-7 h-7 rounded-lg bg-sky-50 dark:bg-slate-800 border border-sky-100 dark:border-slate-700 flex items-center justify-center shrink-0">
                     <IconComponent class="w-3.5 h-3.5 text-sky-600 dark:text-sky-400" />
                   </div>
-                  <span class="text-xs font-mono font-bold uppercase tracking-wider text-sky-600 dark:text-sky-400">
-                    {service.category}
-                  </span>
+                  <h3 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white tracking-tight">
+                    {service.title}
+                  </h3>
                 </div>
-
-                <h3 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white tracking-tight mb-2">
-                  {service.title}
-                </h3>
 
                 <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-5">
                   {service.description}
                 </p>
 
+                <!-- Common interventions checklist -->
                 <div class="space-y-2 mb-2 p-3.5 rounded-xl bg-slate-50 dark:bg-slate-950/60 border border-slate-200 dark:border-slate-800/80">
-                  <span class="text-[10px] font-mono font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 block mb-1">
-                    Trabajos frecuentes en domicilio:
+                  <span class="text-[11px] font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 block mb-1">
+                    Intervenciones frecuentes a domicilio:
                   </span>
                   <ul class="space-y-1.5">
                     {service.included.map((item) => (
@@ -114,6 +105,7 @@ const refCodesMap: Record<string, string> = {
               </div>
             </div>
 
+            <!-- Direct Contact Button per Service -->
             <div class="p-6 pt-0">
               <a
                 href={`https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent(`Hola Servicio Técnico Mendoza, requiero información y cotización para el servicio de: ${service.title}`)}`}

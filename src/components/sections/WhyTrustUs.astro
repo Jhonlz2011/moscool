@@ -5,32 +5,45 @@ import ClockFastIcon from "../ui/icons/ClockFastIcon.astro";
 import WrenchToolIcon from "../ui/icons/WrenchToolIcon.astro";
 import CheckIcon from "../ui/icons/CheckIcon.astro";
 
-const trustPillars = [
+const primaryPillars = [
   {
-    title: "Cuidado de tus Paredes y Pisos",
+    title: "Cuidado de tus Paredes y Molduras",
     description: "Al lavar splits instalamos fundas herméticas con desagüe cerrado a balde. El agua sucia y químicos nunca tocan tus paredes de yeso, molduras ni pisos.",
+    badge: "Protección In-Situ",
     icon: HomeShieldIcon,
-    tag: "Funda colectora sellada",
-  },
-  {
-    title: "Diagnóstico Honesto y Verificable",
-    description: "Si tu aire o nevera solo tiene un capacitor defectuoso o suciedad acumulada, te cobramos exactamente eso. No inventamos fugas de gas para inflar la cuenta.",
-    icon: WrenchToolIcon,
-    tag: "Medición en tu presencia",
-  },
-  {
-    title: "Presupuesto Previo (Validez 15 Días)",
-    description: "Evaluamos el equipo y emitimos un presupuesto formal con desglose exacto de repuestos y mano de obra antes de iniciar. Tienes 15 días de vigencia.",
-    icon: ClockFastIcon,
-    tag: "Sin cobros sorpresa",
+    tag: "Funda colectora hermética",
+    featured: true,
   },
   {
     title: "Garantía de 30 Días por Escrito",
     description: "Cada intervención incluye respaldo formal por escrito. Si el componente reparado presenta novedades en ese periodo, acudimos a resolver sin costo adicional.",
+    badge: "Respaldo Formal",
     icon: ShieldCheckIcon,
-    tag: "Comprobante formal físico",
+    tag: "Comprobante físico de servicio",
+    featured: true,
   },
 ];
+
+const secondaryPillars = [
+  {
+    title: "Diagnóstico Honesto y Medible",
+    description: "Si tu equipo solo tiene un capacitor desvalorizado o suciedad en turbina, cobramos exactamente eso. Medimos en tu presencia sin inflar cuentas con recargas falsas.",
+    badge: "Transparencia Total",
+    icon: WrenchToolIcon,
+    tag: "Medición instrumental en tu presencia",
+    featured: false,
+  },
+  {
+    title: "Presupuesto Previo sin Sorpresas",
+    description: "Evaluamos el equipo y emitimos un presupuesto formal con desglose exacto de repuestos y mano de obra antes de iniciar. Tienes 15 días de vigencia sin compromiso.",
+    badge: "Validez 15 Días",
+    icon: ClockFastIcon,
+    tag: "Sin cobros adicionales no autorizados",
+    featured: false,
+  },
+];
+
+const allPillars = [...primaryPillars, ...secondaryPillars];
 ---
 
 <section class="py-20 bg-slate-50 dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800" id="confianza">
@@ -39,29 +52,29 @@ const trustPillars = [
     <!-- Section Header -->
     <div class="max-w-3xl mb-12">
       <span class="text-xs font-semibold uppercase tracking-wider text-emerald-600 dark:text-emerald-400 block mb-2 font-mono">
-        Norma Residencial In-Situ
+        Protocolo y Tranquilidad en tu Hogar
       </span>
       <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
         Estándar Técnico Diseñado para Hogares de Samborondón y Guayaquil
       </h2>
       <p class="text-slate-600 dark:text-slate-400 text-sm sm:text-base mt-2 leading-relaxed">
-        Sabemos que abrir la puerta de tu hogar a un técnico requiere seguridad en garita, limpieza absoluta y honestidad en el diagnóstico. Este es nuestro protocolo formal.
+        Sabemos que abrir la puerta de tu hogar a un técnico requiere seguridad en garita, limpieza absoluta y honestidad en el diagnóstico. Este es nuestro protocolo formal de servicio.
       </p>
     </div>
 
-    <!-- 4-Pillar Modular Cards (Responsive across mobile, tablet 2x2, desktop 4x1) -->
+    <!-- 4 Modular Trust Cards (With human badges, no synthetic AI labels) -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
-      {trustPillars.map((tp, idx) => {
+      {allPillars.map((tp) => {
         const IconComponent = tp.icon;
         return (
-          <div class="p-6 sm:p-7 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex flex-col justify-between hover:border-slate-300 dark:hover:border-slate-700 shadow-sm">
+          <div class={`p-6 sm:p-7 rounded-2xl bg-white dark:bg-slate-900 border flex flex-col justify-between shadow-sm ${tp.featured ? 'border-sky-200 dark:border-sky-900/60 ring-1 ring-sky-500/20' : 'border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700'}`}>
             <div>
               <div class="flex items-center justify-between gap-2 mb-4">
-                <div class="w-9 h-9 rounded-xl bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center shrink-0">
-                  <IconComponent class="w-4 h-4 text-sky-600 dark:text-sky-400" />
+                <div class={`w-9 h-9 rounded-xl border flex items-center justify-center shrink-0 ${tp.featured ? 'bg-sky-50 dark:bg-sky-950/60 border-sky-200 dark:border-sky-800 text-sky-600 dark:text-sky-400' : 'bg-slate-100 dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300'}`}>
+                  <IconComponent class="w-4 h-4" />
                 </div>
-                <span class="text-[10px] font-mono font-bold text-slate-400 dark:text-slate-500">
-                  NORMA // 0{idx + 1}
+                <span class={`text-[11px] font-semibold px-2 py-0.5 rounded ${tp.featured ? 'bg-sky-100/80 dark:bg-sky-950 text-sky-700 dark:text-sky-300 border border-sky-200 dark:border-sky-800' : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-700'}`}>
+                  {tp.badge}
                 </span>
               </div>
 
@@ -74,9 +87,9 @@ const trustPillars = [
               </p>
             </div>
 
-            <div class="pt-4 mt-6 border-t border-slate-100 dark:border-slate-800/80 flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400 font-mono">
+            <div class="pt-4 mt-6 border-t border-slate-100 dark:border-slate-800/80 flex items-center gap-2 text-xs text-slate-600 dark:text-slate-400">
               <CheckIcon class="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400 shrink-0" />
-              <span class="font-semibold text-slate-700 dark:text-slate-300">{tp.tag}</span>
+              <span class="font-medium text-slate-700 dark:text-slate-300">{tp.tag}</span>
             </div>
           </div>
         );

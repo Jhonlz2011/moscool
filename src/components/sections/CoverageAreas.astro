@@ -1,7 +1,6 @@
 ---
 import { coverageZones } from "../../data/coverage";
 import { siteConfig } from "../../data/siteConfig";
-import MapPinIcon from "../ui/icons/MapPinIcon.astro";
 import CheckIcon from "../ui/icons/CheckIcon.astro";
 import WhatsAppIcon from "../ui/icons/WhatsAppIcon.astro";
 ---
@@ -47,49 +46,72 @@ import WhatsAppIcon from "../ui/icons/WhatsAppIcon.astro";
       </div>
     </div>
 
-    <!-- Expansive 3-Canton Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-      {coverageZones.map((zone, idx) => (
-        <div class="rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-6 sm:p-7 flex flex-col justify-between hover:border-slate-300 dark:hover:border-slate-700 shadow-sm">
+    <!-- Expansive 3-Canton Photographic Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-7">
+      {coverageZones.map((zone) => (
+        <div class="rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 overflow-hidden flex flex-col justify-between hover:border-slate-300 dark:hover:border-slate-700 shadow-sm">
           <div>
-            <div class="flex items-center justify-between gap-2 mb-4">
-              <span class="text-[11px] font-mono font-bold text-sky-600 dark:text-sky-400">
-                ZONA // 0{idx + 1}
-              </span>
-              <span class="text-[10px] font-mono font-semibold px-2 py-0.5 rounded bg-emerald-100 dark:bg-emerald-950/80 text-emerald-700 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-800">
-                Llegada: {zone.estimatedTime}
-              </span>
-            </div>
-
-            <div class="flex items-center gap-2 mb-4">
-              <div class="w-8 h-8 rounded-lg bg-sky-50 dark:bg-slate-800 border border-sky-100 dark:border-slate-700 flex items-center justify-center shrink-0">
-                <MapPinIcon class="w-4 h-4 text-sky-600 dark:text-sky-400" />
+            <!-- Photographic Header with subtle gradient overlay -->
+            <div class="relative aspect-[16/9] w-full overflow-hidden bg-slate-900 border-b border-slate-200 dark:border-slate-800">
+              <img
+                src={zone.image}
+                alt={`Servicio técnico a domicilio en ${zone.name}`}
+                class="w-full h-full object-cover"
+                loading="lazy"
+                width="600"
+                height="338"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/25 to-transparent"></div>
+              
+              <!-- Floating Arrival Time Pill -->
+              <div class="absolute top-3 right-3">
+                <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-[11px] font-semibold bg-white/95 dark:bg-slate-900/95 text-slate-800 dark:text-slate-200 border border-slate-200/80 dark:border-slate-700/80 shadow-md backdrop-blur-sm">
+                  <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                  <span>{zone.estimatedTime}</span>
+                </span>
               </div>
-              <h3 class="font-bold text-slate-900 dark:text-white text-lg tracking-tight">
-                {zone.name}
-              </h3>
+
+              <!-- Zone Title on Photo Base -->
+              <div class="absolute bottom-3 left-4 right-4">
+                <h3 class="text-xl font-extrabold text-white tracking-tight drop-shadow-sm">
+                  {zone.name}
+                </h3>
+                <p class="text-xs text-slate-200 font-medium line-clamp-1 drop-shadow-sm mt-0.5">
+                  {zone.tagline}
+                </p>
+              </div>
             </div>
 
-            <div class="pt-3 border-t border-slate-100 dark:border-slate-800/80">
-              <span class="text-[10px] font-mono font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 block mb-2.5">
-                Sectores Atendidos:
+            <!-- Sectors List -->
+            <div class="p-6">
+              <span class="text-[11px] font-bold uppercase tracking-wider text-sky-600 dark:text-sky-400 block mb-3">
+                Sectores con Cobertura:
               </span>
-              <ul class="space-y-2 text-xs text-slate-700 dark:text-slate-300">
+              <ul class="space-y-2.5 text-xs text-slate-700 dark:text-slate-300">
                 {zone.sectors.map((sec) => (
                   <li class="flex items-start gap-2">
-                    <CheckIcon class="w-3.5 h-3.5 text-sky-600 dark:text-sky-400 shrink-0 mt-0.5" />
-                    <span>{sec}</span>
+                    <CheckIcon class="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
+                    <span class="leading-relaxed">{sec}</span>
                   </li>
                 ))}
               </ul>
             </div>
           </div>
 
-          <div class="pt-4 mt-6 border-t border-slate-100 dark:border-slate-800/80">
-            <span class="text-[11px] font-mono text-slate-500 dark:text-slate-400 flex items-center gap-1.5">
-              <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
-              <span>Ruta de asistencia activa todos los días</span>
-            </span>
+          <!-- Canton Specific Direct WhatsApp Action -->
+          <div class="p-6 pt-0">
+            <div class="pt-4 border-t border-slate-100 dark:border-slate-800">
+              <a
+                href={`https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent(`Hola Servicio Técnico Mendoza, me encuentro en ${zone.name} y deseo agendar una visita técnica a domicilio.`)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-slate-900 hover:bg-slate-800 dark:bg-slate-800 dark:hover:bg-slate-700 text-white font-semibold text-xs border border-transparent shadow-sm cursor-pointer"
+                aria-label={`Agendar visita técnica en ${zone.name}`}
+              >
+                <WhatsAppIcon class="w-3.5 h-3.5 fill-emerald-400" />
+                <span>Agendar en {zone.name}</span>
+              </a>
+            </div>
           </div>
         </div>
       ))}
