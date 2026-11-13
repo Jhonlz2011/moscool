@@ -4,7 +4,7 @@ export interface ServiceItem {
   category: string;
   description: string;
   included: string[];
-  warrantyDays: number;
+  warrantyText: string;
 }
 
 export const servicesData: ServiceItem[] = [
@@ -19,7 +19,7 @@ export const servicesData: ServiceItem[] = [
       "Detección y corrección de fugas en tuberías de cobre",
       "Diagnóstico de compresores y tarjetas electrónicas Inverter",
     ],
-    warrantyDays: 30,
+    warrantyText: "Garantía por escrito",
   },
   {
     id: "refrigeracion",
@@ -32,7 +32,7 @@ export const servicesData: ServiceItem[] = [
       "Limpieza y desobstrucción de drenaje de condensación",
       "Carga de refrigerante y cambio de filtro deshidratador",
     ],
-    warrantyDays: 30,
+    warrantyText: "Garantía por escrito",
   },
   {
     id: "lavado-secado",
@@ -45,7 +45,7 @@ export const servicesData: ServiceItem[] = [
       "Calibración y cambio de varillas de suspensión / amortiguadores",
       "Revisión de resistencias, termostatos y sensores de secado",
     ],
-    warrantyDays: 30,
+    warrantyText: "Garantía por escrito",
   },
   {
     id: "cocinas-hornos",
@@ -58,6 +58,6 @@ export const servicesData: ServiceItem[] = [
       "Reparación de sistemas de encendido eléctrico (chispómetros)",
       "Verificación de estanqueidad en conexiones de gas",
     ],
-    warrantyDays: 30,
+    warrantyText: "Garantía por escrito",
   },
 ];

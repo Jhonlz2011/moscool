@@ -35,7 +35,7 @@ const illustrationsMap: Record<string, string> = {
         Líneas de Atención Técnica Residencial
       </h2>
       <p class="text-slate-600 dark:text-slate-400 text-sm sm:text-base mt-2 leading-relaxed">
-        Soluciones con herramientas de precisión para las 4 líneas clave del hogar en Guayaquil, Samborondón y Durán. Diagnóstico en tu presencia, repuestos verificados y garantía de 30 días por escrito.
+        Soluciones con herramientas de precisión para las 4 líneas clave del hogar en Guayaquil, Samborondón y Durán. Diagnóstico en tu presencia, repuestos verificados y garantía por escrito.
       </p>
     </div>
 
@@ -65,10 +65,10 @@ const illustrationsMap: Record<string, string> = {
                     loading="lazy"
                   />
 
-                  <!-- 30-Day Written Warranty Badge -->
+                  <!-- Written Warranty Badge -->
                   <div class="absolute top-3 right-3">
                     <span class="text-[11px] font-semibold text-emerald-700 dark:text-emerald-300 bg-white/95 dark:bg-slate-900/95 px-2.5 py-1 rounded-md border border-emerald-500/30 shadow-sm">
-                      {service.warrantyDays} días garantía
+                      {service.warrantyText}
                     </span>
                   </div>
                 </div>
@@ -103,19 +103,6 @@ const illustrationsMap: Record<string, string> = {
                   </ul>
                 </div>
               </div>
-            </div>
-
-            <!-- Direct Contact Button per Service -->
-            <div class="p-6 pt-0">
-              <a
-                href={`https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent(`Hola Servicio Técnico Mendoza, requiero información y cotización para el servicio de: ${service.title}`)}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                class="w-full py-3 px-4 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-emerald-600 dark:hover:bg-emerald-600 active:bg-emerald-700 text-slate-800 dark:text-slate-200 hover:text-white font-semibold text-xs flex items-center justify-center gap-2 active:translate-y-0.5 cursor-pointer shadow-sm border border-slate-200 dark:border-slate-700 hover:border-emerald-500"
-              >
-                <WhatsAppIcon class="w-4 h-4 fill-current" />
-                <span>Consultar este Servicio por WhatsApp</span>
-              </a>
             </div>
           </div>
         );

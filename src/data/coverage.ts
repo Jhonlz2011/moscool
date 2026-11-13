@@ -11,7 +11,7 @@ export const coverageZones: ZoneCoverage[] = [
   {
     id: "samborondon",
     name: "Samborondón",
-    estimatedTime: "1 a 2 horas",
+    estimatedTime: "Atención a Domicilio",
     image: "/assets/images/places/samborondon-2.webp",
     tagline: "La Puntilla, Vía Samborondón y Ciudad Celeste",
     sectors: [
@@ -24,7 +24,7 @@ export const coverageZones: ZoneCoverage[] = [
   {
     id: "guayaquil",
     name: "Guayaquil",
-    estimatedTime: "1 a 2 horas",
+    estimatedTime: "Atención a Domicilio",
     image: "/assets/images/places/guayaquil-2.jpg",
     tagline: "Norte, Ceibos, Vía a la Costa y Centro",
     sectors: [
@@ -37,7 +37,7 @@ export const coverageZones: ZoneCoverage[] = [
   {
     id: "duran",
     name: "Durán",
-    estimatedTime: "1 a 2 horas",
+    estimatedTime: "Atención a Domicilio",
     image: "/assets/images/places/duran-2.jpg",
     tagline: "Ciudadelas y zonas comerciales principales",
     sectors: [

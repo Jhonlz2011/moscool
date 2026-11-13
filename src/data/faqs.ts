@@ -13,7 +13,7 @@ export const faqsData: FAQItem[] = [
   {
     category: "Proformas y Precios",
     question: "¿Cómo funciona la entrega de la proforma y qué respaldo ofrece?",
-    answer: "Durante la inspección in-situ, el técnico evalúa el equipo y genera en minutos una proforma formal en formato PDF con nuestra aplicación móvil. En ella se detalla de forma transparente el costo de repuestos y mano de obra antes de realizar el trabajo, incluyendo 30 días de garantía por escrito.",
+    answer: "Durante la inspección in-situ, el técnico evalúa el equipo y genera en minutos una proforma formal en formato PDF con nuestra aplicación móvil. En ella se detalla de forma transparente el costo de repuestos y mano de obra antes de realizar el trabajo, incluyendo garantía por escrito.",
   },
   {
     category: "Refrigeración",

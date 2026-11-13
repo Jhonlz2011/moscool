@@ -186,7 +186,7 @@ export default function DiagnosticProformaCalculator() {
               </div>
               <div class="flex justify-between py-1 border-b border-slate-200 dark:border-slate-900">
                 <span class="text-slate-500 dark:text-slate-400">Garantía aplicable:</span>
-                <span class="font-semibold text-emerald-600 dark:text-emerald-400">30 Días por Escrito</span>
+                <span class="font-semibold text-emerald-600 dark:text-emerald-400">Garantía por Escrito</span>
               </div>
             </div>
 

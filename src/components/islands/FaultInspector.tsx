@@ -43,7 +43,7 @@ const FAULTS: FaultItem[] = [
     honestDiagnosis: "Bloqueo de hielo en el ducto de aire por falla en la resistencia de deshielo, sensor bimetálico o termofusible.",
     dishonestScam: "Técnicos informales dicen: 'Se le fue el gas refrigerante por una fuga interna' y cobran $70 por una recarga que no resuelve el bloqueo de hielo.",
     technicianAction: "Descongelamiento técnico del ducto, medición de continuidad de la resistencia y reemplazo del bimetal defectuoso con repuesto original.",
-    estimatedTime: "1 a 2 horas",
+    estimatedTime: "Atención a Domicilio",
     whatsappMessage: "Hola Servicio Técnico Mendoza, mi refrigeradora congela en el freezer pero abajo no enfría. Quisiera agendar una visita técnica.",
   },
   {

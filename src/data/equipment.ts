@@ -30,7 +30,7 @@ export const equipmentCatalog: EquipmentCategory[] = [
         label: "Ventila pero no enfría / Tubería congelada",
         severity: "alta",
         estimatedAction: "Detección de fuga de gas, presurización y recarga de refrigerante.",
-        typicalDuration: "1 a 2 horas",
+        typicalDuration: "Atención a Domicilio",
       },
       {
         id: "gotea-agua",
@@ -44,7 +44,7 @@ export const equipmentCatalog: EquipmentCategory[] = [
         label: "Luces parpadean / Código de error en pantalla",
         severity: "critica",
         estimatedAction: "Diagnóstico de tarjeta electrónica, sensores y compresión.",
-        typicalDuration: "1 a 2 horas",
+        typicalDuration: "Atención a Domicilio",
       },
       {
         id: "ruido-vibracion",
@@ -78,14 +78,14 @@ export const equipmentCatalog: EquipmentCategory[] = [
         label: "Congela arriba pero no enfría en la parte inferior",
         severity: "alta",
         estimatedAction: "Revisión del sistema de deshielo (resistencia, bimetal y ductos).",
-        typicalDuration: "1 a 2 horas",
+        typicalDuration: "Atención a Domicilio",
       },
       {
         id: "no-arranca-motor",
         label: "El motor intenta arrancar con un 'clic' y se detiene",
         severity: "critica",
         estimatedAction: "Comprobación de relay de arranque, capacitor o motor compresor.",
-        typicalDuration: "1 a 2 horas",
+        typicalDuration: "Atención a Domicilio",
       },
       {
         id: "fuga-gas-nevera",
@@ -119,14 +119,14 @@ export const equipmentCatalog: EquipmentCategory[] = [
         label: "Lava pero no centrifuga / La ropa queda con agua",
         severity: "alta",
         estimatedAction: "Revisión de bomba de drenaje, sensor de nivel y seguro de puerta.",
-        typicalDuration: "1 a 2 horas",
+        typicalDuration: "Atención a Domicilio",
       },
       {
         id: "golpeteo-fuerte",
         label: "Golpeteo fuerte o vibración al girar",
         severity: "alta",
         estimatedAction: "Revisión de amortiguadores, varillas de suspensión y rodamientos.",
-        typicalDuration: "1 a 2 horas",
+        typicalDuration: "Atención a Domicilio",
       },
       {
         id: "no-calienta-secadora",
