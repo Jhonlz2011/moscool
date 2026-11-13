@@ -1,13 +1,12 @@
 ---
 import { siteConfig } from "../../data/siteConfig";
 import WhatsAppIcon from "../ui/icons/WhatsAppIcon.astro";
-import CheckIcon from "../ui/icons/CheckIcon.astro";
 ---
 
 <section class="py-20 bg-slate-100/70 dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800">
   <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
     <div class="rounded-3xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-8 sm:p-12 shadow-xl">
-      <span class="text-xs font-mono font-bold uppercase tracking-wider text-sky-600 dark:text-sky-400 block mb-2">
+      <span class="text-xs font-bold uppercase tracking-wider text-sky-600 dark:text-sky-400 block mb-2">
         Compromiso Formal de Taller In-Situ
       </span>
       <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">
@@ -29,21 +28,6 @@ import CheckIcon from "../ui/icons/CheckIcon.astro";
           <WhatsAppIcon class="w-4 h-4 fill-current" />
           <span>Agendar Asistencia por WhatsApp ({siteConfig.phoneFormatted})</span>
         </a>
-      </div>
-
-      <div class="mt-8 pt-6 border-t border-slate-100 dark:border-slate-800/80 flex flex-wrap items-center justify-center gap-6 text-xs text-slate-500 dark:text-slate-400 font-mono">
-        <div class="flex items-center gap-1.5">
-          <CheckIcon class="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400 shrink-0" />
-          <span class="text-slate-700 dark:text-slate-300">Garantía Escrita de 30 Días</span>
-        </div>
-        <div class="flex items-center gap-1.5">
-          <CheckIcon class="w-3.5 h-3.5 text-sky-600 dark:text-sky-400 shrink-0" />
-          <span class="text-slate-700 dark:text-slate-300">Diagnóstico Honesto en tu Presencia</span>
-        </div>
-        <div class="flex items-center gap-1.5">
-          <CheckIcon class="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400 shrink-0" />
-          <span class="text-slate-700 dark:text-slate-300">Atención de Lunes a Domingo</span>
-        </div>
       </div>
     </div>
   </div>
