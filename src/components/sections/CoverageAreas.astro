@@ -8,103 +8,92 @@ import WhatsAppIcon from "../ui/icons/WhatsAppIcon.astro";
 
 <section id="cobertura" class="py-20 bg-slate-100/70 dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-      
-      <!-- Left Info: Residential Protocol -->
-      <div class="lg:col-span-5 space-y-6">
-        <div>
-          <span class="text-xs font-semibold uppercase tracking-wider text-sky-600 dark:text-sky-400 block mb-2 font-mono">
-            Rutas de Asistencia y Logística
-          </span>
-          <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-            Cobertura Directa con Protocolo de Garita
-          </h2>
-        </div>
+    
+    <!-- Section Header -->
+    <div class="max-w-3xl mb-12">
+      <span class="text-xs font-semibold uppercase tracking-wider text-sky-600 dark:text-sky-400 block mb-2 font-mono">
+        Rutas de Asistencia y Cobertura
+      </span>
+      <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+        Atención Técnica Directa en tu Domicilio
+      </h2>
+      <p class="text-slate-600 dark:text-slate-400 text-sm sm:text-base mt-2 leading-relaxed">
+        Cubrimos los tres cantones principales del Gran Guayaquil. Coordinamos con anticipación los datos requeridos para el ingreso vehicular en garitas de urbanizaciones privadas en Samborondón, Ceibos y Vía a la Costa.
+      </p>
+    </div>
 
-        <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
-          Atendemos residencias y condominios en los tres cantones principales. Coordinamos con anticipación los datos requeridos para el ingreso vehicular en garitas de seguridad en Samborondón, Ceibos y Vía a la Costa.
+    <!-- Garita Protocol Banner -->
+    <div class="rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-6 sm:p-8 mb-10 shadow-sm flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+      <div class="space-y-3 max-w-2xl">
+        <div class="flex items-center gap-2 text-emerald-600 dark:text-emerald-400 font-bold font-mono text-xs">
+          <CheckIcon class="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
+          <span>Protocolo de Ingreso a Urbanizaciones y Garitas Privadas</span>
+        </div>
+        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+          Al escribirnos por WhatsApp indicándonos tu urbanización o sector, te enviamos con anticipación los nombres completos, cédula del técnico asignado y placa del vehículo para que generes el pase en la app de tu garita (Safetec, Portería, etc.) sin demoras.
         </p>
-
-        <!-- Garita Security Protocol Card -->
-        <div class="p-5 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-xs text-slate-700 dark:text-slate-300 space-y-3 shadow-md">
-          <div class="flex items-center gap-2 text-emerald-600 dark:text-emerald-400 font-bold font-mono">
-            <CheckIcon class="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0" />
-            <span>Protocolo de Ingreso a Urbanizaciones Privadas:</span>
-          </div>
-          <ul class="space-y-2 text-xs text-slate-600 dark:text-slate-300">
-            <li class="flex items-start gap-2">
-              <span class="font-mono font-bold text-sky-600 dark:text-sky-400 shrink-0">01.</span>
-              <span>Nos indicas tu urbanización y etapa al escribirnos por WhatsApp.</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="font-mono font-bold text-sky-600 dark:text-sky-400 shrink-0">02.</span>
-              <span>Te enviamos los nombres, cédula del técnico y placa de la unidad para tu app de garita.</span>
-            </li>
-            <li class="flex items-start gap-2">
-              <span class="font-mono font-bold text-sky-600 dark:text-sky-400 shrink-0">03.</span>
-              <span>Ingreso puntual y cuidado riguroso de tu inmueble.</span>
-            </li>
-          </ul>
-        </div>
-
-        <div>
-          <a
-            href={`https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent("Hola Servicio Técnico Mendoza, deseo consultar disponibilidad y coordinar visita técnica para mi sector.")}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 active:bg-emerald-700 text-white font-semibold text-xs shadow-md shadow-emerald-950/20 active:translate-y-0.5 cursor-pointer"
-          >
-            <WhatsAppIcon class="w-4 h-4 fill-current" />
-            <span>Coordinar Visita en mi Sector por WhatsApp</span>
-          </a>
-        </div>
       </div>
 
-      <!-- Right Grid: 3 Integrated Regional Modules -->
-      <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-3 border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden divide-y sm:divide-y-0 sm:divide-x divide-slate-200 dark:divide-slate-800 bg-white dark:bg-slate-900 shadow-xl">
-        {coverageZones.map((zone, idx) => (
-          <div class="p-5 sm:p-6 flex flex-col justify-between hover:bg-slate-50/60 dark:hover:bg-slate-950/40">
-            <div>
-              <div class="flex items-center justify-between gap-1 mb-3">
-                <span class="text-[10px] font-mono font-bold text-slate-400 dark:text-slate-500">
-                  ZONA // 0{idx + 1}
-                </span>
-                <span class="text-[10px] font-mono font-semibold px-1.5 py-0.5 rounded bg-sky-100 dark:bg-sky-950 text-sky-700 dark:text-sky-300">
-                  {zone.estimatedTime}
-                </span>
-              </div>
+      <div class="shrink-0">
+        <a
+          href={`https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent("Hola Servicio Técnico Mendoza, deseo consultar disponibilidad y coordinar visita técnica para mi sector.")}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 active:bg-emerald-700 text-white font-semibold text-xs shadow-md shadow-emerald-950/20 active:translate-y-0.5 cursor-pointer"
+        >
+          <WhatsAppIcon class="w-4 h-4 fill-current" />
+          <span>Coordinar Visita en mi Sector</span>
+        </a>
+      </div>
+    </div>
 
-              <div class="flex items-start gap-2 mb-3">
-                <MapPinIcon class="w-4 h-4 text-sky-600 dark:text-sky-400 mt-1 shrink-0" />
-                <h3 class="font-bold text-slate-900 dark:text-white text-base tracking-tight">
-                  {zone.name}
-                </h3>
-              </div>
-
-              <div class="pt-3 border-t border-slate-100 dark:border-slate-800/80">
-                <span class="text-[10px] font-mono font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 block mb-2">
-                  Sectores Principales:
-                </span>
-                <ul class="space-y-1.5 text-xs text-slate-700 dark:text-slate-300">
-                  {zone.sectors.map((sec) => (
-                    <li class="flex items-start gap-1.5">
-                      <CheckIcon class="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
-                      <span>{sec}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-
-            <div class="pt-4 mt-4 border-t border-slate-100 dark:border-slate-800/80">
-              <span class="text-[11px] font-mono text-emerald-600 dark:text-emerald-400 font-semibold block">
-                Ruta activa todos los días
+    <!-- Expansive 3-Canton Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {coverageZones.map((zone, idx) => (
+        <div class="rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-6 sm:p-7 flex flex-col justify-between hover:border-slate-300 dark:hover:border-slate-700 shadow-sm">
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-4">
+              <span class="text-[11px] font-mono font-bold text-sky-600 dark:text-sky-400">
+                ZONA // 0{idx + 1}
+              </span>
+              <span class="text-[10px] font-mono font-semibold px-2 py-0.5 rounded bg-emerald-100 dark:bg-emerald-950/80 text-emerald-700 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-800">
+                Llegada: {zone.estimatedTime}
               </span>
             </div>
-          </div>
-        ))}
-      </div>
 
+            <div class="flex items-center gap-2 mb-4">
+              <div class="w-8 h-8 rounded-lg bg-sky-50 dark:bg-slate-800 border border-sky-100 dark:border-slate-700 flex items-center justify-center shrink-0">
+                <MapPinIcon class="w-4 h-4 text-sky-600 dark:text-sky-400" />
+              </div>
+              <h3 class="font-bold text-slate-900 dark:text-white text-lg tracking-tight">
+                {zone.name}
+              </h3>
+            </div>
+
+            <div class="pt-3 border-t border-slate-100 dark:border-slate-800/80">
+              <span class="text-[10px] font-mono font-bold uppercase tracking-wider text-slate-400 dark:text-slate-500 block mb-2.5">
+                Sectores Atendidos:
+              </span>
+              <ul class="space-y-2 text-xs text-slate-700 dark:text-slate-300">
+                {zone.sectors.map((sec) => (
+                  <li class="flex items-start gap-2">
+                    <CheckIcon class="w-3.5 h-3.5 text-sky-600 dark:text-sky-400 shrink-0 mt-0.5" />
+                    <span>{sec}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          <div class="pt-4 mt-6 border-t border-slate-100 dark:border-slate-800/80">
+            <span class="text-[11px] font-mono text-slate-500 dark:text-slate-400 flex items-center gap-1.5">
+              <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+              <span>Ruta de asistencia activa todos los días</span>
+            </span>
+          </div>
+        </div>
+      ))}
     </div>
+
   </div>
 </section>

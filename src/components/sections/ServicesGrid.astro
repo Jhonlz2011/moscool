@@ -23,105 +23,107 @@ const illustrationsMap: Record<string, string> = {
 };
 
 const refCodesMap: Record<string, string> = {
-  climatizacion: "MOD-01 // CLIMATIZACIÓN RESIDENCIAL",
-  refrigeracion: "MOD-02 // REFRIGERACIÓN NO-FROST & INVERTER",
-  "lavado-secado": "MOD-03 // SISTEMAS DE LAVADO Y CENTRIFUGADO",
-  "cocinas-hornos": "MOD-04 // SISTEMAS DE COCCIÓN Y HORNOS",
+  climatizacion: "MOD-01 // CLIMATIZACIÓN",
+  refrigeracion: "MOD-02 // REFRIGERACIÓN",
+  "lavado-secado": "MOD-03 // LAVADO & CENTRIFUGADO",
+  "cocinas-hornos": "MOD-04 // COCCIÓN & HORNOS",
 };
 ---
 
 <section id="servicios" class="py-20 bg-slate-50 dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     
-    <!-- Editorial Section Header -->
+    <!-- Section Header -->
     <div class="max-w-3xl mb-12">
       <span class="text-xs font-semibold uppercase tracking-wider text-sky-600 dark:text-sky-400 block mb-2 font-mono">
         Directorio Técnico de Especialidades
       </span>
       <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-        Catálogo de Servicios Técnicos a Domicilio
+        Servicios Técnicos Especializados a Domicilio
       </h2>
       <p class="text-slate-600 dark:text-slate-400 text-sm sm:text-base mt-2 leading-relaxed">
-        Intervenciones metódicas para las 4 líneas principales de electrodomésticos en Guayaquil, Samborondón y Durán. Diagnóstico en tu presencia, instrumental de calibración y 30 días de garantía por escrito.
+        Soluciones metódicas para las 4 líneas principales de electrodomésticos en Guayaquil, Samborondón y Durán. Diagnóstico en tu presencia, instrumental de calibración y 30 días de garantía por escrito.
       </p>
     </div>
 
-    <!-- Continuous Architectural Directory Matrix -->
-    <div class="border border-slate-200 dark:border-slate-800 rounded-2xl overflow-hidden divide-y divide-slate-200 dark:divide-slate-800 bg-white dark:bg-slate-900 shadow-xl">
-      {servicesData.map((service, index) => {
+    <!-- Balanced 2x2 Architectural Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+      {servicesData.map((service) => {
         const IconComponent = iconsMap[service.id] || SnowflakeIcon;
         const illustration = illustrationsMap[service.id];
         return (
-          <div class="grid grid-cols-1 lg:grid-cols-12 hover:bg-slate-50/60 dark:hover:bg-slate-950/40">
-            <!-- Left: Technical Vector Blueprint Frame (lg:col-span-4) -->
-            <div class="lg:col-span-4 p-6 sm:p-8 bg-slate-50/70 dark:bg-slate-950/70 border-b lg:border-b-0 lg:border-r border-slate-200 dark:border-slate-800 flex flex-col justify-between">
-              <div class="flex items-center justify-between gap-2 mb-4">
-                <span class="text-[11px] font-mono font-bold text-sky-600 dark:text-sky-400">
-                  {refCodesMap[service.id] || `MOD-0${index + 1}`}
-                </span>
-                <span class="text-[10px] font-mono font-semibold px-2 py-0.5 rounded bg-emerald-100 dark:bg-emerald-950/80 text-emerald-700 dark:text-emerald-300 border border-emerald-300 dark:border-emerald-800">
-                  {service.warrantyDays} Días Garantía
-                </span>
-              </div>
-
+          <div class="rounded-2xl bg-white dark:bg-slate-900/90 border border-slate-200 dark:border-slate-800 overflow-hidden flex flex-col justify-between hover:border-slate-300 dark:hover:border-slate-700 shadow-sm hover:shadow-md">
+            <div>
+              <!-- Visual Blueprint Schematic Header -->
               {illustration && (
-                <div class="aspect-[16/10] w-full flex items-center justify-center p-4 bg-white dark:bg-slate-900/60 rounded-xl border border-slate-200 dark:border-slate-800">
+                <div class="aspect-[16/9] w-full bg-slate-100/90 dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800 overflow-hidden relative flex items-center justify-center p-6">
+                  <!-- Technical Coordinate Markers -->
+                  <div class="absolute top-3 left-3 flex items-center gap-1.5">
+                    <span class="w-1.5 h-1.5 rounded-full bg-sky-500"></span>
+                    <span class="text-[10px] font-mono font-bold tracking-wider text-slate-500 dark:text-slate-400">
+                      {refCodesMap[service.id] || "MOD-TECH"}
+                    </span>
+                  </div>
+
                   <img
                     src={illustration}
                     alt={service.title}
                     class="max-h-36 w-auto object-contain dark:invert"
                     loading="lazy"
                   />
+
+                  <div class="absolute top-3 right-3">
+                    <span class="text-[11px] font-mono font-bold text-emerald-600 dark:text-emerald-400 bg-white/95 dark:bg-slate-900/95 px-2.5 py-1 rounded-md border border-emerald-500/30 shadow-sm">
+                      {service.warrantyDays} días garantía
+                    </span>
+                  </div>
                 </div>
               )}
 
-              <div class="pt-4 flex items-center gap-2 text-xs font-mono text-slate-500 dark:text-slate-400">
-                <IconComponent class="w-4 h-4 text-sky-600 dark:text-sky-400 shrink-0" />
-                <span>Línea {service.category}</span>
-              </div>
-            </div>
+              <div class="p-6 sm:p-7">
+                <div class="flex items-center gap-2.5 mb-3">
+                  <div class="w-7 h-7 rounded-lg bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center shrink-0">
+                    <IconComponent class="w-3.5 h-3.5 text-sky-600 dark:text-sky-400" />
+                  </div>
+                  <span class="text-xs font-mono font-bold uppercase tracking-wider text-sky-600 dark:text-sky-400">
+                    {service.category}
+                  </span>
+                </div>
 
-            <!-- Right: Technical Scope, Interventions and Direct CTA (lg:col-span-8) -->
-            <div class="lg:col-span-8 p-6 sm:p-8 flex flex-col justify-between">
-              <div>
-                <h3 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-white tracking-tight mb-2">
+                <h3 class="text-lg sm:text-xl font-bold text-slate-900 dark:text-white tracking-tight mb-2">
                   {service.title}
                 </h3>
-                <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-6 max-w-3xl">
+
+                <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed mb-5">
                   {service.description}
                 </p>
 
-                <!-- Included Protocols Grid -->
-                <div class="p-4 rounded-xl bg-slate-50 dark:bg-slate-950/60 border border-slate-200 dark:border-slate-800 mb-6">
-                  <span class="text-[10px] font-mono font-bold uppercase tracking-wider text-slate-500 dark:text-slate-400 block mb-2.5">
-                    Protocolo de Intervención en Domicilio:
+                <div class="space-y-2 mb-2 p-3.5 rounded-xl bg-slate-50 dark:bg-slate-950/60 border border-slate-200 dark:border-slate-800/80">
+                  <span class="text-[10px] font-mono font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 block mb-1">
+                    Trabajos frecuentes en domicilio:
                   </span>
-                  <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+                  <ul class="space-y-1.5">
                     {service.included.map((item) => (
-                      <div class="text-xs text-slate-700 dark:text-slate-300 flex items-start gap-2">
+                      <li class="text-xs text-slate-700 dark:text-slate-300 flex items-start gap-2">
                         <CheckIcon class="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
                         <span>{item}</span>
-                      </div>
+                      </li>
                     ))}
-                  </div>
+                  </ul>
                 </div>
               </div>
+            </div>
 
-              <!-- Action Bar -->
-              <div class="pt-4 border-t border-slate-100 dark:border-slate-800/80 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                <span class="text-xs font-mono text-slate-500 dark:text-slate-400">
-                  Visitas coordinadas para Samborondón, Guayaquil y Durán
-                </span>
-                <a
-                  href={`https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent(`Hola Servicio Técnico Mendoza, requiero información y cotización para el servicio de: ${service.title}`)}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  class="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 active:bg-emerald-700 text-white font-semibold text-xs shrink-0 shadow-md shadow-emerald-950/20 active:translate-y-0.5 cursor-pointer"
-                >
-                  <WhatsAppIcon class="w-3.5 h-3.5 fill-current" />
-                  <span>Consultar {service.category} por WhatsApp</span>
-                </a>
-              </div>
+            <div class="p-6 pt-0">
+              <a
+                href={`https://wa.me/${siteConfig.whatsappNumber}?text=${encodeURIComponent(`Hola Servicio Técnico Mendoza, requiero información y cotización para el servicio de: ${service.title}`)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="w-full py-3 px-4 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-emerald-600 dark:hover:bg-emerald-600 active:bg-emerald-700 text-slate-800 dark:text-slate-200 hover:text-white font-semibold text-xs flex items-center justify-center gap-2 active:translate-y-0.5 cursor-pointer shadow-sm border border-slate-200 dark:border-slate-700 hover:border-emerald-500"
+              >
+                <WhatsAppIcon class="w-4 h-4 fill-current" />
+                <span>Consultar este Servicio por WhatsApp</span>
+              </a>
             </div>
           </div>
         );

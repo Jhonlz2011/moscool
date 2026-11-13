@@ -20,12 +20,12 @@ import ThemeToggle from "../ui/ThemeToggle.astro";
         />
       </div>
       <div class="flex flex-col justify-center">
-        <BrandWordmark class="h-11 sm:h-13 md:h-14 w-auto" />
+        <BrandWordmark class="h-11 sm:h-12 md:h-14 w-auto" />
       </div>
     </a>
 
     <!-- Desktop Navigation Links -->
-    <nav class="hidden lg:flex items-center gap-6 xl:gap-8 text-sm font-medium text-slate-600 dark:text-slate-300">
+    <nav class="hidden lg:flex items-center gap-6 xl:gap-8 text-sm font-semibold text-slate-600 dark:text-slate-300">
       <a href="#averias" data-nav-target="averias" class="nav-item hover:text-slate-900 dark:hover:text-white py-2">Averías</a>
       <a href="#servicios" data-nav-target="servicios" class="nav-item hover:text-slate-900 dark:hover:text-white py-2">Servicios</a>
       <a href="#confianza" data-nav-target="confianza" class="nav-item hover:text-slate-900 dark:hover:text-white py-2">Por Qué Confiar</a>
@@ -227,7 +227,7 @@ import ThemeToggle from "../ui/ThemeToggle.astro";
       }
     });
 
-    // Dynamic Scroll-Spy: Highlights the section currently in view
+    // Dynamic Scroll-Spy: Accurately highlights the section currently in view
     const desktopLinks = document.querySelectorAll<HTMLAnchorElement>("a[data-nav-target]");
     const mobileNavLinks = document.querySelectorAll<HTMLAnchorElement>("a[data-mobile-nav-target]");
     const sectionIds = ["averias", "servicios", "confianza", "diagnostico", "cobertura", "faqs"];
@@ -236,52 +236,82 @@ import ThemeToggle from "../ui/ThemeToggle.astro";
       desktopLinks.forEach((link) => {
         const target = link.getAttribute("data-nav-target");
         if (id && target === id) {
-          link.classList.add("text-sky-600", "dark:text-sky-400", "font-bold");
+          link.classList.add("text-sky-600", "dark:text-sky-400");
           link.classList.remove("text-slate-600", "dark:text-slate-300");
         } else {
-          link.classList.remove("text-sky-600", "dark:text-sky-400", "font-bold");
+          link.classList.remove("text-sky-600", "dark:text-sky-400");
           link.classList.add("text-slate-600", "dark:text-slate-300");
         }
       });
       mobileNavLinks.forEach((link) => {
         const target = link.getAttribute("data-mobile-nav-target");
         if (id && target === id) {
-          link.classList.add("text-sky-600", "dark:text-sky-400", "font-bold");
+          link.classList.add("text-sky-600", "dark:text-sky-400");
         } else {
-          link.classList.remove("text-sky-600", "dark:text-sky-400", "font-bold");
+          link.classList.remove("text-sky-600", "dark:text-sky-400");
         }
       });
     }
 
-    const sections = sectionIds
-      .map((id) => document.getElementById(id))
-      .filter((el): el is HTMLElement => el !== null);
+    function updateScrollSpy() {
+      const scrollY = window.scrollY;
+      const windowHeight = window.innerHeight;
+      const docHeight = document.documentElement.scrollHeight;
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const intersecting = entries.filter((e) => e.isIntersecting);
-        if (intersecting.length > 0) {
-          const activeSec = intersecting[0];
-          setActive(activeSec.target.id);
-        }
-      },
-      {
-        rootMargin: "-25% 0px -65% 0px",
-        threshold: [0, 0.25],
+      // When near the top of the page (Hero, BrandTicker), clear any active section
+      if (scrollY < 200) {
+        setActive(null);
+        return;
       }
-    );
 
-    sections.forEach((sec) => observer.observe(sec));
+      // If scrolled near the bottom of the page, activate the last section (faqs)
+      if (scrollY + windowHeight >= docHeight - 80) {
+        setActive("faqs");
+        return;
+      }
 
-    window.addEventListener(
-      "scroll",
-      () => {
-        if (window.scrollY < 120) {
-          setActive(null);
+      // Dynamic activation line: 160px from top (header height + reading margin)
+      const offset = 160;
+      let activeId: string | null = null;
+
+      for (const id of sectionIds) {
+        const el = document.getElementById(id);
+        if (!el) continue;
+        const rect = el.getBoundingClientRect();
+        if (rect.top <= offset && rect.bottom > offset) {
+          activeId = id;
+          break;
         }
-      },
-      { passive: true }
-    );
+      }
+
+      // Fallback: pick the closest section whose top is above the offset line
+      if (!activeId) {
+        for (let i = sectionIds.length - 1; i >= 0; i--) {
+          const el = document.getElementById(sectionIds[i]);
+          if (el && el.getBoundingClientRect().top <= offset) {
+            activeId = sectionIds[i];
+            break;
+          }
+        }
+      }
+
+      setActive(activeId);
+    }
+
+    let ticking = false;
+    function onScroll() {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          updateScrollSpy();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll, { passive: true });
+    updateScrollSpy();
   }
 
   if (document.readyState === "loading") {
