@@ -4,7 +4,6 @@ import ShieldCheckIcon from "../ui/icons/ShieldCheckIcon.astro";
 import ClockFastIcon from "../ui/icons/ClockFastIcon.astro";
 import WrenchToolIcon from "../ui/icons/WrenchToolIcon.astro";
 import CheckIcon from "../ui/icons/CheckIcon.astro";
-import BeforeAfterSlider from "../islands/BeforeAfterSlider";
 
 const trustPillars = [
   {
@@ -51,7 +50,7 @@ const trustPillars = [
     </div>
 
     <!-- 4-Pillar Modular Cards (Responsive across mobile, tablet 2x2, desktop 4x1) -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6 mb-16">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
       {trustPillars.map((tp, idx) => {
         const IconComponent = tp.icon;
         return (
@@ -82,31 +81,6 @@ const trustPillars = [
           </div>
         );
       })}
-    </div>
-
-    <!-- Before / After Interactive Visual Proof Module -->
-    <div class="rounded-3xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900/90 p-6 sm:p-10 shadow-sm">
-      <div class="max-w-3xl mx-auto text-center mb-8">
-        <span class="text-xs font-mono font-bold uppercase tracking-wider text-sky-600 dark:text-sky-400 block mb-1">
-          Inspección Endoscópica In-Situ
-        </span>
-        <h3 class="text-xl sm:text-2xl md:text-3xl font-extrabold text-slate-900 dark:text-white">
-          Diferencia Real: Turbina y Serpentín de Split
-        </h3>
-        <p class="text-slate-600 dark:text-slate-300 text-xs sm:text-sm mt-2">
-          En el clima húmedo de Guayaquil, la turbina acumula moho negro que bloquea el flujo de aire y genera malos olores. Desliza la barra para ver el resultado de un lavado técnico con funda colectora sin manchar tus paredes.
-        </p>
-      </div>
-
-      <BeforeAfterSlider
-        client:visible
-        beforeSrc="/assets/images/before-after/split-turbina-sucio.svg"
-        afterSrc="/assets/images/before-after/split-turbina-limpio.svg"
-        beforeAlt="Turbina de split con moho y suciedad antes del mantenimiento"
-        afterAlt="Turbina de split desinfectada y limpia después del mantenimiento"
-        beforeLabel="Antes: Con Moho"
-        afterLabel="Después: Sanitizado"
-      />
     </div>
 
   </div>

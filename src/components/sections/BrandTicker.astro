@@ -12,49 +12,51 @@ const brands = [
   { name: "RCA", logo: "/assets/brands/rca.svg" },
   { name: "Midea", logo: "/assets/brands/midea.svg" },
 ];
+
+const doubleBrands = [...brands, ...brands];
 ---
 
-<section class="py-12 bg-white dark:bg-slate-950 border-y border-slate-200 dark:border-slate-800">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    
-    <!-- Section Header -->
-    <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 pb-6 mb-8 border-b border-slate-200 dark:border-slate-800">
-      <div>
-        <span class="text-[11px] font-mono font-bold uppercase tracking-wider text-sky-600 dark:text-sky-400 block mb-1">
-          Compatibilidad y Respaldo
-        </span>
-        <h2 class="text-xl sm:text-2xl font-extrabold text-slate-900 dark:text-white tracking-tight">
-          Marcas con Soporte Técnico y Repuestos Homologados
-        </h2>
-      </div>
-      <div class="text-xs font-mono text-slate-500 dark:text-slate-400 shrink-0">
-        <span>Climatización Inverter y Línea Blanca Residencial</span>
-      </div>
+<section class="py-8 sm:py-10 bg-white dark:bg-slate-950 border-y border-slate-200 dark:border-slate-800 overflow-hidden relative select-none">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-4 sm:mb-6">
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+      <span class="text-xs font-mono font-bold uppercase tracking-wider text-sky-600 dark:text-sky-400">
+        Compatibilidad y Respaldo Técnico Homologado
+      </span>
+      <span class="text-xs text-slate-500 dark:text-slate-400 font-mono">
+        Climatización Inverter y Línea Blanca Residencial
+      </span>
     </div>
+  </div>
 
-    <!-- Static Elegant Brand Logo Grid (No AI Marquee) -->
-    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-3 sm:gap-4">
-      {brands.map((brand) => (
-        <div class="h-20 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-3.5 flex items-center justify-center hover:border-slate-300 dark:hover:border-slate-700 shadow-sm">
+  <!-- Continuous Marquee with edge fade masks -->
+  <div class="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
+    <div class="flex items-center gap-6 sm:gap-8 w-max animate-ticker hover:[animation-play-state:paused] py-2">
+      {doubleBrands.map((brand) => (
+        <div class="flex items-center justify-center px-6 py-3 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shrink-0 shadow-sm h-14 min-w-[130px]">
           <img
             src={brand.logo}
-            alt={`Servicio técnico para ${brand.name}`}
-            class="max-h-8 max-w-[85%] object-contain opacity-85 hover:opacity-100 dark:brightness-110"
+            alt={`Servicio técnico y repuestos para ${brand.name}`}
+            class="max-h-7 max-w-[100px] object-contain opacity-85 hover:opacity-100 dark:brightness-110"
             loading="lazy"
           />
         </div>
       ))}
-      
-      <!-- Multi-brand Certificate Badge -->
-      <div class="h-20 rounded-xl bg-sky-50/60 dark:bg-sky-950/40 border border-sky-200 dark:border-sky-800/60 p-3.5 flex flex-col justify-center text-center">
-        <span class="text-[11px] font-mono font-bold text-sky-700 dark:text-sky-300 uppercase leading-tight">
-          + Otras Marcas
-        </span>
-        <span class="text-[10px] text-slate-500 dark:text-slate-400 font-mono mt-0.5">
-          Repuestos Directos
-        </span>
-      </div>
     </div>
-
   </div>
 </section>
+
+<style>
+  @keyframes ticker {
+    0% {
+      transform: translate3d(0, 0, 0);
+    }
+    100% {
+      transform: translate3d(-50%, 0, 0);
+    }
+  }
+
+  .animate-ticker {
+    animation: ticker 32s linear infinite;
+    will-change: transform;
+  }
+</style>
